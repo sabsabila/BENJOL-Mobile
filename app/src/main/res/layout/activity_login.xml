@@ -13,7 +13,6 @@
             android:layout_height="wrap_content"
             layout="@layout/base_layout" />
 
-
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
@@ -71,7 +70,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/rounded_button"
-                android:textColor="#636363"
+                android:textColor="@color/colorTextDark"
                 android:text="@string/login"/>
             <TextView
                 android:id="@+id/forget_password"
@@ -79,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/forgetPassword"
                 android:textSize="6pt"
-                android:textColor="#636363"
+                android:textColor="@color/colorTextDark"
                 android:layout_gravity="start"
                 android:layout_marginTop="5dp"/>
 
@@ -94,7 +93,7 @@
                     android:layout_height="2dp"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/orText"
-                    android:background="#636363" />
+                    android:background="@color/colorTextDark" />
 
                 <TextView
                     android:id="@+id/orText"
@@ -105,14 +104,14 @@
                     android:text="OR"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:textColor="#636363" />
+                    android:textColor="@color/colorTextDark" />
 
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/orText"
-                    android:background="#636363" />
+                    android:background="@color/colorTextDark" />
             </RelativeLayout>
 
             <Button
@@ -121,7 +120,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_button"
-                android:textColor="#636363"
+                android:textColor="?attr/colorButton"
                 android:text="@string/create"
                 />
 
@@ -131,8 +130,8 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_button"
-                android:backgroundTint="#ffffff"
-                android:textColor="#636363"
+                android:backgroundTint="?attr/colorPrimary"
+                android:textColor="@color/colorTextDark"
                 android:drawableLeft="@drawable/google"
                 android:text="@string/google"
                 />

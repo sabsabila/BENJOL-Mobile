@@ -1,5 +1,8 @@
 <resources>
+    <!--General-->
     <string name="app_name">BENJOL</string>
+
+    <!--Login & Register-->
     <string name="email">E-mail</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -13,6 +16,26 @@
     <string name="lastname">Last Name</string>
     <string name="create">Create an Account</string>
     <string name="google">Sign In With Google</string>
+
+    <!--Profile-->
+
+    <!--Dashboard-->
+
+    <!--Sparepart-->
+
+    <!--Bengkel-->
+
+    <!--PickUp-->
+
+    <!--Serivice Progress-->
+
+    <!--Chat-->
+
+    <!--Booking-->
+
+    <!--Payment-->
+
+
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>
 </resources>
