@@ -1,9 +1,18 @@
 <resources>
-    <string name="app_name">Android Example</string>
+    <string name="app_name">BENJOL</string>
+    <string name="email">E-mail</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
-    <string name="logout">Logout</string>
+    <string name="forgetPassword">Forgot your password ?</string>
+    <string name="login">Sign In</string>
+    <string name="loginText">Enter Your Login Information</string>
+    <string name="registerText">Enter Your Account Details</string>
+    <string name="logout">Sign Out</string>
+    <string name="register">Register</string>
+    <string name="firstName">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="create">Create an Account</string>
+    <string name="google">Sign In With Google</string>
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>
 </resources>
