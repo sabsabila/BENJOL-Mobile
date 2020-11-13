@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!--Benjol Theme-->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#636363</color>
+    <color name="colorSecondary">#FCCA53</color>
+    <color name="colorInputText">#F2F2F2</color>
+    <color name="colorButton">#FBB308</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorTextDark">#636363</color>
 </resources>

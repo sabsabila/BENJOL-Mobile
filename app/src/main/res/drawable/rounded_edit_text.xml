@@ -4,7 +4,7 @@
     android:shape="rectangle"
     android:padding="10dp">
 
-    <solid android:color="#f2f2f2" />
+    <solid android:color="?attr/colorInputText" />
     <corners
         android:bottomRightRadius="25dp"
         android:bottomLeftRadius="25dp"
