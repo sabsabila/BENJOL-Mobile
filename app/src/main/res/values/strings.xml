@@ -26,8 +26,17 @@
     <!--Bengkel-->
 
     <!--PickUp-->
+    <string name="pickupLocation">Pick Up Location</string>
+    <string name="deliveryLocation">Delivery Location</string>
+    <string name="inputLocation">Type your location here</string>
+    <string name="confirmLocation">Confirm</string>
 
     <!--Serivice Progress-->
+    <string name="percentageProgress">xx%</string>
+    <string name="estimatedTitleProgress">Estimated Time:</string>
+    <string name="estimatedProgress">xx:xx:xx</string>
+    <string name="statusProgress">STATUS...</string>
+    <string name="paymentDetailProgress">Payment Detail</string>
 
     <!--Chat-->
 

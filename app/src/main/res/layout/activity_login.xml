@@ -72,6 +72,7 @@
                 android:background="@drawable/rounded_button"
                 android:textColor="@color/colorTextDark"
                 android:text="@string/login"/>
+
             <TextView
                 android:id="@+id/forget_password"
                 android:layout_width="wrap_content"
@@ -120,7 +121,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_button"
-                android:textColor="?attr/colorButton"
+                android:textColor="?attr/colorTextDark"
                 android:text="@string/create"
                 />
 
