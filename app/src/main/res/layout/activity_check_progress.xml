@@ -89,5 +89,12 @@
                 android:text="@string/paymentDetailProgress"/>
 
         </LinearLayout>
+        <include
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/navbar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"/>
     </RelativeLayout>
 </layout>
