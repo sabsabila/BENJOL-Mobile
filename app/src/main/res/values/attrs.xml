@@ -6,5 +6,5 @@
     <attr name="colorInputText" format="color" />
     <attr name="colorButton" format="color" />
     <attr name="colorText" format="color" />
-    <attr name="colorTextDark   " format="color" />
+    <attr name="colorTextDark" format="color" />
 </resources>
