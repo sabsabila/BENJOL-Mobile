@@ -18,6 +18,18 @@
     <string name="google">Sign In With Google</string>
 
     <!--Profile-->
+    <string name="accountLabel">Account</string>
+    <string name="phoneNumberLabel">Phone Number</string>
+    <string name="emailLabel">Email</string>
+    <string name="genderLabel">Gender</string>
+    <string name="birthDateLabel">Birth Date</string>
+    <string name="motorcyclesLabel">Your Motorcycles</string>
+
+    <!--Motorcycle-->
+    <string name="motorcycleInfo">Motorcycle Info</string>
+    <string name="motorcycleDetail">Input your motorcycle details</string>
+    <string name="plateNumberLabel">Plate Number</string>
+    <string name="brandLabel">Brand</string>
 
     <!--Dashboard-->
 
@@ -34,11 +46,17 @@
     <string name="callNumber">Call Number</string>
     <string name="wa">Whatsapp</string>
 
-    <!--PickUp-->
+    <!--Pick Up-->
     <string name="pickupLocation">Pick Up Location</string>
     <string name="deliveryLocation">Drop Off Location</string>
     <string name="inputLocation">Type your location here</string>
     <string name="confirmLocation">Confirm</string>
+
+    <!--Pick Up Progress-->
+    <string name="deliveryLabel">Delivery Status</string>
+    <string name="pickUpProgress1">Picking up your vehicle</string>
+    <string name="pickUpProgress2">Processing your service</string>
+    <string name="pickUpProgress3">Delivering back to you</string>
 
     <!--Serivice Progress-->
     <string name="percentageProgress">xx%</string>
