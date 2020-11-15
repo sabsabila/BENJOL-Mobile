@@ -60,6 +60,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     public void onButtonLoginClick(){
-        presenter.login(binding.username.getText().toString(), binding.password.getText().toString());
+        presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
     }
 }

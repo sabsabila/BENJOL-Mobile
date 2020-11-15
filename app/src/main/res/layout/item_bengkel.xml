@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="book"
+            type="com.alifadepe.android_example.model.Book" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/bengkel_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="@drawable/bengkelplaceholder"/>
+
+        <TextView
+            android:id="@+id/list_bengkel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{book.name}"
+            android:textColor="?attr/colorTextDark"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@+id/bengkel_placeholder"
+            tools:text="Title Placeholder"/>
+
+        <TextView
+            android:id="@+id/list_bengkel_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{book.description}"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            android:layout_toRightOf="@+id/bengkel_placeholder"
+            android:layout_below="@+id/list_bengkel_name"
+            tools:text="Description Placeholder"/>
+
+        <View
+            android:id="@+id/navbar_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/list_bengkel_address"
+            android:background="@color/colorTextDark" />
+    </RelativeLayout>
+</layout>

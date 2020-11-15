@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/base_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/base_layout" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="150dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_square"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/percentage_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/percentageProgress"
+                    android:textAlignment="center"
+                    android:textSize="36pt"
+                    android:textColor="@color/colorTextDark"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/estimatedTitleProgress"
+                    android:textAlignment="center"
+                    android:textSize="10pt"
+                    android:textColor="@color/colorTextDark"
+                    android:layout_marginTop="1dp"/>
+
+                <TextView
+                    android:id="@+id/estimated_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/estimatedProgress"
+                    android:textAlignment="center"
+                    android:textSize="10pt"
+                    android:textColor="@color/colorTextDark"
+                    android:layout_marginTop="1dp"/>
+
+                <TextView
+                    android:id="@+id/status_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/statusProgress"
+                    android:textAlignment="center"
+                    android:textSize="15pt"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorSecondary"
+                    android:layout_marginTop="20dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/payment_detail_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_button"
+                android:textColor="?attr/colorTextDark"
+                android:text="@string/paymentDetailProgress"/>
+
+        </LinearLayout>
+        <include
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/navbar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"/>
+    </RelativeLayout>
+</layout>

@@ -27,24 +27,75 @@
 
 
     <!--Profile-->
+    <string name="accountLabel">Account</string>
+    <string name="phoneNumberLabel">Phone Number</string>
+    <string name="emailLabel">Email</string>
+    <string name="genderLabel">Gender</string>
+    <string name="birthDateLabel">Birth Date</string>
+    <string name="motorcyclesLabel">Your Motorcycles</string>
+
+    <!--Motorcycle-->
+    <string name="motorcycleInfo">Motorcycle Info</string>
+    <string name="motorcycleDetail">Input your motorcycle details</string>
+    <string name="plateNumberLabel">Plate Number</string>
+    <string name="brandLabel">Brand</string>
 
     <!--Dashboard-->
 
     <!--Sparepart-->
 
     <!--Bengkel-->
+    <string name="searchBengkel">Search Bengkel</string>
+    <string name="namaBengkel">Bengkel XXX</string>
+    <string name="alamatBengkel">JL. XXX No. YY</string>
+    <string name="nomorBengkelLabel">Phone Number : </string>
+    <string name="nomorBengkel">08xx xxxx xxxx </string>
+    <string name="bookService">Book Service</string>
+    <string name="cariSparepart">Cari Sparepart</string>
+    <string name="callNumber">Call Number</string>
+    <string name="wa">Whatsapp</string>
 
-    <!--PickUp-->
+    <!--Pick Up-->
+    <string name="pickupLocation">Pick Up Location</string>
+    <string name="deliveryLocation">Drop Off Location</string>
+    <string name="inputLocation">Type your location here</string>
+    <string name="confirmLocation">Confirm</string>
+
+    <!--Pick Up Progress-->
+    <string name="deliveryLabel">Delivery Status</string>
+    <string name="pickUpProgress1">Picking up your vehicle</string>
+    <string name="pickUpProgress2">Processing your service</string>
+    <string name="pickUpProgress3">Delivering back to you</string>
 
     <!--Serivice Progress-->
+    <string name="percentageProgress">xx%</string>
+    <string name="estimatedTitleProgress">Estimated Time:</string>
+    <string name="estimatedProgress">xx:xx:xx</string>
+    <string name="statusProgress">STATUS...</string>
+    <string name="paymentDetailProgress">Payment Detail</string>
 
     <!--Chat-->
 
     <!--Booking-->
 
     <!--Payment-->
-
+    <string name="paymentDetail">Payment Detail</string>
+    <string name="bengkelLabel">Bengkel</string>
+    <string name="transactionIdLabel">Transaction No.</string>
+    <string name="dateLabel">Date</string>
+    <string name="plateLabel">Plate Number</string>
+    <string name="costLabel">Total Cost</string>
+    <string name="noteLabel">Bengkel Note</string>
+    <string name="statusLabel">Status</string>
+    <string name="transactionId">xxxx</string>
+    <string name="date">yyyy-mm-dd</string>
+    <string name="plateNumber">L xxxx Y</string>
+    <string name="cost">Rp. xxxx</string>
+    <string name="note">Lorem ipsum dolor sit amet</string>
+    <string name="status">Unpaid</string>
+    <string name="transfer">Transfer</string>
 
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>
+    <string name="your_payment_is_being_confirmed">your payment is being confirmed</string>
 </resources>
