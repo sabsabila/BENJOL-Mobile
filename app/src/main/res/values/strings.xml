@@ -46,11 +46,17 @@
     <string name="callNumber">Call Number</string>
     <string name="wa">Whatsapp</string>
 
-    <!--PickUp-->
+    <!--Pick Up-->
     <string name="pickupLocation">Pick Up Location</string>
     <string name="deliveryLocation">Drop Off Location</string>
     <string name="inputLocation">Type your location here</string>
     <string name="confirmLocation">Confirm</string>
+
+    <!--Pick Up Progress-->
+    <string name="deliveryLabel">Delivery Status</string>
+    <string name="pickUpProgress1">Picking up your vehicle</string>
+    <string name="pickUpProgress2">Processing your service</string>
+    <string name="pickUpProgress3">Delivering back to you</string>
 
     <!--Serivice Progress-->
     <string name="percentageProgress">xx%</string>
