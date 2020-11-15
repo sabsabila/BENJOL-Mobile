@@ -16,6 +16,15 @@
     <string name="lastname">Last Name</string>
     <string name="create">Create an Account</string>
     <string name="google">Sign In With Google</string>
+    <string name="hint_booking_date">Input date here ...*20-11-2020</string>
+    <string name="serviceRingan">Service Ringan</string>
+    <string name="serviceSedang">Service Sedang</string>
+    <string name="serviceBerat">Service Berat</string>
+    <string name="et_problem_placeholder">Type your problem here...</string>
+    <string name="tv_is_pickup">You want us to pick up your vehicle?</string>
+    <string name="what_problem">What\'s Your Problem?</string>
+    <string name="tv_select_motor">Select Motorcycle</string>
+
 
     <!--Profile-->
     <string name="accountLabel">Account</string>
