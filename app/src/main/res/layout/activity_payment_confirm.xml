@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:linksClickable="true"
-                android:text="your payment is being confirmed"
+                android:text="@string/your_payment_is_being_confirmed"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
                 android:textSize="15pt" />
@@ -47,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                app:srcCompat="@drawable/checkmark" />
+                app:srcCompat="@drawable/checkmark"
+                android:contentDescription="TODO" />
 
             <Button
                 android:id="@+id/confirm_upload"
