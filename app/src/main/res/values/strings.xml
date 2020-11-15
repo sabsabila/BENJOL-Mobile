@@ -31,6 +31,8 @@
     <string name="nomorBengkel">08xx xxxx xxxx </string>
     <string name="bookService">Book Service</string>
     <string name="cariSparepart">Cari Sparepart</string>
+    <string name="callNumber">Call Number</string>
+    <string name="wa">Whatsapp</string>
 
     <!--PickUp-->
     <string name="pickupLocation">Pick Up Location</string>
