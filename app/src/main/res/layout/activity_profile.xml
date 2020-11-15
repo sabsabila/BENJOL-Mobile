@@ -28,7 +28,7 @@
                     android:id="@+id/account_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Account"
+                    android:text="@string/accountLabel"
                     android:textSize="12pt"
                     android:textStyle="bold"
                     android:textColor="@color/colorSecondary"
@@ -53,6 +53,7 @@
                         android:id="@+id/profile_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/name_icon"
                         android:text="Bambang Subur"
                         android:textSize="12pt"
                         android:textStyle="bold"
@@ -63,7 +64,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:text="Phone Number"
+                        android:text="@string/phoneNumberLabel"
                         android:textSize="5pt"
                         android:textColor="@color/colorTextDark" />
 
@@ -80,7 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:text="Email"
+                        android:text="@string/emailLabel"
                         android:textSize="5pt"
                         android:textColor="@color/colorTextDark" />
 
@@ -97,7 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:text="Gender"
+                        android:text="@string/genderLabel"
                         android:textSize="5pt"
                         android:textColor="@color/colorTextDark" />
 
@@ -114,7 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:text="Birth Date"
+                        android:text="@string/birthDateLabel"
                         android:textSize="5pt"
                         android:textColor="@color/colorTextDark" />
 
@@ -145,7 +146,7 @@
                         android:id="@+id/motorcycle_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Your Motorcycles"
+                        android:text="@string/motorcyclesLabel"
                         android:textSize="12pt"
                         android:textStyle="bold"
                         android:textColor="@color/colorTextDark" />

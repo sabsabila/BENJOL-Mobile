@@ -18,6 +18,18 @@
     <string name="google">Sign In With Google</string>
 
     <!--Profile-->
+    <string name="accountLabel">Account</string>
+    <string name="phoneNumberLabel">Phone Number</string>
+    <string name="emailLabel">Email</string>
+    <string name="genderLabel">Gender</string>
+    <string name="birthDateLabel">Birth Date</string>
+    <string name="motorcyclesLabel">Your Motorcycles</string>
+
+    <!--Motorcycle-->
+    <string name="motorcycleInfo">Motorcycle Info</string>
+    <string name="motorcycleDetail">Input your motorcycle details</string>
+    <string name="plateNumberLabel">Plate Number</string>
+    <string name="brandLabel">Brand</string>
 
     <!--Dashboard-->
 

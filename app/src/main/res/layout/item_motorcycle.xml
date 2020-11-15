@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="Brand"
+                android:text="@string/brandLabel"
                 android:textSize="5pt"
                 android:textColor="@color/colorTextDark" />
 
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="Plate Number"
+                android:text="@string/plateNumberLabel"
                 android:textSize="5pt"
                 android:textColor="@color/colorTextDark" />
 
