@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/base_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/base_layout" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TextView
+                android:id="@+id/tv_booking_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/muli"
+                android:text="When Bambang?"
+                android:textColor="@color/colorTitle"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_booking_date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:hint="@string/hint_booking_date"
+                android:background="@drawable/rounded_edit_text"/>
+
+            <TextView
+                android:id="@+id/tv_problem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/muli"
+                android:text="@string/what_problem"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:orientation="vertical"
+
+                >
+
+                <Button
+                    android:id="@+id/serviceBerat_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:inputType="textCapSentences"
+                    android:text="@string/serviceBerat"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/serviceSedang_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:inputType="textCapSentences"
+                    android:text="@string/serviceSedang"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/serviceRingan_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:inputType="textCapSentences"
+                    android:text="@string/serviceRingan"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/type_problem"
+                android:gravity="top"
+                android:hint="@string/et_problem_placeholder"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/tv_pickup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/muli"
+                android:text="@string/tv_is_pickup"
+                android:textSize="18sp"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/yes_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/yes_btn"
+                    android:text="Yes"
+                    android:textColor="@color/colorPrimary" />
+
+                <Button
+                    android:id="@+id/no_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/no_btn"
+                    android:text="No" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_select_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/muli"
+                android:text="@string/tv_select_motor"
+                android:textSize="18sp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dropdown"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/book_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/book_btn"
+                android:text="Book Now"
+                android:textColor="@color/colorPrimary" />
+            
+            
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
