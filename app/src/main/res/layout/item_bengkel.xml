@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="book"
-            type="com.alifadepe.android_example.model.Book" />
-    </data>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,13 +40,5 @@
             android:layout_toRightOf="@+id/bengkel_placeholder"
             android:layout_below="@+id/list_bengkel_name"
             tools:text="Description Placeholder"/>
-
-        <View
-            android:id="@+id/navbar_line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/list_bengkel_address"
-            android:background="@color/colorTextDark" />
     </RelativeLayout>
-</layout>
+</androidx.cardview.widget.CardView>
