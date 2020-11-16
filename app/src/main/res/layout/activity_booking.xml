@@ -37,7 +37,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/muli"
-                android:text="When Bambang?"
+                android:text="@string/when"
                 android:textColor="@color/colorTitle"
                 android:textSize="18sp"
                 android:textStyle="bold" />
