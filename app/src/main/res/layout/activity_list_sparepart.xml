@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/base_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/base_layout" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/searchView"
+                android:layout_width="372dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="230px"
+                android:layout_marginBottom="0px"
+                android:background="@drawable/search_bar"
+                android:hint="bengkel keputih"
+                android:paddingLeft="20dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_sparepart"
+                android:layout_width="374dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

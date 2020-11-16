@@ -16,6 +16,15 @@
     <string name="lastname">Last Name</string>
     <string name="create">Create an Account</string>
     <string name="google">Sign In With Google</string>
+    <string name="hint_booking_date">Input date here ...*20-11-2020</string>
+    <string name="serviceRingan">Service Ringan</string>
+    <string name="serviceSedang">Service Sedang</string>
+    <string name="serviceBerat">Service Berat</string>
+    <string name="et_problem_placeholder">Type your problem here...</string>
+    <string name="tv_is_pickup">You want us to pick up your vehicle?</string>
+    <string name="what_problem">What\'s Your Problem?</string>
+    <string name="tv_select_motor">Select Motorcycle</string>
+
 
     <!--Profile-->
     <string name="accountLabel">Account</string>
@@ -32,6 +41,17 @@
     <string name="brandLabel">Brand</string>
 
     <!--Dashboard-->
+    <string name="welcomeTitle">Hai, </string>
+    <string name="profilName">XXXXX</string>
+    <string name="welcomeDesc">Welcome to your trusted bengkel app</string>
+    <string name="findBengkel">Find Bengkel</string>
+    <string name="findSparepart">Find Sparepart</string>
+    <string name="trackDelivery">Track Delivery</string>
+    <string name="checkProgress">Check Progress</string>
+    <string name="upcomingTitle">Your Upcoming Services</string>
+    <string name="bengkelName">Bengkel xxxxxx</string>
+    <string name="dayDate">Day, yyyy-mm-dd</string>
+    <string name="serviceStatusDashboard">Service xxxxx</string>
 
     <!--Sparepart-->
 
@@ -88,4 +108,5 @@
 
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>
+    <string name="your_payment_is_being_confirmed">your payment is being confirmed</string>
 </resources>
