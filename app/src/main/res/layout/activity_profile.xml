@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
     </data>
     <RelativeLayout
@@ -35,139 +36,155 @@
                     android:layout_marginTop="50dp"
                     android:paddingLeft="30dp"/>
 
-                <LinearLayout
-                    android:id="@+id/profile_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="330dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="12dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/rounded_square"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_below="@+id/account_title">
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="20dp" >
 
-                    <TextView
-                        android:id="@+id/profile_name"
+                    <LinearLayout
+                        android:id="@+id/profile_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/name_icon"
-                        android:text="Bambang Subur"
-                        android:textSize="12pt"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorTextDark" />
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:layout_below="@+id/account_title">
 
-                    <TextView
-                        android:id="@+id/phone_number_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/phoneNumberLabel"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/profile_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/name_icon"
+                            android:text="Bambang Subur"
+                            android:textSize="12pt"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/phone_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="+62 xxx xxx"
-                        android:textSize="8pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/phone_number_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/phoneNumberLabel"
+                            android:textSize="5pt"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/email_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/emailLabel"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="+62 xxx xxx"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="bambangsubur@gmail.com"
-                        android:textSize="8pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/email_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/emailLabel"
+                            android:textSize="5pt"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/gender_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/genderLabel"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="bambangsubur@gmail.com"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Male"
-                        android:textSize="8pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/gender_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/genderLabel"
+                            android:textSize="5pt"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/birth_date_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/birthDateLabel"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
+                        <TextView
+                            android:id="@+id/gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorTextDark" />
 
-                    <TextView
-                        android:id="@+id/birth_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="January 30th, 2001"
-                        android:textSize="8pt"
-                        android:textColor="@color/colorTextDark" />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/birth_date_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/birthDateLabel"
+                            android:textSize="5pt"
+                            android:textColor="@color/colorTextDark" />
 
-                <LinearLayout
-                    android:id="@+id/motorcycle_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/birth_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="January 30th, 2001"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorTextDark" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="330dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="12dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_square"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_below="@+id/profile_layout">
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="20dp" >
 
-                    <TextView
-                        android:id="@+id/motorcycle_title"
+                    <LinearLayout
+                        android:id="@+id/motorcycle_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/motorcyclesLabel"
-                        android:textSize="12pt"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorTextDark" />
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:layout_below="@+id/profile_layout">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/list_motorcycle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/motorcycle_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/motorcyclesLabel"
+                            android:textSize="12pt"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextDark" />
 
-                <Button
-                    android:id="@+id/input_motor_button"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="150dp"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/rounded_button"
-                    android:textColor="?attr/colorTextDark"
-                    android:text="Input"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_motorcycle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp" />
 
-                </LinearLayout>
+                        <Button
+                            android:id="@+id/input_motor_button"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="150dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/rounded_button"
+                            android:textColor="?attr/colorTextDark"
+                            android:text="Input"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <Button
                     android:id="@+id/sign_out_button"
