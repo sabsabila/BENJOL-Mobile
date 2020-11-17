@@ -22,14 +22,16 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.baseLayout.backButton.setEnabled(false);
 
         presenter = new LoginPresenter(this, new LoginInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
     private void initView(){
+        binding.baseLayout.pageTitle.setText("Login");
+        binding.baseLayout.backButton.setEnabled(false);
         binding.loginButton.setOnClickListener(this);
+        binding.createAccountButton.setOnClickListener(this);
     }
 
     @Override
