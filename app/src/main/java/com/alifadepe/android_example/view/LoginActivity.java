@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.baseLayout.backButton.setEnabled(false);
 
         presenter = new LoginPresenter(this, new LoginInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
@@ -44,7 +45,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSuccess() {
         finish();
-        startActivity(new Intent(this, ListBookActivity.class));
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    @Override
+    public void register() {
+        finish();
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 
     @Override
@@ -57,9 +64,16 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         if(v.getId() == binding.loginButton.getId()){
             onButtonLoginClick();
         }
+        if(v.getId() == binding.createAccountButton.getId()){
+            onButtonRegisterClick();
+        }
     }
 
     public void onButtonLoginClick(){
         presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+    }
+
+    public void onButtonRegisterClick(){
+        presenter.register();
     }
 }
