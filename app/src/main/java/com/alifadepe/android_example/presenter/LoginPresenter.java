@@ -15,9 +15,9 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void login(String username, String password) {
+    public void login(String email, String password) {
         view.startLoading();
-        interactor.requestLogin(username, password, new RequestCallback<LoginResponse>() {
+        interactor.requestLogin(email, password, new RequestCallback<LoginResponse>() {
             @Override
             public void requestSuccess(LoginResponse data) {
                 view.endLoading();
@@ -31,5 +31,10 @@ public class LoginPresenter implements LoginContract.Presenter {
                 view.loginFailed(errorMessage);
             }
         });
+    }
+
+    @Override
+    public void register() {
+        view.register();
     }
 }
