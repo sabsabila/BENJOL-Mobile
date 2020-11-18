@@ -17,9 +17,9 @@ public class LoginInteractor implements LoginContract.Interactor {
     }
 
     @Override
-    public void requestLogin(String username, String password, final RequestCallback<LoginResponse> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "login.php")
-                .addBodyParameter("username", username)
+    public void requestLogin(String email, String password, final RequestCallback<LoginResponse> requestCallback) {
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/login")
+                .addBodyParameter("email", email)
                 .addBodyParameter("password", password)
                 .build()
                 .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
@@ -28,17 +28,17 @@ public class LoginInteractor implements LoginContract.Interactor {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                         }
-                        else if(response.is_success){
-                            requestCallback.requestSuccess(response);
+                        else if(response.token == null){
+                            requestCallback.requestFailed("Wrong Email or Password");
                         }
                         else {
-                            requestCallback.requestFailed(response.message);
+                            requestCallback.requestSuccess(response);
                         }
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed(anError.getErrorCode() + anError.getMessage());
                     }
                 });
     }

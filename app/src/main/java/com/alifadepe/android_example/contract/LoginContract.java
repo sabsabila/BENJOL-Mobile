@@ -9,14 +9,16 @@ public interface LoginContract {
         void endLoading();
         void loginSuccess();
         void loginFailed(String message);
+        void register();
     }
 
     interface Presenter {
-        void login(String username, String password);
+        void login(String email, String password);
+        void register();
     }
 
     interface Interactor {
-        void requestLogin(String username, String password, RequestCallback<LoginResponse> requestCallback);
+        void requestLogin(String email, String password, RequestCallback<LoginResponse> requestCallback);
         void saveToken(String token);
     }
 }
