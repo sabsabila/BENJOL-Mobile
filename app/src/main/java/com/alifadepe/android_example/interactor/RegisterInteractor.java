@@ -17,7 +17,7 @@ public class RegisterInteractor implements RegisterContract.Interactor {
 
     @Override
     public void requestRegister(User newUser, final RequestCallback<RegisterResponse> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/registerUser")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/registerUser")
                 .addBodyParameter("firstName", newUser.getFirstName())
                 .addBodyParameter("lastName", newUser.getLastName())
                 .addBodyParameter("username", newUser.getUsername())
@@ -29,12 +29,8 @@ public class RegisterInteractor implements RegisterContract.Interactor {
                     public void onResponse(RegisterResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                        }
-                        else if(response.is_success){
+                        }else {
                             requestCallback.requestSuccess(response);
-                        }
-                        else {
-                            requestCallback.requestFailed(response.message);
                         }
                     }
 

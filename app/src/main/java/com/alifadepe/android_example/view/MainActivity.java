@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void whenUserLogin() {
         finish();
-        startActivity(new Intent(getApplicationContext(), ListBookActivity.class));
+        startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
     }
 
     @Override

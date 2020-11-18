@@ -17,6 +17,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, View.OnClickListener {
     private DashboardContract.Presenter presenter;
     private ActivityDashboardBinding binding;
+    private String firstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,11 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     private void initView(){
-        //binding.loginButton.setOnClickListener(this);
+        binding.profileName.setText(firstName);
+        binding.findBengkel.setOnClickListener(this);
+        binding.findSparepart.setOnClickListener(this);
+        binding.trackDelivery.setOnClickListener(this);
+        binding.checkProgress.setOnClickListener(this);
     }
 
     @Override
@@ -44,12 +49,44 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
     @Override
     public void onClick(View v) {
-//        if(v.getId() == binding.loginButton.getId()){
-//            onButtonLoginClick();
-//        }
+        if(v.getId() == binding.findBengkel.getId()){
+            onfindBengkelClick();
+        }
+        if(v.getId() == binding.findSparepart.getId()){
+            onfindSparepartClick();
+        }
+        if(v.getId() == binding.trackDelivery.getId()){
+            onTrackDeliveryClick();
+        }
+        if(v.getId() == binding.checkProgress.getId()){
+            onCheckProgressClick();
+        }
     }
 
-//    public void onButtonLoginClick(){
-//        presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
-//    }
+    public void onfindBengkelClick(){
+        Toast.makeText(this, "ini buat cari bengkel", Toast.LENGTH_SHORT).show();
+        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+    }
+    public void onTrackDeliveryClick(){
+        Toast.makeText(this, "ini buat liat delivery", Toast.LENGTH_SHORT).show();
+        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+    }
+    public void onfindSparepartClick(){
+        Toast.makeText(this, "ini buat cari sparepart", Toast.LENGTH_SHORT).show();
+        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+    }
+    public void onCheckProgressClick(){
+        Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
+        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+    }
+
+    @Override
+    public void showError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setFirstName(String name){
+        this.firstName = name;
+    }
 }

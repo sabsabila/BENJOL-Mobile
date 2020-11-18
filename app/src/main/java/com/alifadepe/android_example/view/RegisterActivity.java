@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alifadepe.android_example.contract.RegisterContract;
@@ -30,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     private void initView(){
+        binding.baseLayout.pageTitle.setText("Sign Up");
+        binding.baseLayout.backButton.setOnClickListener(this);
         binding.registerButton.setOnClickListener(this);
     }
 
@@ -60,6 +63,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         if(v.getId() == binding.registerButton.getId()){
             onButtonRegisterClick();
         }
+        if(v.getId() == binding.baseLayout.backButton.getId()){
+           onBackPressed();
+        }
     }
 
     public void onButtonRegisterClick(){
@@ -70,4 +76,5 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                             binding.registerPassword.getText().toString());
         presenter.register(user);
     }
+
 }

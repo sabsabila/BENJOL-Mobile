@@ -97,6 +97,7 @@
                 >
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/find_bengkel"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_columnWeight="1"
@@ -133,6 +134,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/find_sparepart"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_columnWeight="1"
@@ -169,6 +171,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/track_delivery"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_columnWeight="1"
@@ -205,6 +208,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/check_progress"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_columnWeight="1"
