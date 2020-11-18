@@ -1,6 +1,6 @@
 package com.alifadepe.android_example.interactor;
 
-import com.alifadepe.android_example.api_response.LoginResponse;
+import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.DashboardContract;
@@ -16,4 +16,26 @@ public class DashboardInteractor implements DashboardContract.Interactor {
         this.sharedPreferencesUtil = sharedPreferencesUtil;
     }
 
+    @Override
+    public void getUser(final RequestCallback<UserResponse> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/user")
+                .addHeaders("Authorization", sharedPreferencesUtil.getToken())
+                .build()
+                .getAsObject(UserResponse.class, new ParsedRequestListener<UserResponse>() {
+                    @Override
+                    public void onResponse(UserResponse response) {
+                        if(response != null){
+                            requestCallback.requestSuccess(response);
+                        }
+                        else {
+                            requestCallback.requestFailed("Null Response");
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        requestCallback.requestFailed(anError.getMessage());
+                    }
+                });
+    }
 }
