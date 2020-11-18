@@ -17,6 +17,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, View.OnClickListener {
     private DashboardContract.Presenter presenter;
     private ActivityDashboardBinding binding;
+    private String firstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     private void initView(){
-        binding.profileName.setText("Username");
+        binding.profileName.setText(firstName);
         binding.findBengkel.setOnClickListener(this);
         binding.findSparepart.setOnClickListener(this);
         binding.trackDelivery.setOnClickListener(this);
@@ -77,5 +78,15 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     public void onCheckProgressClick(){
         Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
         //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+    }
+
+    @Override
+    public void showError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setFirstName(String name){
+        this.firstName = name;
     }
 }

@@ -38,7 +38,7 @@ public class LoginInteractor implements LoginContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getErrorCode() + anError.getMessage());
+                        requestCallback.requestFailed("Wrong Email or Password");
                     }
                 });
     }
