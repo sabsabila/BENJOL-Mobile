@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private void initView(){
         binding.baseLayout.pageTitle.setText("Login");
-        binding.baseLayout.backButton.setEnabled(false);
+        binding.baseLayout.backButton.setVisibility(View.GONE);
         binding.loginButton.setOnClickListener(this);
         binding.createAccountButton.setOnClickListener(this);
     }

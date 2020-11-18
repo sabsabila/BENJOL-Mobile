@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     private void initView(){
+        binding.baseLayout.pageTitle.setText("Sign Up");
         binding.registerButton.setOnClickListener(this);
     }
 
