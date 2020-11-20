@@ -1,5 +1,7 @@
 package com.alifadepe.android_example.interactor;
 
+import android.util.Log;
+
 import com.alifadepe.android_example.api_response.LoginResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
@@ -33,6 +35,7 @@ public class LoginInteractor implements LoginContract.Interactor {
                         }
                         else {
                             requestCallback.requestSuccess(response);
+                            Log.d("tag", response.token);
                         }
                     }
 

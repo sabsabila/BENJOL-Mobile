@@ -1,23 +1,23 @@
 package com.alifadepe.android_example.contract;
 
-import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.model.Profile;
-import com.alifadepe.android_example.model.User;
 
 import java.util.List;
 
-public interface DashboardContract {
+public interface ProfileContract {
     interface View {
-        void setFirstName(String firstName);
         void showError(String message);
+        void setProfile(Profile user);
     }
 
     interface Presenter {
-        void getFirstName();
+        void setProfile();
+        void logout();
     }
 
     interface Interactor {
-        void getUser(final RequestCallback<List<Profile>> requestCallback);
+        void requestProfile(RequestCallback<List<Profile>> requestCallback);
+        void logout();
     }
 }

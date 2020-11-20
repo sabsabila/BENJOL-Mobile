@@ -18,8 +18,8 @@ public class RegisterInteractor implements RegisterContract.Interactor {
     @Override
     public void requestRegister(User newUser, final RequestCallback<RegisterResponse> requestCallback) {
         AndroidNetworking.post(ApiConstant.BASE_URL + "/api/registerUser")
-                .addBodyParameter("firstName", newUser.getFirstName())
-                .addBodyParameter("lastName", newUser.getLastName())
+                .addBodyParameter("firstName", newUser.getFirst_name())
+                .addBodyParameter("lastName", newUser.getLast_name())
                 .addBodyParameter("username", newUser.getUsername())
                 .addBodyParameter("email", newUser.getEmail())
                 .addBodyParameter("password", newUser.getPassword())
@@ -36,7 +36,7 @@ public class RegisterInteractor implements RegisterContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Please input a valid e-mail");
                     }
                 });
     }

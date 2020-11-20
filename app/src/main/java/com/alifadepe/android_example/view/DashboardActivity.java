@@ -17,7 +17,6 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, View.OnClickListener {
     private DashboardContract.Presenter presenter;
     private ActivityDashboardBinding binding;
-    private String firstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,21 +29,12 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     private void initView(){
-        binding.profileName.setText(firstName);
+        presenter.getFirstName();
         binding.findBengkel.setOnClickListener(this);
         binding.findSparepart.setOnClickListener(this);
         binding.trackDelivery.setOnClickListener(this);
         binding.checkProgress.setOnClickListener(this);
-    }
-
-    @Override
-    public void startLoading() {
-        binding.progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void endLoading() {
-        binding.progressBar.setVisibility(View.GONE);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +51,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         if(v.getId() == binding.checkProgress.getId()){
             onCheckProgressClick();
         }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+
     }
 
     public void onfindBengkelClick(){
@@ -79,6 +73,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
         //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
     }
+    public void onProfileClick(){
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
 
     @Override
     public void showError(String message) {
@@ -87,6 +85,6 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
     @Override
     public void setFirstName(String name){
-        this.firstName = name;
+        binding.profileName.setText(name);
     }
 }
