@@ -2,6 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable
+            name="user"
+            type="com.alifadepe.android_example.model.Profile" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -62,7 +65,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableRight="@drawable/name_icon"
-                            android:text="Bambang Subur"
+                            android:text="@{user.first_name}"
                             android:textSize="12pt"
                             android:textStyle="bold"
                             android:textColor="@color/colorTextDark" />
@@ -80,7 +83,7 @@
                             android:id="@+id/phone_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="+62 xxx xxx"
+                            android:text="@{user.phone_number}"
                             android:textSize="8pt"
                             android:textColor="@color/colorTextDark" />
 
@@ -97,7 +100,7 @@
                             android:id="@+id/email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="bambangsubur@gmail.com"
+                            android:text="@{user.email}"
                             android:textSize="8pt"
                             android:textColor="@color/colorTextDark" />
 
@@ -114,7 +117,7 @@
                             android:id="@+id/gender"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Male"
+                            android:text="@{user.gender}"
                             android:textSize="8pt"
                             android:textColor="@color/colorTextDark" />
 
@@ -131,7 +134,7 @@
                             android:id="@+id/birth_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="January 30th, 2001"
+                            android:text="@{user.birth_date}"
                             android:textSize="8pt"
                             android:textColor="@color/colorTextDark" />
                     </LinearLayout>

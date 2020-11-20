@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             onButtonRegisterClick();
         }
         if(v.getId() == binding.baseLayout.backButton.getId()){
-           onBackPressed();
+           onBackButtonClick();
         }
     }
 
@@ -75,6 +75,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                             binding.registerEmail.getText().toString(),
                             binding.registerPassword.getText().toString());
         presenter.register(user);
+    }
+
+    public void onBackButtonClick(){
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
 }
