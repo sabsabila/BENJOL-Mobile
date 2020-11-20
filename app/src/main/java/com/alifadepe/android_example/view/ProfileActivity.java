@@ -1,10 +1,13 @@
 package com.alifadepe.android_example.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -12,13 +15,13 @@ import com.alifadepe.android_example.R;
 import com.alifadepe.android_example.contract.ProfileContract;
 import com.alifadepe.android_example.databinding.ActivityProfileBinding;
 import com.alifadepe.android_example.interactor.ProfileInteractor;
+import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Profile;
-import com.alifadepe.android_example.model.User;
 import com.alifadepe.android_example.presenter.ProfilePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
 public class ProfileActivity extends AppCompatActivity implements ProfileContract.View, View.OnClickListener {
-    private ProfileContract.Presenter presenter;
+    private ProfileContract.presenter presenter;
     private ActivityProfileBinding binding;
 
     @Override
@@ -33,10 +36,11 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     private void initView(){
         presenter.setProfile();
-        binding.baseLayout.pageTitle.setText("Profile");
+        binding.pageTitle.setText("Profile");
         binding.signOutButton.setOnClickListener(this);
         binding.inputMotorButton.setOnClickListener(this);
-        binding.baseLayout.backButton.setOnClickListener(this);
+        binding.backButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
     }
 
     @Override
@@ -47,19 +51,25 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         if(v.getId() == binding.inputMotorButton.getId()){
             onButtonInputMotorClick();
         }
-        if(v.getId() == binding.baseLayout.backButton.getId()){
+        if(v.getId() == binding.backButton.getId()){
             onBackButtonClick();
+        }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
         }
     }
 
-    public void onButtonSignOutClick(){
-        presenter.logout();
+    private void onHomeButtonClick() {
         finish();
-        startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    public void onButtonSignOutClick(){
+        showAlertDialog();
     }
 
     public void onButtonInputMotorClick(){
-        Toast.makeText(this, "Input Motor", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, MotorcycleActivity.class));
     }
 
     public void onBackButtonClick(){
@@ -73,7 +83,28 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void setProfile(Profile user) {
-        Toast.makeText(this, user.getFirst_name(), Toast.LENGTH_SHORT).show();
         binding.setUser(user);
+    }
+
+    @Override
+    public void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(android.R.drawable.ic_delete);
+        builder.setTitle("Sign Out");
+        builder.setMessage("Are you sure you want to Sign Out ?");
+        builder.setPositiveButton(Html.fromHtml("<font color='#FBB308'>Yes</font>"), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int arg1) {
+                presenter.logout();
+            }
+        });
+        builder.setNegativeButton(Html.fromHtml("<font color='#eb5334'>No</font>"), null);
+        builder.create();
+        builder.show();
+    }
+
+    @Override
+    public void redirectToLogin() {
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }

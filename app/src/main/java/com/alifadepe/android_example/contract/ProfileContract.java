@@ -9,9 +9,11 @@ public interface ProfileContract {
     interface View {
         void showError(String message);
         void setProfile(Profile user);
+        void showAlertDialog();
+        void redirectToLogin();
     }
 
-    interface Presenter {
+    interface presenter {
         void setProfile();
         void logout();
     }
