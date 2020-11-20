@@ -40,6 +40,7 @@
     <string name="motorcycleDetail">Input your motorcycle details</string>
     <string name="plateNumberLabel">Plate Number</string>
     <string name="brandLabel">Brand</string>
+    <string name="inputMotorLabel">Input Motor</string>
 
     <!--Dashboard-->
     <string name="welcomeTitle">Hai, </string>

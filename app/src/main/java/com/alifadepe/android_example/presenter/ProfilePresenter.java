@@ -7,7 +7,7 @@ import com.alifadepe.android_example.model.Profile;
 
 import java.util.List;
 
-public class ProfilePresenter implements ProfileContract.Presenter {
+public class ProfilePresenter implements ProfileContract.presenter {
     private ProfileContract.View view;
     private ProfileInteractor interactor;
 
@@ -34,5 +34,6 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public void logout() {
         interactor.logout();
+        view.redirectToLogin();
     }
 }
