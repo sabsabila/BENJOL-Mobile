@@ -97,7 +97,8 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void setProfile(Profile user) {
-        binding.profileName.setText(user.getFirst_name() + " " + user.getLast_name());
+        if(user.getFirst_name() != null && user.getLast_name() != null)
+            binding.profileName.setText(user.getFirst_name() + " " + user.getLast_name());
         binding.setUser(user);
     }
 
