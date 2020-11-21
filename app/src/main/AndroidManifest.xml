@@ -21,6 +21,7 @@
         <activity android:name=".view.EditProfileActivity" />
         <activity android:name=".view.PickupActivity" />
         <activity android:name=".view.MotorcycleActivity" />
+        <activity android:name=".view.DetailBengkelActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
