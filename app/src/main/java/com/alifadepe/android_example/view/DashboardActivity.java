@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alifadepe.android_example.contract.DashboardContract;
-import com.alifadepe.android_example.contract.LoginContract;
 import com.alifadepe.android_example.databinding.ActivityDashboardBinding;
 import com.alifadepe.android_example.interactor.DashboardInteractor;
 import com.alifadepe.android_example.presenter.DashboardPresenter;
@@ -29,7 +28,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     private void initView(){
-        presenter.getFirstName();
+        presenter.getUsername();
         binding.findBengkel.setOnClickListener(this);
         binding.findSparepart.setOnClickListener(this);
         binding.trackDelivery.setOnClickListener(this);
@@ -84,7 +83,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     @Override
-    public void setFirstName(String name){
+    public void setUsername(String name){
         binding.profileName.setText(name);
     }
 }
