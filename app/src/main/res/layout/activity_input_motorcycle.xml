@@ -37,7 +37,7 @@
                 android:layout_marginTop="5dp"/>
 
             <EditText
-                android:id="@+id/register_first_name"
+                android:id="@+id/motor_plate_number"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
@@ -45,7 +45,7 @@
                 android:background="@drawable/rounded_edit_text"/>
 
             <EditText
-                android:id="@+id/register_last_name"
+                android:id="@+id/motor_brand"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
@@ -53,13 +53,13 @@
                 android:background="@drawable/rounded_edit_text"/>
 
             <Button
-                android:id="@+id/register_button"
+                android:id="@+id/add_motor_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/rounded_button"
                 android:textColor="@color/colorTextDark"
-                android:text="@string/register"/>
+                android:text="@string/inputMotorLabel"/>
 
         </LinearLayout>
     </RelativeLayout>
