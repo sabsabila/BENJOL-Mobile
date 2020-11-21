@@ -1,11 +1,9 @@
 package com.alifadepe.android_example.presenter;
 
-import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.DashboardContract;
 import com.alifadepe.android_example.interactor.DashboardInteractor;
 import com.alifadepe.android_example.model.Profile;
-import com.alifadepe.android_example.model.User;
 
 import java.util.List;
 
@@ -19,12 +17,12 @@ public class DashboardPresenter implements DashboardContract.Presenter {
     }
 
     @Override
-    public void getFirstName() {
+    public void getUsername() {
         interactor.getUser(new RequestCallback<List<Profile>>() {
 
             @Override
             public void requestSuccess(List<Profile> response) {
-                view.setFirstName(response.get(0).getFirst_name());
+                view.setUsername(response.get(0).getUsername());
             }
 
             @Override

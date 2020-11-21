@@ -36,11 +36,11 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     private void initView(){
         presenter.setProfile();
-        binding.pageTitle.setText("Profile");
         binding.signOutButton.setOnClickListener(this);
         binding.inputMotorButton.setOnClickListener(this);
         binding.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
+        binding.profile.setOnClickListener(this);
     }
 
     @Override
@@ -57,11 +57,19 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         if(v.getId() == binding.navbar.homeButton.getId()){
             onHomeButtonClick();
         }
+        if(v.getId() == binding.profile.getId()){
+            onEditProfileClick();
+        }
     }
 
     private void onHomeButtonClick() {
         finish();
         startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onEditProfileClick() {
+        finish();
+        startActivity(new Intent(this, EditProfileActivity.class));
     }
 
     public void onButtonSignOutClick(){
@@ -83,6 +91,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void setProfile(Profile user) {
+        binding.profileName.setText(user.getFirst_name() + " " + user.getLast_name());
         binding.setUser(user);
     }
 

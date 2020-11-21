@@ -9,12 +9,12 @@ import java.util.List;
 
 public interface DashboardContract {
     interface View {
-        void setFirstName(String firstName);
+        void setUsername(String firstName);
         void showError(String message);
     }
 
     interface Presenter {
-        void getFirstName();
+        void getUsername();
     }
 
     interface Interactor {
