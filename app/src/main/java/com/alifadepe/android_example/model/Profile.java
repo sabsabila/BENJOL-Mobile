@@ -25,6 +25,16 @@ public class Profile {
         this.phone_number = phone_number;
     }
 
+    public Profile(String first_name, String last_name, String gender, String birth_date, String username, String email, String phone_number) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.birth_date = birth_date;
+        this.username = username;
+        this.email = email;
+        this.phone_number = phone_number;
+    }
+
     public int getUser_id() {
         return user_id;
     }

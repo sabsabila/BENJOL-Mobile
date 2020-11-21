@@ -34,6 +34,10 @@
     <string name="genderLabel">Gender</string>
     <string name="birthDateLabel">Birth Date</string>
     <string name="motorcyclesLabel">Your Motorcycles</string>
+    <string name="editProfileLabel">Edit your profile information.</string>
+    <string name="profileLabel">Profile</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="save">Save</string>
 
     <!--Motorcycle-->
     <string name="motorcycleInfo">Motorcycle Info</string>

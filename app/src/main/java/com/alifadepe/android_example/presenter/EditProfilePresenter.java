@@ -1,18 +1,19 @@
 package com.alifadepe.android_example.presenter;
 
 import com.alifadepe.android_example.callback.RequestCallback;
+import com.alifadepe.android_example.contract.EditProfileContract;
 import com.alifadepe.android_example.contract.ProfileContract;
+import com.alifadepe.android_example.interactor.EditProfileInteractor;
 import com.alifadepe.android_example.interactor.ProfileInteractor;
-import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Profile;
 
 import java.util.List;
 
-public class ProfilePresenter implements ProfileContract.presenter {
-    private ProfileContract.View view;
-    private ProfileInteractor interactor;
+public class EditProfilePresenter implements EditProfileContract.Presenter {
+    private EditProfileContract.View view;
+    private EditProfileInteractor interactor;
 
-    public ProfilePresenter(ProfileContract.View view, ProfileInteractor interactor) {
+    public EditProfilePresenter(EditProfileContract.View view, EditProfileInteractor interactor) {
         this.view = view;
         this.interactor = interactor;
     }
@@ -33,11 +34,11 @@ public class ProfilePresenter implements ProfileContract.presenter {
     }
 
     @Override
-    public void setMotor() {
-        interactor.requestMotor(new RequestCallback<List<Motorcycle>>() {
+    public void saveProfile(Profile profile) {
+        interactor.editProfile(profile, new RequestCallback<String>() {
             @Override
-            public void requestSuccess(List<Motorcycle> data) {
-                view.setMotor(data);
+            public void requestSuccess(String message) {
+                view.editProfileSuccess(message);
             }
 
             @Override
@@ -45,11 +46,5 @@ public class ProfilePresenter implements ProfileContract.presenter {
                 view.showError(errorMessage);
             }
         });
-    }
-
-    @Override
-    public void logout() {
-        interactor.logout();
-        view.redirectToLogin();
     }
 }

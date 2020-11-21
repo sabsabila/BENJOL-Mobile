@@ -23,7 +23,7 @@
             android:id="@+id/page_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="@string/profileLabel"
             android:textSize="10pt"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"
@@ -48,24 +48,14 @@
                     android:gravity="end"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/account_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/accountLabel"
-                        android:textSize="12pt"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorSecondary"
-                        android:layout_marginTop="10dp"
-                        android:paddingLeft="30dp"/>
-
                     <androidx.cardview.widget.CardView
-                        android:layout_width="330dp"
-                        android:layout_height="300dp"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:layout_gravity="center_horizontal"
                         app:cardCornerRadius="25dp"
-                        app:cardElevation="20dp" >
+                        app:cardElevation="20dp"
+                        android:id="@+id/profile">
 
                         <LinearLayout
                             android:id="@+id/profile_layout"
@@ -77,17 +67,33 @@
                             android:paddingTop="15dp"
                             android:paddingBottom="15dp"
                             android:paddingLeft="25dp"
-                            android:paddingRight="25dp"
-                            android:layout_below="@+id/account_title">
+                            android:paddingRight="25dp">
 
                             <TextView
                                 android:id="@+id/profile_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:drawableRight="@drawable/name_icon"
-                                android:text="@{user.first_name}"
+                                android:text="@string/profilName"
+                                android:textColor="@color/colorTextDark"
                                 android:textSize="12pt"
-                                android:textStyle="bold"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/username_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/username"
+                                android:textSize="5pt"
+                                android:textColor="@color/colorTextDark" />
+
+                            <TextView
+                                android:id="@+id/username"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{user.username}"
+                                android:textSize="8pt"
                                 android:textColor="@color/colorTextDark" />
 
                             <TextView
@@ -161,7 +167,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="330dp"
+                        android:layout_width="280dp"
                         android:layout_height="200dp"
                         android:layout_margin="12dp"
                         android:layout_gravity="center_horizontal"
@@ -190,21 +196,31 @@
                                 android:textStyle="bold"
                                 android:textColor="@color/colorTextDark" />
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/list_motorcycle"
+                            <ScrollView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp" />
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
 
-                            <Button
-                                android:id="@+id/input_motor_button"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_width="150dp"
-                                android:layout_height="35dp"
-                                android:layout_marginTop="16dp"
-                                android:background="@drawable/rounded_button"
-                                android:textColor="?attr/colorTextDark"
-                                android:text="Input"/>
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/list_motorcycle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="20dp" />
+
+                                    <Button
+                                        android:id="@+id/input_motor_button"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_width="150dp"
+                                        android:layout_height="35dp"
+                                        android:layout_marginTop="16dp"
+                                        android:background="@drawable/rounded_button"
+                                        android:textColor="?attr/colorTextDark"
+                                        android:text="Input"/>
+                                </LinearLayout>
+                            </ScrollView>
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>

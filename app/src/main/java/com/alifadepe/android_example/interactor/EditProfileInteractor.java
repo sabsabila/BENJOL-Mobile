@@ -1,35 +1,25 @@
 package com.alifadepe.android_example.interactor;
 
-import android.nfc.Tag;
 import android.util.Log;
 
-import com.alifadepe.android_example.api_response.MotorResponse;
+import com.alifadepe.android_example.api_response.EditResponse;
 import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
+import com.alifadepe.android_example.contract.EditProfileContract;
 import com.alifadepe.android_example.contract.ProfileContract;
-import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.util.SharedPreferencesUtil;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 
-public class ProfileInteractor implements ProfileContract.Interactor {
+public class EditProfileInteractor implements EditProfileContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;
 
-    public ProfileInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
+    public EditProfileInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
         this.sharedPreferencesUtil = sharedPreferencesUtil;
     }
 
@@ -59,19 +49,26 @@ public class ProfileInteractor implements ProfileContract.Interactor {
     }
 
     @Override
-    public void requestMotor(final RequestCallback<List<Motorcycle>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/motorcycle")
+    public void editProfile(Profile profile, final RequestCallback<String> requestCallback) {
+        AndroidNetworking.put(ApiConstant.BASE_URL + "/api/user")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
+                .addBodyParameter("first_name", profile.getFirst_name())
+                .addBodyParameter("last_name", profile.getLast_name())
+                .addBodyParameter("gender", profile.getGender())
+                .addBodyParameter("birth_date", profile.getBirth_date())
+                .addBodyParameter("username", profile.getUsername())
+                .addBodyParameter("email", profile.getEmail())
+                .addBodyParameter("phone_number", profile.getPhone_number())
                 .build()
-                .getAsObject(MotorResponse.class, new ParsedRequestListener<MotorResponse>() {
+                .getAsObject(EditResponse.class, new ParsedRequestListener<EditResponse>() {
                     @Override
-                    public void onResponse(MotorResponse response) {
+                    public void onResponse(EditResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
                         }
                         else {
-                            requestCallback.requestSuccess(response.motorcycles);
+                            requestCallback.requestSuccess(response.message);
                         }
                     }
 
@@ -83,9 +80,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                 });
     }
 
-    @Override
-    public void logout() {
-        sharedPreferencesUtil.clear();
-    }
+
 }
 
