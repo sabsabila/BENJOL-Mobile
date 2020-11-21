@@ -24,7 +24,7 @@ public class MotorcycleInteractor implements MotorcycleContract.Interactor {
         AndroidNetworking.post(ApiConstant.BASE_URL + "/api/motorcycle")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("brand", motorcycle.getBrand())
-                .addBodyParameter("plate_number", motorcycle.getPlateNumber())
+                .addBodyParameter("plate_number", motorcycle.getPlate_number())
                 .build()
                 .getAsObject(InputResponse.class, new ParsedRequestListener<InputResponse>() {
                     @Override
