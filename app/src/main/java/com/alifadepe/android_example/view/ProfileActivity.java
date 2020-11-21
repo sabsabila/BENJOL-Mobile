@@ -10,8 +10,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alifadepe.android_example.R;
+import com.alifadepe.android_example.adapter.ListMotorAdapter;
 import com.alifadepe.android_example.contract.ProfileContract;
 import com.alifadepe.android_example.databinding.ActivityProfileBinding;
 import com.alifadepe.android_example.interactor.ProfileInteractor;
@@ -19,6 +21,8 @@ import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.presenter.ProfilePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
+
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity implements ProfileContract.View, View.OnClickListener {
     private ProfileContract.presenter presenter;
@@ -36,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     private void initView(){
         presenter.setProfile();
+        binding.listMotorcycle.setLayoutManager(new LinearLayoutManager(this));
+        presenter.setMotor();
         binding.signOutButton.setOnClickListener(this);
         binding.inputMotorButton.setOnClickListener(this);
         binding.backButton.setOnClickListener(this);
@@ -115,5 +121,10 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     public void redirectToLogin() {
         finish();
         startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    @Override
+    public void setMotor(List<Motorcycle> motorcycles) {
+        binding.listMotorcycle.setAdapter(new ListMotorAdapter(motorcycles, getLayoutInflater()));
     }
 }

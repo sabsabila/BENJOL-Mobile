@@ -3,6 +3,7 @@ package com.alifadepe.android_example.presenter;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.ProfileContract;
 import com.alifadepe.android_example.interactor.ProfileInteractor;
+import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Profile;
 
 import java.util.List;
@@ -22,6 +23,21 @@ public class ProfilePresenter implements ProfileContract.presenter {
             @Override
             public void requestSuccess(List<Profile> data) {
                 view.setProfile(data.get(0));
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.showError(errorMessage);
+            }
+        });
+    }
+
+    @Override
+    public void setMotor() {
+        interactor.requestMotor(new RequestCallback<List<Motorcycle>>() {
+            @Override
+            public void requestSuccess(List<Motorcycle> data) {
+                view.setMotor(data);
             }
 
             @Override
