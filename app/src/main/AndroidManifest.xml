@@ -14,12 +14,14 @@
         android:theme="@style/BenjolTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".view.ListBookActivity"></activity>
+        <activity android:name=".view.ListBengkelActivity"></activity>
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.DashboardActivity" />
         <activity android:name=".view.ProfileActivity" />
         <activity android:name=".view.EditProfileActivity" />
         <activity android:name=".view.PickupActivity" />
+        <activity android:name=".view.SparepartActivity" />
         <activity android:name=".view.MotorcycleActivity" />
         <activity android:name=".view.DetailBengkelActivity" />
         <activity android:name=".view.MainActivity">

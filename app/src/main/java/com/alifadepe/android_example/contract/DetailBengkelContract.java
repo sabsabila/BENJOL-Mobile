@@ -5,21 +5,21 @@ import com.alifadepe.android_example.model.Bengkel;
 
 import java.util.List;
 
-public class DetailBengkelContract {
-    public interface View {
+public interface DetailBengkelContract {
+    interface View {
         void showError(String message);
         void setBengkel(Bengkel bengkel);
         void redirectToBooking();
         void redirectToListSparepart();
     }
 
-    public interface Presenter {
+    interface Presenter {
         void setBengkel();
         void bookService();
         void searchSparepart();
     }
 
-    public interface Interactor {
+    interface Interactor {
         void requestBengkel(final RequestCallback<List<Bengkel>> requestCallback);
     }
 }

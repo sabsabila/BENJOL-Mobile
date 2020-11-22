@@ -50,7 +50,7 @@
     <string name="welcomeTitle">Hai, </string>
     <string name="profilName">XXXXX</string>
     <string name="welcomeDesc">Welcome to your trusted bengkel app</string>
-    <string name="findBengkel">Find Bengkel</string>
+    <string name="findBengkel">Search Bengkel</string>
     <string name="findSparepart">Find Sparepart</string>
     <string name="trackDelivery">Track Delivery</string>
     <string name="checkProgress">Check Progress</string>
@@ -60,6 +60,7 @@
     <string name="serviceStatusDashboard">Service xxxxx</string>
 
     <!--Sparepart-->
+    <string name="price">Rp...</string>
 
     <!--Bengkel-->
     <string name="searchBengkel">Search Bengkel</string>

@@ -88,18 +88,18 @@
             android:layout_marginTop="60dp">
 
             <GridLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:columnOrderPreserved="false"
-                android:alignmentMode="alignMargins"
+                android:layout_gravity="center_horizontal"
+                android:columnOrderPreserved="true"
                 android:rowCount="2"
                 android:columnCount="2"
                 >
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/find_bengkel"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     android:layout_margin="12dp"
@@ -108,7 +108,7 @@
                     >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:clipToPadding="false"
@@ -135,8 +135,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/find_sparepart"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     android:layout_margin="12dp"
@@ -145,7 +145,7 @@
                     >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:clipToPadding="false"
@@ -172,8 +172,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/track_delivery"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     android:layout_margin="12dp"
@@ -182,7 +182,7 @@
                     >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:clipToPadding="false"
@@ -209,8 +209,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/check_progress"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     android:layout_margin="12dp"
@@ -219,7 +219,7 @@
                     >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:clipToPadding="false"
