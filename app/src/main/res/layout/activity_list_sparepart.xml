@@ -40,7 +40,7 @@
                 android:paddingLeft="20dp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list_sparepart"
+                android:id="@+id/rv_sparepart"
                 android:layout_width="374dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50px"

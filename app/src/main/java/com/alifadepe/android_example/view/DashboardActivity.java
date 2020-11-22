@@ -72,9 +72,13 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
     }
     public void onfindSparepartClick(){
-        Toast.makeText(this, "ini buat cari sparepart", Toast.LENGTH_SHORT).show();
-        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+//        Toast.makeText(this, "ini buat cari sparepart", Toast.LENGTH_SHORT).show();
+//        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+
+        startActivity(new Intent(this, ListSparepartActivity.class));
+        finish();
     }
+
     public void onCheckProgressClick(){
         Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
         //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
