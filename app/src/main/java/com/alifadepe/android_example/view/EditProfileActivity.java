@@ -67,7 +67,8 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     }
 
     public void onBackButtonClick(){
-        startActivity(new Intent(this, DashboardActivity.class));
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     @Override

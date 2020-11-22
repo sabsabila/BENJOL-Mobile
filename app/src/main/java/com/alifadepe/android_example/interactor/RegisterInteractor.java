@@ -36,7 +36,10 @@ public class RegisterInteractor implements RegisterContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed("Please input a valid e-mail");
+                        if(anError.getErrorCode() == 401)
+                            requestCallback.requestFailed("Please input a valid e-mail");
+                        else
+                            requestCallback.requestFailed("Server Error !");
                     }
                 });
     }
