@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.alifadepe.android_example.contract.DashboardContract;
 import com.alifadepe.android_example.databinding.ActivityDashboardBinding;
 import com.alifadepe.android_example.interactor.DashboardInteractor;
+import com.alifadepe.android_example.model.Sparepart;
 import com.alifadepe.android_example.presenter.DashboardPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
@@ -57,16 +58,16 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     public void onfindBengkelClick(){
-        Toast.makeText(this, "ini buat cari bengkel", Toast.LENGTH_SHORT).show();
-        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+        finish();
+        startActivity(new Intent(this, ListBengkelActivity.class));
     }
     public void onTrackDeliveryClick(){
         Toast.makeText(this, "ini buat liat delivery", Toast.LENGTH_SHORT).show();
         //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
     }
     public void onfindSparepartClick(){
-        Toast.makeText(this, "ini buat cari sparepart", Toast.LENGTH_SHORT).show();
-        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+        finish();
+        startActivity(new Intent(this, SparepartActivity.class));
     }
     public void onCheckProgressClick(){
         Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
