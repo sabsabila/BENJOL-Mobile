@@ -1,6 +1,5 @@
 package com.alifadepe.android_example.contract;
 
-import com.alifadepe.android_example.api_response.EditResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.model.Profile;
 

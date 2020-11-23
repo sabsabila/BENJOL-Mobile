@@ -2,7 +2,8 @@ package com.alifadepe.android_example.interactor;
 
 import android.util.Log;
 
-import com.alifadepe.android_example.api_response.MotorResponse;
+import com.alifadepe.android_example.api_response.ListMotorResponse;
+import com.alifadepe.android_example.api_response.ResponseMessage;
 import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
@@ -53,15 +54,40 @@ public class ProfileInteractor implements ProfileContract.Interactor {
         AndroidNetworking.get(ApiConstant.BASE_URL + "/api/motorcycle")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
-                .getAsObject(MotorResponse.class, new ParsedRequestListener<MotorResponse>() {
+                .getAsObject(ListMotorResponse.class, new ParsedRequestListener<ListMotorResponse>() {
                     @Override
-                    public void onResponse(MotorResponse response) {
+                    public void onResponse(ListMotorResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.motorcycles);
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        requestCallback.requestFailed(anError.getMessage());
+                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
+                    }
+                });
+    }
+
+    @Override
+    public void deleteMotor(int id, final RequestCallback<String> requestCallback) {
+        AndroidNetworking.delete(ApiConstant.BASE_URL + "/api/motorcycle/" + id)
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
+                .build()
+                .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
+                    @Override
+                    public void onResponse(ResponseMessage response) {
+                        if(response == null){
+                            requestCallback.requestFailed("Null Response");
+                            Log.d("tag", "response null");
+                        }
+                        else {
+                            requestCallback.requestSuccess(response.message);
                         }
                     }
 
