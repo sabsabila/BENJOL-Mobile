@@ -27,8 +27,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         setContentView(binding.getRoot());
 
         Intent intent = getIntent();
-        // int bengkel_id = intent.getIntExtra("bengkel_id"); => ini dapet dari page list bengkel
-        int bengkel_id = 1;
+        int bengkel_id = intent.getIntExtra("bengkel_id", 0);
 
         presenter = new DetailBengkelPresenter(this, new DetailBengkelInteractor(UtilProvider.getSharedPreferencesUtil(), bengkel_id));
         initView();
@@ -50,6 +49,14 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         if(v.getId() == binding.listSparepartButton.getId()){
             presenter.searchSparepart();
         }
+        if(v.getId() == binding.baseLayout.backButton.getId()){
+            onBackButtonClick();
+        }
+    }
+
+    private void onBackButtonClick() {
+        finish();
+        startActivity(new Intent(this, ListBengkelActivity.class));
     }
 
     @Override

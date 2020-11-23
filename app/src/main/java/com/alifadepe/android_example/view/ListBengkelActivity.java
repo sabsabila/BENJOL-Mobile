@@ -18,7 +18,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 
 import java.util.List;
 
-public class ListBengkelActivity extends AppCompatActivity implements ListBengkelContract.View, View.OnClickListener {
+public class ListBengkelActivity extends AppCompatActivity implements ListBengkelContract.View, View.OnClickListener, ListBengkelAdapter.ListItemClickListener {
     private ListBengkelContract.presenter presenter;
     private ActivityCariBengkelBinding binding;
 
@@ -76,14 +76,22 @@ public class ListBengkelActivity extends AppCompatActivity implements ListBengke
 
     @Override
     public void setBengkel(List<Bengkel> bengkel) {
-        binding.listBengkel.setAdapter(new ListBengkelAdapter(bengkel, getLayoutInflater()));
+        binding.listBengkel.setAdapter(new ListBengkelAdapter(bengkel, getLayoutInflater(), this));
     }
 
     @Override
     public void setSearchresult(List<Bengkel> bengkel) {
         if(bengkel.size()>0)
-            binding.listBengkel.setAdapter(new ListBengkelAdapter(bengkel, getLayoutInflater()));
+            binding.listBengkel.setAdapter(new ListBengkelAdapter(bengkel, getLayoutInflater(), this));
         else
             Toast.makeText(this, "Search Keyword Not Found", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListItemClick(int position) {
+        Intent intent = new Intent(this, DetailBengkelActivity.class);
+        intent.putExtra("bengkel_id", position);
+        finish();
+        startActivity(intent);
     }
 }
