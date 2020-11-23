@@ -1,6 +1,7 @@
 package com.alifadepe.android_example.adapter;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -16,10 +17,12 @@ import java.util.List;
 public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.ViewHolder> {
     private List<Bengkel> bengkel;
     private LayoutInflater layoutInflater;
+    private final ListItemClickListener mOnClickListener;
 
-    public ListBengkelAdapter(List<Bengkel> bengkel, LayoutInflater layoutInflater) {
+    public ListBengkelAdapter(List<Bengkel> bengkel, LayoutInflater layoutInflater, ListBengkelAdapter.ListItemClickListener onClickListener) {
         this.bengkel = bengkel;
         this.layoutInflater = layoutInflater;
+        this.mOnClickListener = onClickListener;
     }
 
     @NonNull
@@ -43,12 +46,23 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
         }
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ItemBengkelBinding binding;
 
         public ViewHolder(@NonNull ItemBengkelBinding binding) {
             super(binding.getRoot());
+            itemView.setOnClickListener(this);
             this.binding = binding;
         }
+
+        @Override
+        public void onClick(View v) {
+            int position = bengkel.get(getAdapterPosition()).getBengkel_id();
+            mOnClickListener.onListItemClick(position);
+        }
+    }
+
+    public interface ListItemClickListener{
+        void onListItemClick(int position);
     }
 }
