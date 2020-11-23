@@ -2,7 +2,7 @@ package com.alifadepe.android_example.interactor;
 
 import android.util.Log;
 
-import com.alifadepe.android_example.api_response.ListBengkelResponse;
+import com.alifadepe.android_example.api_response.BengkelResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.ListBengkelContract;
@@ -25,15 +25,15 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
     public void requestBengkel(final RequestCallback<List<Bengkel>> requestCallback) {
         AndroidNetworking.get(ApiConstant.BASE_URL + "/api/bengkelList")
                 .build()
-                .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
+                .getAsObject(BengkelResponse.class, new ParsedRequestListener<BengkelResponse>() {
                     @Override
-                    public void onResponse(ListBengkelResponse response) {
+                    public void onResponse(BengkelResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
                         }
                         else {
-                            requestCallback.requestSuccess(response.bengkels);
+                            requestCallback.requestSuccess(response.bengkel);
                         }
                     }
 
@@ -51,15 +51,15 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("name", keyword)
                 .build()
-                .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
+                .getAsObject(BengkelResponse.class, new ParsedRequestListener<BengkelResponse>() {
                     @Override
-                    public void onResponse(ListBengkelResponse response) {
+                    public void onResponse(BengkelResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
                         }
                         else {
-                            requestCallback.requestSuccess(response.bengkels);
+                            requestCallback.requestSuccess(response.bengkel);
                         }
                     }
 
