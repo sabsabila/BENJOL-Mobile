@@ -3,6 +3,7 @@ package com.alifadepe.android_example.interactor;
 import android.util.Log;
 
 import com.alifadepe.android_example.api_response.BookingResponse;
+import com.alifadepe.android_example.api_response.ListMotorResponse;
 import com.alifadepe.android_example.api_response.MotorResponse;
 import com.alifadepe.android_example.api_response.RegisterResponse;
 import com.alifadepe.android_example.api_response.ServiceResponse;
@@ -65,9 +66,9 @@ public class BookingInteractor implements BookingContract.Interactor {
         AndroidNetworking.get(ApiConstant.BASE_URL + "/api/motorcycle")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
-                .getAsObject(MotorResponse.class, new ParsedRequestListener<MotorResponse>() {
+                .getAsObject(ListMotorResponse.class, new ParsedRequestListener<ListMotorResponse>() {
                     @Override
-                    public void onResponse(MotorResponse response) {
+                    public void onResponse(ListMotorResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
