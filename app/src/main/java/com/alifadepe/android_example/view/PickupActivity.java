@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alifadepe.android_example.contract.PickupContract;
 import com.alifadepe.android_example.databinding.ActivityPickupBinding;
+import com.alifadepe.android_example.model.Booking;
 import com.alifadepe.android_example.presenter.PickupPresenter;
 
 import java.util.ArrayList;
@@ -45,11 +46,11 @@ public class PickupActivity extends AppCompatActivity implements PickupContract.
 
     @Override
     public void sendLocation(ArrayList<String> location) {
-        finish();
-
-        Intent returnIntent = new Intent(this, LoginActivity.class); //login ini gantien BookingActivity kalo udah ada
+        Intent returnIntent = new Intent();
         returnIntent.putStringArrayListExtra("location", location);
-        startActivity(returnIntent);
+        setResult(RESULT_OK, returnIntent);
+
+        finish();
     }
 
     @Override
