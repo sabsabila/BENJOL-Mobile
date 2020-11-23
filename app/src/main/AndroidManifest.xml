@@ -22,6 +22,7 @@
         <activity android:name=".view.PickupActivity" />
         <activity android:name=".view.SparepartActivity" />
         <activity android:name=".view.MotorcycleActivity" />
+        <activity android:name=".view.EditMotorcycleActivity" />
         <activity android:name=".view.DetailBengkelActivity" />
         <activity android:name=".view.BookingActivity" />
         <activity android:name=".view.LoginActivity">

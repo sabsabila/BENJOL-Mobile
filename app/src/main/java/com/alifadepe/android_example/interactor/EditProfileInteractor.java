@@ -2,12 +2,11 @@ package com.alifadepe.android_example.interactor;
 
 import android.util.Log;
 
-import com.alifadepe.android_example.api_response.EditResponse;
+import com.alifadepe.android_example.api_response.ResponseMessage;
 import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.EditProfileContract;
-import com.alifadepe.android_example.contract.ProfileContract;
 import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.util.SharedPreferencesUtil;
 import com.androidnetworking.AndroidNetworking;
@@ -60,9 +59,9 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
                 .addBodyParameter("email", profile.getEmail())
                 .addBodyParameter("phone_number", profile.getPhone_number())
                 .build()
-                .getAsObject(EditResponse.class, new ParsedRequestListener<EditResponse>() {
+                .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
                     @Override
-                    public void onResponse(EditResponse response) {
+                    public void onResponse(ResponseMessage response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");

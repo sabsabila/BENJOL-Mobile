@@ -24,7 +24,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 
 import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileContract.View, View.OnClickListener {
+public class ProfileActivity extends AppCompatActivity implements ProfileContract.View, View.OnClickListener, ListMotorAdapter.ListItemClickListener, ListMotorAdapter.ListItemLongClickListener {
     private ProfileContract.presenter presenter;
     private ActivityProfileBinding binding;
 
@@ -87,6 +87,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     }
 
     public void onBackButtonClick(){
+        finish();
         startActivity(new Intent(this, DashboardActivity.class));
     }
 
@@ -119,6 +120,22 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     }
 
     @Override
+    public void showDeleteAlert(final int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(android.R.drawable.ic_delete);
+        builder.setTitle("Delete Item");
+        builder.setMessage("Are you sure you want to delete this item ?");
+        builder.setPositiveButton(Html.fromHtml("<font color='#FBB308'>Yes</font>"), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int arg1) {
+                presenter.deleteMotor(id);
+            }
+        });
+        builder.setNegativeButton(Html.fromHtml("<font color='#eb5334'>No</font>"), null);
+        builder.create();
+        builder.show();
+    }
+
+    @Override
     public void redirectToLogin() {
         finish();
         startActivity(new Intent(this, LoginActivity.class));
@@ -126,6 +143,32 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void setMotor(List<Motorcycle> motorcycles) {
-        binding.listMotorcycle.setAdapter(new ListMotorAdapter(motorcycles, getLayoutInflater()));
+        binding.listMotorcycle.setAdapter(new ListMotorAdapter(motorcycles, getLayoutInflater(), this, this));
+    }
+
+    @Override
+    public void editMotor(int id) {
+        Intent intent = new Intent(this, EditMotorcycleActivity.class);
+        intent.putExtra("id", id);
+        finish();
+        startActivity(intent);
+    }
+
+    @Override
+    public void deleteSuccess(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        finish();
+        startActivity(getIntent());
+    }
+
+    @Override
+    public void onListItemClick(int position) {
+        presenter.editMotor(position);
+    }
+
+    @Override
+    public boolean onListItemLongClick(int position) {
+        showDeleteAlert(position);
+        return true;
     }
 }

@@ -48,6 +48,26 @@ public class ProfilePresenter implements ProfileContract.presenter {
     }
 
     @Override
+    public void editMotor(int id) {
+        view.editMotor(id);
+    }
+
+    @Override
+    public void deleteMotor(int id) {
+        interactor.deleteMotor(id, new RequestCallback<String>(){
+            @Override
+            public void requestSuccess(String data) {
+                view.deleteSuccess(data);
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.showError(errorMessage);
+            }
+        });
+    }
+
+    @Override
     public void logout() {
         interactor.logout();
         view.redirectToLogin();
