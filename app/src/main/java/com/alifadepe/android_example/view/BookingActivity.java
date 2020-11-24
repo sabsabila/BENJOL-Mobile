@@ -70,7 +70,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     public void bookingSuccess(String message) {
         finish();
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, LoginActivity.class)); //ganti ke paymentkalauudah
+        startActivity(new Intent(this, DashboardActivity.class)); //ganti ke paymentkalauudah
     }
 
     @Override
