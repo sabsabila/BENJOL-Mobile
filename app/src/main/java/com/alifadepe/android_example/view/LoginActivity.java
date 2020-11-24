@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSuccess() {
         finish();
-        startActivity(new Intent(this, BookingActivity.class));
+        startActivity(new Intent(this, DashboardActivity.class));
     }
 
     @Override
