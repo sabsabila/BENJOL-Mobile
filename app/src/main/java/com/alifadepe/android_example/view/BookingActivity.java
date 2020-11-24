@@ -47,7 +47,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
 
     private void initView(){
         binding.baseLayout.pageTitle.setText("Booking");
-        binding.baseLayout.backButton.setVisibility(View.GONE);
+        binding.baseLayout.backButton.setOnClickListener(this);
         presenter.setMotor();
         presenter.setService();
         binding.yesButton.setOnClickListener(this);
@@ -70,7 +70,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     public void bookingSuccess(String message) {
         finish();
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, LoginActivity.class)); //ganti ke paymentkalauudah
+        startActivity(new Intent(this, DashboardActivity.class)); //ganti ke paymentkalauudah
     }
 
     @Override
@@ -81,7 +81,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     @Override
     public void onClick(View v) {
         if(v.getId() == binding.baseLayout.backButton.getId()){
-            onBackPressed();
+            onBackClick();
         }
         if(v.getId() == binding.yesButton.getId()){
             onButtonYesClick();
@@ -92,6 +92,13 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
         if(v.getId() == binding.bookButton.getId()){
             onButtonBookClick();
         }
+    }
+
+    private void onBackClick() {
+        Intent intent = new Intent(this, DetailBengkelActivity.class);
+        intent.putExtra("bengkel_id", bengkelId);
+        finish();
+        startActivity(intent);
     }
 
     public void onButtonYesClick(){

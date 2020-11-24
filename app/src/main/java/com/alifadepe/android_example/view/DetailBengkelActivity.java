@@ -19,6 +19,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class DetailBengkelActivity extends AppCompatActivity implements DetailBengkelContract.View, View.OnClickListener {
     private DetailBengkelContract.Presenter presenter;
     private ActivityDetailBengkelBinding binding;
+    private int bengkel_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         setContentView(binding.getRoot());
 
         Intent intent = getIntent();
-        int bengkel_id = intent.getIntExtra("bengkel_id", 0);
+        bengkel_id = intent.getIntExtra("bengkel_id", 0);
 
         presenter = new DetailBengkelPresenter(this, new DetailBengkelInteractor(UtilProvider.getSharedPreferencesUtil(), bengkel_id));
         initView();
@@ -71,13 +72,17 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
 
     @Override
     public void redirectToBooking() {
-//        finish();
-//        startActivity(new Intent(this, BookServiceActivity.class));
+        Intent intent = new Intent(this, BookingActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 
     @Override
     public void redirectToListSparepart() {
-//        finish();
-//        startActivity(new Intent(this, ListSparepartActivity.class));
+        Intent intent = new Intent(this, SparepartBengkelActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 }

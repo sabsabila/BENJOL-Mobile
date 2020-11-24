@@ -22,7 +22,7 @@
     <string name="serviceBerat">Service Berat</string>
     <string name="et_problem_placeholder">Type your problem here...</string>
     <string name="tv_is_pickup">You want us to pick up your vehicle?</string>
-    <string name="what_problem">What is Your Problem?</string>
+    <string name="what_problem">What kind of service do you need ?</string>
     <string name="when">When ?</string>
     <string name="tv_select_motor">Select Motorcycle</string>
 
