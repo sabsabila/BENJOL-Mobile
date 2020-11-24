@@ -41,24 +41,9 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/muli"
                     android:text="@{sparepart.name}"
+                    tools:text="@string/bengkelName"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_bengkel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/muli"
-                    android:text="@{sparepart.bengkel}"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_bengkel_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/muli"
-                    android:text="@{sparepart.address}"
-                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_price"
@@ -69,6 +54,17 @@
                     android:text="@string/price"
                     android:textColor="@color/colorSecondary"
                     android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/muli"
+                    android:gravity="left"
+                    android:text="Stock : x"
+                    android:textColor="@color/colorSecondary"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
