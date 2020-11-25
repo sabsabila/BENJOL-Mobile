@@ -9,18 +9,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alifadepe.android_example.adapter.ListSparepartAdapter;
+import com.alifadepe.android_example.adapter.ListSparepartBengkelAdapter;
+import com.alifadepe.android_example.contract.SparepartBengkelContract;
 import com.alifadepe.android_example.contract.SparepartContract;
 import com.alifadepe.android_example.databinding.ActivityListSparepartBinding;
+import com.alifadepe.android_example.interactor.SparepartBengkelInteractor;
 import com.alifadepe.android_example.interactor.SparepartInteractor;
 import com.alifadepe.android_example.model.Sparepart;
+import com.alifadepe.android_example.presenter.SparepartBengkelPresenter;
 import com.alifadepe.android_example.presenter.SparepartPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
 import java.util.List;
 
-public class SparepartActivity extends AppCompatActivity implements SparepartContract.View, View.OnClickListener {
-    private SparepartContract.presenter presenter;
+public class SparepartBengkelActivity extends AppCompatActivity implements SparepartBengkelContract.View, View.OnClickListener {
+    private SparepartBengkelContract.presenter presenter;
     private ActivityListSparepartBinding binding;
+    private int bengkelId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +33,18 @@ public class SparepartActivity extends AppCompatActivity implements SparepartCon
         binding = ActivityListSparepartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        presenter = new SparepartPresenter(this, new SparepartInteractor(UtilProvider.getSharedPreferencesUtil()));
+        Intent intent = getIntent();
+        bengkelId = intent.getIntExtra("bengkel_id", 0);
+
+        presenter = new SparepartBengkelPresenter(this, new SparepartBengkelInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
     private void initView(){
-        presenter.setSparepart();
+        presenter.setSparepart(bengkelId);
         binding.listSparepart.setLayoutManager(new LinearLayoutManager(this));
         binding.searchSparepartButton.setOnClickListener(this);
-        binding.baseLayout.pageTitle.setText("Search Sparepart");
+        binding.baseLayout.pageTitle.setText("List Sparepart");
         binding.baseLayout.backButton.setOnClickListener(this);
     }
 
@@ -61,12 +69,14 @@ public class SparepartActivity extends AppCompatActivity implements SparepartCon
     }
 
     private void onSearchButtonClick() {
-        presenter.setSearchResult(binding.searchView.getText().toString());
+        presenter.setSearchResult(bengkelId, binding.searchView.getText().toString());
     }
 
     public void onBackButtonClick(){
         finish();
-        startActivity(new Intent(this, DashboardActivity.class));
+        Intent intent = new Intent(this, DetailBengkelActivity.class);
+        intent.putExtra("bengkel_id", bengkelId);
+        startActivity(intent);
     }
 
     @Override
@@ -76,16 +86,16 @@ public class SparepartActivity extends AppCompatActivity implements SparepartCon
 
     @Override
     public void setSparepart(List<Sparepart> spareparts) {
-        if(spareparts.size() > 0)
-            binding.listSparepart.setAdapter(new ListSparepartAdapter(spareparts, getLayoutInflater()));
+        if(spareparts.size()>0)
+            binding.listSparepart.setAdapter(new ListSparepartBengkelAdapter(spareparts, getLayoutInflater()));
         else
-            Toast.makeText(this, "No Spareparts Found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Sparepats Found", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void setSearchresult(List<Sparepart> spareparts) {
         if(spareparts.size()>0)
-            binding.listSparepart.setAdapter(new ListSparepartAdapter(spareparts, getLayoutInflater()));
+            binding.listSparepart.setAdapter(new ListSparepartBengkelAdapter(spareparts, getLayoutInflater()));
         else
             Toast.makeText(this, "Search Keyword Not Found", Toast.LENGTH_SHORT).show();
     }

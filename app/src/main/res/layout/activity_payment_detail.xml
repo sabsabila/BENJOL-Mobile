@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+        <variable
+            name="payment"
+            type="com.alifadepe.android_example.model.Payment" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/transactionIdLabel"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="50dp"
                     android:textColor="?attr/colorTextDark"
                     android:textSize="8pt"/>
                 <TextView
@@ -56,29 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/transactionId"
-                    android:layout_marginTop="20dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/bengkelLabel"
-                    android:layout_below="@+id/payment_id"
-                    android:layout_marginTop="10dp"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:id="@+id/payment_bengkel_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/namaBengkel"
-                    android:layout_below="@+id/payment_id"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="50dp"
                     android:layout_alignParentRight="true"
                     android:textColor="?attr/colorTextDark"
                     android:textSize="8pt"/>
@@ -88,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/dateLabel"
-                    android:layout_below="@+id/payment_bengkel_name"
+                    android:layout_below="@+id/payment_id"
                     android:layout_marginTop="10dp"
                     android:textColor="?attr/colorTextDark"
                     android:textSize="8pt"/>
@@ -98,8 +79,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/date"
-                    android:layout_below="@+id/payment_bengkel_name"
+                    android:text="@{payment.repairment_date}"
+                    android:layout_below="@+id/payment_id"
                     android:layout_marginTop="10dp"
                     android:layout_alignParentRight="true"
                     android:textColor="?attr/colorTextDark"
@@ -109,30 +90,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/plateLabel"
+                    android:text="@string/statusLabel"
                     android:layout_below="@+id/payment_date"
-                    android:layout_marginTop="10dp"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:id="@+id/payment_plate_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/plateLabel"
-                    android:layout_below="@+id/payment_date"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/status"
-                    android:layout_below="@+id/payment_plate_number"
                     android:layout_marginTop="10dp"
                     android:textColor="?attr/colorTextDark"
                     android:textSize="8pt"/>
@@ -142,8 +101,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/statusLabel"
-                    android:layout_below="@+id/payment_plate_number"
+                    android:text="@{payment.status}"
+                    android:layout_below="@+id/payment_date"
                     android:layout_marginTop="10dp"
                     android:layout_alignParentRight="true"
                     android:textColor="?attr/colorTextDark"
@@ -185,8 +144,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:text="@string/repairmentNoteLabel"
+                android:layout_marginTop="50dp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorTextDark"
+                android:textSize="8pt"/>
+
+            <TextView
+                android:id="@+id/payment_repairment_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@{payment.repairment_note}"
+                android:layout_marginTop="10dp"
+                android:textColor="?attr/colorTextDark"
+                android:textSize="8pt"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
                 android:text="@string/noteLabel"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorTextDark"
                 android:textSize="8pt"/>
@@ -196,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="@string/note"
+                android:text="@{payment.bengkel_note}"
                 android:layout_marginTop="10dp"
                 android:textColor="?attr/colorTextDark"
                 android:textSize="8pt"/>

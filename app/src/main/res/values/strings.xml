@@ -22,7 +22,7 @@
     <string name="serviceBerat">Service Berat</string>
     <string name="et_problem_placeholder">Type your problem here...</string>
     <string name="tv_is_pickup">You want us to pick up your vehicle?</string>
-    <string name="what_problem">What is Your Problem?</string>
+    <string name="what_problem">What kind of service do you need ?</string>
     <string name="when">When ?</string>
     <string name="tv_select_motor">Select Motorcycle</string>
 
@@ -54,7 +54,7 @@
     <string name="findSparepart">Find Sparepart</string>
     <string name="trackDelivery">Track Delivery</string>
     <string name="checkProgress">Check Progress</string>
-    <string name="upcomingTitle">Your Upcoming Services</string>
+    <string name="upcomingTitle">Your Latest Booking</string>
     <string name="bengkelName">Bengkel xxxxxx</string>
     <string name="dayDate">Day, yyyy-mm-dd</string>
     <string name="serviceStatusDashboard">Service xxxxx</string>
@@ -80,7 +80,7 @@
     <string name="confirmLocation">Confirm</string>
 
     <!--Pick Up Progress-->
-    <string name="deliveryLabel">Delivery Status</string>
+    <string name="deliveryLabel">Pickup Status</string>
     <string name="pickUpProgress1">Picking up your vehicle</string>
     <string name="pickUpProgress2">Processing your service</string>
     <string name="pickUpProgress3">Delivering back to you</string>
@@ -104,11 +104,12 @@
     <string name="plateLabel">Plate Number</string>
     <string name="costLabel">Total Cost</string>
     <string name="noteLabel">Bengkel Note</string>
+    <string name="repairmentNoteLabel">Repaiment Note</string>
     <string name="statusLabel">Status</string>
     <string name="transactionId">xxxx</string>
     <string name="date">yyyy-mm-dd</string>
     <string name="plateNumber">L xxxx Y</string>
-    <string name="cost">Rp. xxxx</string>
+    <string name="cost">Rp. </string>
     <string name="note">Lorem ipsum dolor sit amet</string>
     <string name="status">Unpaid</string>
     <string name="transfer">Transfer</string>

@@ -1,26 +1,24 @@
 package com.alifadepe.android_example.contract;
 
-<<<<<<< HEAD
-public interface ProgressPickupContract {
-=======
 import com.alifadepe.android_example.callback.RequestCallback;
-import com.alifadepe.android_example.model.Pickup;
+import com.alifadepe.android_example.model.ProgressService;
 
 import java.text.ParseException;
 import java.util.List;
 
-public interface ProgressPickupContract {
+public interface ProgressServiceContract {
     interface View {
         void showError(String message);
-        void setProgressPickup(Pickup pickup);
+        void setProgressService(List<String> progress) throws ParseException;
+        void redirectToPayment();
     }
 
     interface Presenter {
         void setProgressService();
+        void payService();
     }
 
     interface Interactor {
-        void requestProgressPickup(final RequestCallback<Pickup> requestCallback);
+        void requestProgressService(final RequestCallback<List<String>> requestCallback);
     }
->>>>>>> 520de48c84876da26a77e0da0e620e8031f60151
 }

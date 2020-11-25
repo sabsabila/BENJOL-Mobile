@@ -76,7 +76,10 @@ public class ListBengkelActivity extends AppCompatActivity implements ListBengke
 
     @Override
     public void setBengkel(List<Bengkel> bengkel) {
-        binding.listBengkel.setAdapter(new ListBengkelAdapter(bengkel, getLayoutInflater(), this));
+        if(bengkel.size()>0)
+            binding.listBengkel.setAdapter(new ListBengkelAdapter(bengkel, getLayoutInflater(), this));
+        else
+            Toast.makeText(this, "No Bengkel Found", Toast.LENGTH_SHORT).show();
     }
 
     @Override

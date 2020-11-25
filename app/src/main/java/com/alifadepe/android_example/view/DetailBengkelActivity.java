@@ -19,6 +19,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class DetailBengkelActivity extends AppCompatActivity implements DetailBengkelContract.View, View.OnClickListener {
     private DetailBengkelContract.Presenter presenter;
     private ActivityDetailBengkelBinding binding;
+    private int bengkel_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         setContentView(binding.getRoot());
 
         Intent intent = getIntent();
-        int bengkel_id = intent.getIntExtra("bengkel_id", 0);
+        bengkel_id = intent.getIntExtra("bengkel_id", 0);
 
         presenter = new DetailBengkelPresenter(this, new DetailBengkelInteractor(UtilProvider.getSharedPreferencesUtil(), bengkel_id));
         initView();
@@ -37,7 +38,10 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         presenter.setBengkel();
         binding.baseLayout.pageTitle.setText("Bengkel Info");
         binding.bookServiceButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
         binding.listSparepartButton.setOnClickListener(this);
+        binding.chatBridgeButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
     }
 
@@ -52,6 +56,32 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         if(v.getId() == binding.baseLayout.backButton.getId()){
             onBackButtonClick();
         }
+        if(v.getId() == binding.chatBridgeButton.getId()){
+            onchatButtonClick();
+        }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
+
+    private void onchatButtonClick() {
+        Intent intent = new Intent(this, ChatBridgeActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 
     private void onBackButtonClick() {
@@ -67,17 +97,22 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
     @Override
     public void setBengkel(Bengkel bengkel) {
         binding.setBengkel(bengkel);
+        binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
     }
 
     @Override
     public void redirectToBooking() {
-//        finish();
-//        startActivity(new Intent(this, BookServiceActivity.class));
+        Intent intent = new Intent(this, BookingActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 
     @Override
     public void redirectToListSparepart() {
-//        finish();
-//        startActivity(new Intent(this, ListSparepartActivity.class));
+        Intent intent = new Intent(this, SparepartBengkelActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 }

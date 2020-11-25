@@ -2,12 +2,12 @@ package com.alifadepe.android_example.interactor;
 
 import android.util.Log;
 
-import com.alifadepe.android_example.api_response.BengkelResponse;
-import com.alifadepe.android_example.api_response.ListBengkelResponse;
+import com.alifadepe.android_example.api_response.SparepartResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
-import com.alifadepe.android_example.contract.ListBengkelContract;
-import com.alifadepe.android_example.model.Bengkel;
+import com.alifadepe.android_example.contract.SparepartBengkelContract;
+import com.alifadepe.android_example.contract.SparepartContract;
+import com.alifadepe.android_example.model.Sparepart;
 import com.alifadepe.android_example.util.SharedPreferencesUtil;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -15,26 +15,27 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 
 import java.util.List;
 
-public class ListBengkelInteractor implements ListBengkelContract.Interactor {
+public class SparepartBengkelInteractor implements SparepartBengkelContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;
 
-    public ListBengkelInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
+    public SparepartBengkelInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
         this.sharedPreferencesUtil = sharedPreferencesUtil;
     }
 
     @Override
-    public void requestBengkel(final RequestCallback<List<Bengkel>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/bengkelList")
+    public void requestSparepartBengkel(final int id, final RequestCallback<List<Sparepart>> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/sparepartBengkel/" + id)
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
-                .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
+                .getAsObject(SparepartResponse.class, new ParsedRequestListener<SparepartResponse>() {
                     @Override
-                    public void onResponse(ListBengkelResponse response) {
+                    public void onResponse(SparepartResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
                         }
                         else {
-                            requestCallback.requestSuccess(response.bengkel);
+                            requestCallback.requestSuccess(response.spareparts);
                         }
                     }
 
@@ -47,19 +48,20 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
     }
 
     @Override
-    public void searchBengkel(String keyword, final RequestCallback<List<Bengkel>> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/searchBengkel")
+    public void searchSparepartBengkel(int id, String keyword, final RequestCallback<List<Sparepart>> requestCallback) {
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/searchSparepartBengkel/" + id)
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("name", keyword)
                 .build()
-                .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
+                .getAsObject(SparepartResponse.class, new ParsedRequestListener<SparepartResponse>() {
                     @Override
-                    public void onResponse(ListBengkelResponse response) {
+                    public void onResponse(SparepartResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                             Log.d("tag", "response null");
                         }
                         else {
-                            requestCallback.requestSuccess(response.bengkel);
+                            requestCallback.requestSuccess(response.spareparts);
                         }
                     }
 

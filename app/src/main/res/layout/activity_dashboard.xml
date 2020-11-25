@@ -2,6 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable
+            name="booking"
+            type="com.alifadepe.android_example.model.BookingData" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -291,7 +294,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="10pt"
                         android:textStyle="bold"
-                        android:text="@string/bengkelName"/>
+                        android:text="@{booking.name}"/>
 
                     <TextView
                         android:id="@+id/day_date"
@@ -299,24 +302,15 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/bengkel_name"
                         android:textSize="8pt"
-                        android:text="@string/dayDate"/>
+                        android:text="@{booking.repairment_date}"/>
 
                     <TextView
-                        android:id="@+id/status_label"
+                        android:id="@+id/repairment_note"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/day_date"
                         android:textSize="8pt"
-                        android:text="@string/statusLabel"/>
-
-                    <ImageView
-                        android:id="@+id/bengkel_image"
-                        android:layout_width="62dp"
-                        android:layout_height="62dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="15dp"
-                        android:src="@drawable/defaultprofile"/>
+                        android:text="@{booking.repairment_note}"/>
 
                 </RelativeLayout>
 
