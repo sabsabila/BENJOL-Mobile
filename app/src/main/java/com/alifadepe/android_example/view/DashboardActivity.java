@@ -70,8 +70,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         startActivity(new Intent(this, SparepartActivity.class));
     }
     public void onCheckProgressClick(){
-        Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
         //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+        finish();
+        startActivity(new Intent(this, ProgressServiceActivity.class));
     }
     public void onProfileClick(){
         finish();
