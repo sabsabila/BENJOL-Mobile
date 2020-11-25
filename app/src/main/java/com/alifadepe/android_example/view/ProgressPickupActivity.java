@@ -1,8 +1,5 @@
 package com.alifadepe.android_example.view;
 
-<<<<<<< HEAD
-public class ProgressPickupActivity {
-=======
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -90,6 +87,4 @@ public class ProgressPickupActivity extends AppCompatActivity implements Progres
             binding.progressDeliveryLocation.setText("-");
         }
     }
-
->>>>>>> 520de48c84876da26a77e0da0e620e8031f60151
 }

@@ -1,8 +1,5 @@
 package com.alifadepe.android_example.presenter;
 
-<<<<<<< HEAD
-public class ProgressPickupPresenter {
-=======
 import android.util.Log;
 
 import com.alifadepe.android_example.callback.RequestCallback;
@@ -37,5 +34,4 @@ public class ProgressPickupPresenter implements ProgressPickupContract.Presenter
             }
         });
     }
->>>>>>> 520de48c84876da26a77e0da0e620e8031f60151
 }

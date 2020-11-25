@@ -1,8 +1,5 @@
 package com.alifadepe.android_example.interactor;
 
-<<<<<<< HEAD
-public class ProgressPickupInteractor {
-=======
 import android.util.Log;
 
 import com.alifadepe.android_example.api_response.PickupResponse;
@@ -16,7 +13,6 @@ import com.alifadepe.android_example.util.SharedPreferencesUtil;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-
 import java.util.List;
 
 public class ProgressPickupInteractor implements ProgressPickupContract.Interactor {
@@ -50,5 +46,4 @@ public class ProgressPickupInteractor implements ProgressPickupContract.Interact
                     }
                 });
     }
->>>>>>> 520de48c84876da26a77e0da0e620e8031f60151
 }
