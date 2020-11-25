@@ -86,7 +86,10 @@ public class SparepartBengkelActivity extends AppCompatActivity implements Spare
 
     @Override
     public void setSparepart(List<Sparepart> spareparts) {
-        binding.listSparepart.setAdapter(new ListSparepartBengkelAdapter(spareparts, getLayoutInflater()));
+        if(spareparts.size()>0)
+            binding.listSparepart.setAdapter(new ListSparepartBengkelAdapter(spareparts, getLayoutInflater()));
+        else
+            Toast.makeText(this, "No Sparepats Found", Toast.LENGTH_SHORT).show();
     }
 
     @Override

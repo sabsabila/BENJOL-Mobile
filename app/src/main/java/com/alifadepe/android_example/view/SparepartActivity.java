@@ -76,7 +76,10 @@ public class SparepartActivity extends AppCompatActivity implements SparepartCon
 
     @Override
     public void setSparepart(List<Sparepart> spareparts) {
-        binding.listSparepart.setAdapter(new ListSparepartAdapter(spareparts, getLayoutInflater()));
+        if(spareparts.size() > 0)
+            binding.listSparepart.setAdapter(new ListSparepartAdapter(spareparts, getLayoutInflater()));
+        else
+            Toast.makeText(this, "No Spareparts Found", Toast.LENGTH_SHORT).show();
     }
 
     @Override

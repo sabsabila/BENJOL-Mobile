@@ -35,8 +35,9 @@ public class ChatBridgeActivity extends AppCompatActivity implements ChatBridgeC
         super.onCreate(savedInstanceState);
         binding = ActivityChatBridgeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        // int bengkel_id = intent.getIntExtra("bengkel_id"); => ini dapet dari page detail bengkel
-        bengkelId = 1;
+
+        Intent intent = getIntent();
+        bengkelId = intent.getIntExtra("bengkel_id", 0);
 
         presenter = new ChatBridgePresenter(this, new ChatBridgeInteractor(UtilProvider.getSharedPreferencesUtil(), bengkelId));
         initView();
@@ -68,8 +69,10 @@ public class ChatBridgeActivity extends AppCompatActivity implements ChatBridgeC
     }
 
     public void onBackButtonClick() {
+        Intent intent = new Intent(this, DetailBengkelActivity.class);
+        intent.putExtra("bengkel_id", bengkelId);
         finish();
-        startActivity(new Intent(this, DashboardActivity.class));
+        startActivity(intent);
     }
 
     private void onHomeButtonClick() {
