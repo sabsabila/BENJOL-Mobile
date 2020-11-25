@@ -48,6 +48,7 @@ public class ChatBridgeActivity extends AppCompatActivity implements ChatBridgeC
         presenter.setBengkel();
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
         binding.callButton.setOnClickListener(this);
         binding.waButton.setOnClickListener(this);
     }
@@ -59,6 +60,9 @@ public class ChatBridgeActivity extends AppCompatActivity implements ChatBridgeC
         }
         if (v.getId() == binding.navbar.homeButton.getId()) {
             onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
         }
         if (v.getId() == binding.callButton.getId()) {
             onCallButtonClick();
@@ -78,6 +82,11 @@ public class ChatBridgeActivity extends AppCompatActivity implements ChatBridgeC
     private void onHomeButtonClick() {
         finish();
         startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     private void onCallButtonClick() {
