@@ -4,6 +4,6 @@ import com.alifadepe.android_example.model.Bengkel;
 
 import java.util.List;
 
-public class BengkelResponse {
-    public Bengkel bengkel;
+public class ListBengkelResponse {
+    public List<Bengkel> bengkel;
 }

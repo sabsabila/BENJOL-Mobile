@@ -1,8 +1,5 @@
 package com.alifadepe.android_example.contract;
 
-import com.alifadepe.android_example.api_response.BookingResponse;
-import com.alifadepe.android_example.api_response.RegisterResponse;
-import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.model.Booking;
 import com.alifadepe.android_example.model.Motorcycle;
