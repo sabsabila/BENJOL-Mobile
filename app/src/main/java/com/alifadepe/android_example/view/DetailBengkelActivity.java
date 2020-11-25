@@ -38,6 +38,8 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         presenter.setBengkel();
         binding.baseLayout.pageTitle.setText("Bengkel Info");
         binding.bookServiceButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
         binding.listSparepartButton.setOnClickListener(this);
         binding.chatBridgeButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
@@ -57,6 +59,22 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         if(v.getId() == binding.chatBridgeButton.getId()){
             onchatButtonClick();
         }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     private void onchatButtonClick() {
