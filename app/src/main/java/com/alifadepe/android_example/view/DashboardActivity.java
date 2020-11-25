@@ -64,8 +64,8 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         startActivity(new Intent(this, ListBengkelActivity.class));
     }
     public void onTrackDeliveryClick(){
-        Toast.makeText(this, "ini buat liat delivery", Toast.LENGTH_SHORT).show();
-        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+        finish();
+        startActivity(new Intent(this, ProgressPickupActivity.class));
     }
     public void onfindSparepartClick(){
         finish();

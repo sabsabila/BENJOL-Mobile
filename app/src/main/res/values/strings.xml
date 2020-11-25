@@ -80,7 +80,7 @@
     <string name="confirmLocation">Confirm</string>
 
     <!--Pick Up Progress-->
-    <string name="deliveryLabel">Delivery Status</string>
+    <string name="deliveryLabel">Pickup Status</string>
     <string name="pickUpProgress1">Picking up your vehicle</string>
     <string name="pickUpProgress2">Processing your service</string>
     <string name="pickUpProgress3">Delivering back to you</string>
