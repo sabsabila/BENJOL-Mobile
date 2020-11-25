@@ -97,6 +97,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
     @Override
     public void setBengkel(Bengkel bengkel) {
         binding.setBengkel(bengkel);
+        binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
     }
 
     @Override

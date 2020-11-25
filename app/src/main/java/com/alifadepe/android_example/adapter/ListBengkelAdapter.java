@@ -34,6 +34,7 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setBengkel(bengkel.get(position));
+        holder.binding.tvNumber.setText("+" + bengkel.get(position).getPhone_number());
     }
 
     @Override
