@@ -39,6 +39,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         binding.baseLayout.pageTitle.setText("Bengkel Info");
         binding.bookServiceButton.setOnClickListener(this);
         binding.listSparepartButton.setOnClickListener(this);
+        binding.chatBridgeButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
     }
 
@@ -53,6 +54,16 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         if(v.getId() == binding.baseLayout.backButton.getId()){
             onBackButtonClick();
         }
+        if(v.getId() == binding.chatBridgeButton.getId()){
+            onchatButtonClick();
+        }
+    }
+
+    private void onchatButtonClick() {
+        Intent intent = new Intent(this, ChatBridgeActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 
     private void onBackButtonClick() {

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+        <variable
+            name="progress_service"
+            type="com.alifadepe.android_example.model.ProgressService" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -67,10 +70,10 @@
                     android:layout_marginTop="1dp"/>
 
                 <TextView
-                    android:id="@+id/status_progress"
+                    android:id="@+id/plate_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/statusProgress"
+                    android:text="@{progress_service.plate_number}"
                     android:textAlignment="center"
                     android:textSize="15pt"
                     android:textStyle="bold"

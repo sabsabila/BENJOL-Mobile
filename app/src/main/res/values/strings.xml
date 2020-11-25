@@ -104,11 +104,12 @@
     <string name="plateLabel">Plate Number</string>
     <string name="costLabel">Total Cost</string>
     <string name="noteLabel">Bengkel Note</string>
+    <string name="repairmentNoteLabel">Repaiment Note</string>
     <string name="statusLabel">Status</string>
     <string name="transactionId">xxxx</string>
     <string name="date">yyyy-mm-dd</string>
     <string name="plateNumber">L xxxx Y</string>
-    <string name="cost">Rp. xxxx</string>
+    <string name="cost">Rp. </string>
     <string name="note">Lorem ipsum dolor sit amet</string>
     <string name="status">Unpaid</string>
     <string name="transfer">Transfer</string>

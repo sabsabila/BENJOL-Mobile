@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/BenjolTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".view.PaymentActivity" />
         <activity android:name=".view.ChatBridgeActivity" />
         <activity android:name=".view.ListBookActivity" />
         <activity android:name=".view.ListBengkelActivity" />
@@ -26,6 +27,7 @@
         <activity android:name=".view.SparepartBengkelActivity"/>
         <activity android:name=".view.MotorcycleActivity" />
         <activity android:name=".view.EditMotorcycleActivity" />
+        <activity android:name=".view.ProgressServiceActivity" />
         <activity android:name=".view.DetailBengkelActivity" />
         <activity android:name=".view.BookingActivity" />
         <activity android:name=".view.LoginActivity"/>
