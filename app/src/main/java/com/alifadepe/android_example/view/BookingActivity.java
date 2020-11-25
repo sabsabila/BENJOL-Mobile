@@ -39,8 +39,10 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
         super.onCreate(savedInstanceState);
         binding = ActivityBookingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        // int bengkel_id = intent.getIntExtra("bengkel_id"); => ini dapet dari page detail bengkel
-        bengkelId = 1;
+
+        Intent intent = getIntent();
+        bengkelId = intent.getIntExtra("bengkel_id", 0);
+
         presenter = new BookingPresenter(this, new BookingInteractor(UtilProvider.getSharedPreferencesUtil(), bengkelId));
         initView();
     }
