@@ -3,6 +3,7 @@
     package="com.alifadepe.android_example">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".Starter"
@@ -13,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/BenjolTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.ListBookActivity"></activity>
-        <activity android:name=".view.ListBengkelActivity"></activity>
+        <activity android:name=".view.ChatBridgeActivity" />
+        <activity android:name=".view.ListBookActivity" />
+        <activity android:name=".view.ListBengkelActivity" />
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.DashboardActivity" />
         <activity android:name=".view.ProfileActivity" />

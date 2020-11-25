@@ -1,14 +1,11 @@
 package com.alifadepe.android_example.presenter;
 
-import com.alifadepe.android_example.api_response.BookingResponse;
-import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.BookingContract;
 import com.alifadepe.android_example.interactor.BookingInteractor;
 import com.alifadepe.android_example.model.Booking;
 import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Service;
-import com.alifadepe.android_example.model.User;
 
 import java.util.List;
 
