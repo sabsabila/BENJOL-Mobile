@@ -37,7 +37,7 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                             requestCallback.requestSuccess(response.progress);
 //                            Log.d("tag", response.progress.get(0));
 //                            Log.d("tag", response.progress.get(1));
-                            Log.d("tag", response.progress.get(2));
+//                            Log.d("tag", response.progress.get(2));
                         }
                     }
 

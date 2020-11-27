@@ -36,7 +36,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_width="230dp"
                 android:layout_height="230dp"
-                android:background="@drawable/rounded_image_drawable"
+                android:background="@drawable/noimage"
                 android:layout_gravity="center_horizontal"/>
 
             <RelativeLayout

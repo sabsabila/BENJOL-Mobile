@@ -20,10 +20,10 @@
 
             <ImageView
                 android:id="@+id/bengkel_placeholder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="start"
-                android:background="@drawable/bengkelplaceholder"/>
+                android:background="@drawable/noimage"/>
 
             <TextView
                 android:id="@+id/list_bengkel_name"
