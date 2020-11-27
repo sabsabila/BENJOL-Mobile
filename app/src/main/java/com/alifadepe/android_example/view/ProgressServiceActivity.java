@@ -87,46 +87,50 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
 
     @Override
     public void setProgressService(List<String> progress) {
-        SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
-        SimpleDateFormat format2 = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
+        if(progress != null){
+            SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+            SimpleDateFormat format2 = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
 
-        if(progress.get(0) != null && progress.get(1) != null){
-            Date startTime = null;
-            Date endTime = null;
-            Date currentTime = null;
-            try {
-                startTime = format.parse(format2.parse(progress.get(0)).toString());
-                Log.d("tag", "formatted" + startTime);
-                //currentTime = format.parse(format2.parse(java.util.Calendar.getInstance().getTime().toString()).toString());
-                currentTime = format.parse(format2.parse("12:20:00").toString());
-                endTime = format.parse(format2.parse(progress.get(1)).toString());
-                Log.d("tag", "formatted" + endTime);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                Log.d("tag", e.getMessage());
+            if(progress.get(0) != null && progress.get(1) != null){
+                Date startTime = null;
+                Date endTime = null;
+                Date currentTime = null;
+                try {
+                    startTime = format.parse(format2.parse(progress.get(0)).toString());
+                    Log.d("tag", "formatted" + startTime);
+                    //currentTime = format.parse(format2.parse(java.util.Calendar.getInstance().getTime().toString()).toString());
+                    currentTime = format.parse(format2.parse("12:20:00").toString());
+                    endTime = format.parse(format2.parse(progress.get(1)).toString());
+                    Log.d("tag", "formatted" + endTime);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Log.d("tag", e.getMessage());
+                }
+
+                long percentage = (endTime.getTime() - currentTime.getTime()) / (endTime.getTime() - startTime.getTime()) * 100;
+                long estimated = endTime.getTime() - currentTime.getTime();
+
+                if(endTime.getTime() < currentTime.getTime()){
+                    percentage = 100;
+                    estimated = 0;
+                }
+
+                if(startTime.getTime() > currentTime.getTime()){
+                    percentage = 0;
+                    estimated = 0;
+                }
+                Log.d("tag", "ini masuk method");
+                binding.percentageProgress.setText(percentage + "%");
+                binding.estimatedProgress.setText("- " +estimated + " -");
+            }else{
+                binding.percentageProgress.setText("0 %");
+                binding.estimatedProgress.setText("-");
             }
 
-            long percentage = (endTime.getTime() - currentTime.getTime()) / (endTime.getTime() - startTime.getTime()) * 100;
-            long estimated = endTime.getTime() - currentTime.getTime();
-
-            if(endTime.getTime() < currentTime.getTime()){
-                percentage = 100;
-                estimated = 0;
-            }
-
-            if(startTime.getTime() > currentTime.getTime()){
-                percentage = 0;
-                estimated = 0;
-            }
-            Log.d("tag", "ini masuk method");
-            binding.percentageProgress.setText(percentage + "%");
-            binding.estimatedProgress.setText("- " +estimated + " -");
+            binding.plateNumber.setText(progress.get(2));
         }else{
-            binding.percentageProgress.setText("0 %");
-            binding.estimatedProgress.setText("-");
+            binding.plateNumber.setText("No Bookings Made Yet");
         }
-
-        binding.plateNumber.setText(progress.get(2));
     }
 
     @Override

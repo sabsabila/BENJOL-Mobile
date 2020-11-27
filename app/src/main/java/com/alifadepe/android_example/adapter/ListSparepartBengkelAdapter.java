@@ -6,9 +6,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.databinding.ItemSparepartBengkelBinding;
 import com.alifadepe.android_example.databinding.ItemSparepartBinding;
 import com.alifadepe.android_example.model.Sparepart;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,6 +34,11 @@ public class ListSparepartBengkelAdapter extends RecyclerView.Adapter<ListSparep
         holder.binding.setSparepart(spareparts.get(position));
         holder.binding.tvPrice.setText("Rp. " + String.valueOf(spareparts.get(position).getPrice()));
         holder.binding.tvStock.setText("Stock : " + String.valueOf(spareparts.get(position).getStock()));
+        if(spareparts.get(position).getPicture() != null){
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + spareparts.get(position).getPicture())
+                    .into(holder.binding.imageView);
+        }
     }
 
     @Override

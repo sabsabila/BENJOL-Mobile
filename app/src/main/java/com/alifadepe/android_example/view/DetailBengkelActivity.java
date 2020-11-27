@@ -9,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.alifadepe.android_example.R;
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.DetailBengkelContract;
 import com.alifadepe.android_example.databinding.ActivityDetailBengkelBinding;
 import com.alifadepe.android_example.interactor.DetailBengkelInteractor;
 import com.alifadepe.android_example.model.Bengkel;
 import com.alifadepe.android_example.presenter.DetailBengkelPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
+import com.squareup.picasso.Picasso;
 
 public class DetailBengkelActivity extends AppCompatActivity implements DetailBengkelContract.View, View.OnClickListener {
     private DetailBengkelContract.Presenter presenter;
@@ -98,6 +100,11 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
     public void setBengkel(Bengkel bengkel) {
         binding.setBengkel(bengkel);
         binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
+        if(bengkel.getProfile_picture() != null){
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
+                    .into(binding.bengkelImage);
+        }
     }
 
     @Override
