@@ -78,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     public void onBackButtonClick(){
+        finish();
         startActivity(new Intent(this, LoginActivity.class));
     }
 
