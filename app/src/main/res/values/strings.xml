@@ -91,6 +91,8 @@
     <string name="estimatedProgress">xx:xx:xx</string>
     <string name="statusProgress">STATUS...</string>
     <string name="paymentDetailProgress">Payment Detail</string>
+    <string name="start">Start Time</string>
+    <string name="end">End Time</string>
 
     <!--Chat-->
 

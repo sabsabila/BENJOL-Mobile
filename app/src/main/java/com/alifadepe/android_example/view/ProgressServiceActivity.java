@@ -90,15 +90,17 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
         String estimatedTime;
 
         if(progress != null){
-            if(progress.get(0) != null && progress.get(1) != null && progress.get(2) != null){
-                int percentage = Integer.parseInt(progress.get(0));
-                int hours = Integer.parseInt(progress.get(1));
-                int minutes = Integer.parseInt(progress.get(2));
+            if(progress.get(0) != null){
+                int percentage = Integer.parseInt(progress.get(2));
+                int hours = Integer.parseInt(progress.get(3));
+                int minutes = Integer.parseInt(progress.get(4));
                 if(percentage > 100){
                     percentage = 100;
                     hours = 0;
                     minutes = 0;
                 }
+                binding.startTime.setText(progress.get(0));
+                binding.endTime.setText(progress.get(1));
                 binding.percentageProgress.setText(percentage + " %");
                 estimatedTime = hours +  " Hours " + minutes + " Minutes";
                 binding.estimatedProgress.setText(estimatedTime);
@@ -106,7 +108,7 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
                 binding.percentageProgress.setText("0 %");
                 binding.estimatedProgress.setText("-");
             }
-            binding.plateNumber.setText(progress.get(3));
+            binding.plateNumber.setText(progress.get(5));
         }else{
             binding.plateNumber.setText("No Bookings Made Yet");
         }
