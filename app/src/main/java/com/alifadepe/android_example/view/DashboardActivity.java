@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.alifadepe.android_example.contract.DashboardContract;
 import com.alifadepe.android_example.databinding.ActivityDashboardBinding;
 import com.alifadepe.android_example.interactor.DashboardInteractor;
+import com.alifadepe.android_example.model.BookingData;
 import com.alifadepe.android_example.model.Sparepart;
 import com.alifadepe.android_example.presenter.DashboardPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
@@ -30,6 +31,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
     private void initView(){
         presenter.getUsername();
+        presenter.getBookingData();
         binding.findBengkel.setOnClickListener(this);
         binding.findSparepart.setOnClickListener(this);
         binding.trackDelivery.setOnClickListener(this);
@@ -62,16 +64,14 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         startActivity(new Intent(this, ListBengkelActivity.class));
     }
     public void onTrackDeliveryClick(){
-        Toast.makeText(this, "ini buat liat delivery", Toast.LENGTH_SHORT).show();
-        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
+        finish();
+        startActivity(new Intent(this, ProgressPickupActivity.class));
     }
     public void onfindSparepartClick(){
         finish();
         startActivity(new Intent(this, SparepartActivity.class));
     }
     public void onCheckProgressClick(){
-        //Toast.makeText(this, "ini buat check progress", Toast.LENGTH_SHORT).show();
-        //presenter.login(binding.email.getText().toString(), binding.password.getText().toString());
         finish();
         startActivity(new Intent(this, ProgressServiceActivity.class));
     }
@@ -88,5 +88,13 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     @Override
     public void setUsername(String name){
         binding.profileName.setText(name);
+    }
+
+    @Override
+    public void setBooking(BookingData booking) {
+        if(booking != null)
+            binding.setBooking(booking);
+        else
+            binding.bengkelName.setText("No Bookings Made");
     }
 }

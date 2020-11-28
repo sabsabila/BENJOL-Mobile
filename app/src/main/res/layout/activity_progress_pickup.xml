@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+        <variable
+            name="pickup"
+            type="com.alifadepe.android_example.model.Pickup" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,13 +29,63 @@
                 android:textStyle="bold"
                 android:textSize="15pt"
                 android:layout_gravity="start"
-                android:layout_marginTop="70dp"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:id="@+id/pickup_line_break"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorTextDark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pickupLocation"
+                android:textStyle="bold"
+                android:textSize="8pt"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/progress_pickup_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{pickup.pickup_location}"
+                android:textSize="7pt"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/deliveryLocation"
+                android:textStyle="bold"
+                android:textSize="8pt"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/progress_delivery_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{pickup.dropoff_location}"
+                android:textSize="7pt"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:id="@+id/pickup_line_break2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorTextDark" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="25dp">
 
                 <ImageView
@@ -43,6 +96,7 @@
                     android:layout_marginRight="10dp"/>
 
                 <TextView
+                    android:id="@+id/pickup_status_picking_up"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -68,6 +122,7 @@
                     android:layout_marginRight="10dp"/>
 
                 <TextView
+                    android:id="@+id/pickup_status_processing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -93,6 +148,7 @@
                     android:layout_marginRight="10dp"/>
 
                 <TextView
+                    android:id="@+id/pickup_status_delivering"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -104,5 +160,12 @@
                     android:background="@drawable/rounded_square" />
             </LinearLayout>
         </LinearLayout>
+        <include
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/navbar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"/>
     </RelativeLayout>
 </layout>

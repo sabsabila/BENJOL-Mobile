@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.databinding.ItemBengkelBinding;
 import com.alifadepe.android_example.databinding.ItemSparepartBinding;
 import com.alifadepe.android_example.model.Bengkel;
 import com.alifadepe.android_example.model.Sparepart;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,6 +36,14 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setBengkel(bengkel.get(position));
+        if(bengkel.get(position).getPhone_number() != null)
+            holder.binding.tvNumber.setText("+" + bengkel.get(position).getPhone_number());
+
+        if(bengkel.get(position).getProfile_picture() != null){
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + bengkel.get(position).getProfile_picture())
+                    .into(holder.binding.bengkelPlaceholder);
+        }
     }
 
     @Override

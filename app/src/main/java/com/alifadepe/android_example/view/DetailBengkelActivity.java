@@ -9,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.alifadepe.android_example.R;
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.DetailBengkelContract;
 import com.alifadepe.android_example.databinding.ActivityDetailBengkelBinding;
 import com.alifadepe.android_example.interactor.DetailBengkelInteractor;
 import com.alifadepe.android_example.model.Bengkel;
 import com.alifadepe.android_example.presenter.DetailBengkelPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
+import com.squareup.picasso.Picasso;
 
 public class DetailBengkelActivity extends AppCompatActivity implements DetailBengkelContract.View, View.OnClickListener {
     private DetailBengkelContract.Presenter presenter;
@@ -38,7 +40,10 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         presenter.setBengkel();
         binding.baseLayout.pageTitle.setText("Bengkel Info");
         binding.bookServiceButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
         binding.listSparepartButton.setOnClickListener(this);
+        binding.chatBridgeButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
     }
 
@@ -53,6 +58,32 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         if(v.getId() == binding.baseLayout.backButton.getId()){
             onBackButtonClick();
         }
+        if(v.getId() == binding.chatBridgeButton.getId()){
+            onchatButtonClick();
+        }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
+
+    private void onchatButtonClick() {
+        Intent intent = new Intent(this, ChatBridgeActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
     }
 
     private void onBackButtonClick() {
@@ -68,6 +99,12 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
     @Override
     public void setBengkel(Bengkel bengkel) {
         binding.setBengkel(bengkel);
+        binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
+        if(bengkel.getProfile_picture() != null){
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
+                    .into(binding.bengkelImage);
+        }
     }
 
     @Override

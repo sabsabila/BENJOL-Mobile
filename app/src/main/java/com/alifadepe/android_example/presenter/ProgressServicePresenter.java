@@ -1,5 +1,7 @@
 package com.alifadepe.android_example.presenter;
 
+import android.util.Log;
+
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.ProgressServiceContract;
 import com.alifadepe.android_example.interactor.ProgressServiceInteractor;
@@ -23,7 +25,9 @@ public class ProgressServicePresenter implements ProgressServiceContract.Present
             @Override
             public void requestSuccess(List<String> progress) {
                 try {
+                    Log.d("tag", "ini masuk presenter");
                     view.setProgressService(progress);
+                    Log.d("tag", "setelah panggil method view");
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }

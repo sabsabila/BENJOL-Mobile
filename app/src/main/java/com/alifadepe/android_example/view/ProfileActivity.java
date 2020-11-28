@@ -83,6 +83,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     }
 
     public void onButtonInputMotorClick(){
+        finish();
         startActivity(new Intent(this, MotorcycleActivity.class));
     }
 
