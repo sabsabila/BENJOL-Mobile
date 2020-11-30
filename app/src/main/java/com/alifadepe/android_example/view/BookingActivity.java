@@ -119,8 +119,8 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     public void onButtonBookClick(){
         problem = binding.selectService.getSelectedItem().toString() + " - " +
                   binding.etProblem.getText().toString();
-        selectedMotor = (int) binding.selectService.getSelectedItemPosition() + 1;
-        selectedService = (int) binding.selectMotor.getSelectedItemPosition() + 1;
+        selectedMotor = (int) binding.selectMotor.getSelectedItemPosition() + 1;
+        selectedService = (int) binding.selectService.getSelectedItemPosition() + 1;
 
         Booking booking = new Booking(
                 bengkelId,
