@@ -20,30 +20,36 @@ public class EditProfilePresenter implements EditProfileContract.Presenter {
 
     @Override
     public void setProfile() {
-        interactor.requestProfile(new RequestCallback<List<Profile>>() {
+        view.startLoading();
+        interactor.requestProfile(new RequestCallback<Profile>() {
             @Override
-            public void requestSuccess(List<Profile> data) {
-                view.setProfile(data.get(0));
+            public void requestSuccess(Profile data) {
+                view.setProfile(data);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }
 
     @Override
     public void saveProfile(Profile profile) {
+        view.startLoading();
         interactor.editProfile(profile, new RequestCallback<String>() {
             @Override
             public void requestSuccess(String message) {
                 view.editProfileSuccess(message);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

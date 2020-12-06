@@ -8,6 +8,8 @@ public interface EditMotorcycleContract {
         void showError(String message);
         void setMotor(Motorcycle motorcycle);
         void editMotorSuccess(String message);
+        void startLoading();
+        void endLoading();
     }
 
     interface presenter {

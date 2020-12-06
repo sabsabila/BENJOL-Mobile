@@ -19,15 +19,18 @@ public class PaymentPresenter implements PaymentContract.presenter {
 
     @Override
     public void setPayment() {
+        view.startLoading();
         interactor.requestPayment(new RequestCallback<Payment>() {
             @Override
             public void requestSuccess(Payment response) {
                 view.setPayment(response);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

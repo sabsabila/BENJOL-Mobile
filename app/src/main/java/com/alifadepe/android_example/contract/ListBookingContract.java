@@ -1,23 +1,23 @@
 package com.alifadepe.android_example.contract;
 
 import com.alifadepe.android_example.callback.RequestCallback;
-import com.alifadepe.android_example.model.Bengkel;
+import com.alifadepe.android_example.model.BookingData;
 
 import java.util.List;
 
-public interface ChatBridgeContract {
+public interface ListBookingContract {
     interface View {
         void showError(String message);
-        void setBengkel(Bengkel bengkel);
+        void setBooking(List<BookingData> bookings);
         void startLoading();
         void endLoading();
     }
 
-    interface presenter {
-        void setBengkel();
+    interface Presenter {
+        void setBooking();
     }
 
     interface Interactor {
-        void requestBengkel(RequestCallback<List<Bengkel>> requestCallback);
+        void requestBookings(final RequestCallback<List<BookingData>> requestCallback);
     }
 }

@@ -17,6 +17,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class ProgressPickupActivity extends AppCompatActivity implements ProgressPickupContract.View, View.OnClickListener {
     private ProgressPickupContract.Presenter presenter;
     private ActivityProgressPickupBinding binding;
+    private  int bookingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +25,30 @@ public class ProgressPickupActivity extends AppCompatActivity implements Progres
         binding = ActivityProgressPickupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        bookingId = intent.getIntExtra("booking_id", 0);
+
         presenter = new ProgressPickupPresenter(this, new ProgressPickupInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
     private void initView(){
-        presenter.setProgressService();
+        presenter.setProgressService(bookingId);
         binding.baseLayout.pageTitle.setText("Progress Service");
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
         binding.navbar.profileButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -62,7 +76,7 @@ public class ProgressPickupActivity extends AppCompatActivity implements Progres
 
     private void onBackButtonClick() {
         finish();
-        startActivity(new Intent(this, DashboardActivity.class));
+        startActivity(new Intent(this, ListPickupActivity.class));
     }
 
     @Override

@@ -16,8 +16,9 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".view.PaymentActivity" />
         <activity android:name=".view.ChatBridgeActivity" />
-        <activity android:name=".view.ListBookActivity" />
+        <activity android:name=".view.ListBookingActivity" />
         <activity android:name=".view.ListBengkelActivity" />
+        <activity android:name=".view.ListPickupActivity"/>
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.DashboardActivity" />
         <activity android:name=".view.ProfileActivity" />

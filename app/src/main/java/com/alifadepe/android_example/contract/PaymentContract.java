@@ -7,6 +7,8 @@ public interface PaymentContract {
     interface View {
         void showError(String message);
         void setPayment(Payment payment);
+        void startLoading();
+        void endLoading();
     }
 
     interface presenter {

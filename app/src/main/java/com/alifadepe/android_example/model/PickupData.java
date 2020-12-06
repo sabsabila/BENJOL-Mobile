@@ -1,16 +1,18 @@
 package com.alifadepe.android_example.model;
 
-public class BookingData {
+public class PickupData {
     private int booking_id;
     private String repairment_date;
-    private String repairment_note;
     private String name;
+    private String pickup_location;
+    private String dropoff_location;
 
-    public BookingData(int booking_id, String repairment_date, String repairment_note, String name) {
+    public PickupData(int booking_id, String repairment_date, String name, String pickup_location, String dropoff_location) {
         this.booking_id = booking_id;
         this.repairment_date = repairment_date;
-        this.repairment_note = repairment_note;
         this.name = name;
+        this.pickup_location = pickup_location;
+        this.dropoff_location = dropoff_location;
     }
 
     public int getBooking_id() {
@@ -29,19 +31,27 @@ public class BookingData {
         this.repairment_date = repairment_date;
     }
 
-    public String getRepairment_note() {
-        return repairment_note;
-    }
-
-    public void setRepairment_note(String repairment_note) {
-        this.repairment_note = repairment_note;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPickup_location() {
+        return pickup_location;
+    }
+
+    public void setPickup_location(String pickup_location) {
+        this.pickup_location = pickup_location;
+    }
+
+    public String getDropoff_location() {
+        return dropoff_location;
+    }
+
+    public void setDropoff_location(String dropoff_location) {
+        this.dropoff_location = dropoff_location;
     }
 }
