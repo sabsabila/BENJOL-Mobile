@@ -40,6 +40,7 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
             holder.binding.tvNumber.setText("+" + bengkel.get(position).getPhone_number());
 
         if(bengkel.get(position).getProfile_picture() != null){
+            holder.binding.bengkelPlaceholder.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + bengkel.get(position).getProfile_picture())
                     .into(holder.binding.bengkelPlaceholder);
