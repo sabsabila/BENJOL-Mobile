@@ -23,7 +23,7 @@ public class DashboardInteractor implements DashboardContract.Interactor {
     }
 
     @Override
-    public void getUser(final RequestCallback<List<Profile>> requestCallback) {
+    public void getUser(final RequestCallback<Profile> requestCallback) {
         AndroidNetworking.get(ApiConstant.BASE_URL + "/api/user")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
@@ -31,7 +31,7 @@ public class DashboardInteractor implements DashboardContract.Interactor {
                     @Override
                     public void onResponse(UserResponse response) {
                         if(response != null){
-                            requestCallback.requestSuccess(response.users);
+                            requestCallback.requestSuccess(response.user);
                         }
                         else {
                             requestCallback.requestFailed("Null Response");

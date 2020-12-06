@@ -48,6 +48,16 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
     }
 
     @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId() == binding.bookServiceButton.getId()){
             presenter.bookService();

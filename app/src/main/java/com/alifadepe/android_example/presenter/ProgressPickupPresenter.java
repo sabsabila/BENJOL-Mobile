@@ -22,15 +22,18 @@ public class ProgressPickupPresenter implements ProgressPickupContract.Presenter
     }
 
     @Override
-    public void setProgressService() {
-        interactor.requestProgressPickup(new RequestCallback<Pickup>() {
+    public void setProgressService(int id) {
+        view.startLoading();
+        interactor.requestProgressPickup(id, new RequestCallback<Pickup>() {
             @Override
             public void requestSuccess(Pickup pickup) {
                 view.setProgressPickup(pickup);
+                view.endLoading();
             }
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

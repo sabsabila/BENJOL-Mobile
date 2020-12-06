@@ -41,6 +41,15 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         binding.radioOther.setOnClickListener(this);
     }
 
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
 
     @Override
     public void onClick(View v) {

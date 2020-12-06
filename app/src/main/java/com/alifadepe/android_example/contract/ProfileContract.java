@@ -16,6 +16,8 @@ public interface ProfileContract {
         void setMotor(List<Motorcycle> motorcycles);
         void editMotor(int id);
         void deleteSuccess(String message);
+        void startLoading();
+        void endLoading();
     }
 
     interface presenter {
@@ -27,7 +29,7 @@ public interface ProfileContract {
     }
 
     interface Interactor {
-        void requestProfile(RequestCallback<List<Profile>> requestCallback);
+        void requestProfile(RequestCallback<Profile> requestCallback);
         void requestMotor(RequestCallback<List<Motorcycle>> requestCallback);
         void deleteMotor(int id, RequestCallback<String> requestCallback);
         void logout();

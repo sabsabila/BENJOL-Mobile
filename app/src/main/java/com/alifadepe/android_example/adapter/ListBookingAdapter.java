@@ -9,20 +9,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.databinding.ItemBengkelBinding;
-import com.alifadepe.android_example.databinding.ItemSparepartBinding;
+import com.alifadepe.android_example.databinding.ItemBookingBinding;
 import com.alifadepe.android_example.model.Bengkel;
-import com.alifadepe.android_example.model.Sparepart;
+import com.alifadepe.android_example.model.BookingData;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.ViewHolder> {
-    private List<Bengkel> bengkel;
+public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.ViewHolder> {
+    private List<BookingData> bookings;
     private LayoutInflater layoutInflater;
     private final ListItemClickListener mOnClickListener;
 
-    public ListBengkelAdapter(List<Bengkel> bengkel, LayoutInflater layoutInflater, ListBengkelAdapter.ListItemClickListener onClickListener) {
-        this.bengkel = bengkel;
+    public ListBookingAdapter(List<BookingData> bookings, LayoutInflater layoutInflater, ListBookingAdapter.ListItemClickListener onClickListener) {
+        this.bookings = bookings;
         this.layoutInflater = layoutInflater;
         this.mOnClickListener = onClickListener;
     }
@@ -30,27 +30,18 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(ItemBengkelBinding.inflate(layoutInflater));
+        return new ViewHolder(ItemBookingBinding.inflate(layoutInflater));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.binding.setBengkel(bengkel.get(position));
-        if(bengkel.get(position).getPhone_number() != null)
-            holder.binding.tvNumber.setText("+" + bengkel.get(position).getPhone_number());
-
-        if(bengkel.get(position).getProfile_picture() != null){
-            holder.binding.bengkelPlaceholder.setBackground(null);
-            Picasso.get()
-                    .load(ApiConstant.BASE_URL + "/" + bengkel.get(position).getProfile_picture())
-                    .into(holder.binding.bengkelPlaceholder);
-        }
+        holder.binding.setBooking(bookings.get(position));
     }
 
     @Override
     public int getItemCount() {
-        if(bengkel != null){
-            return bengkel.size();
+        if(bookings != null){
+            return bookings.size();
         }
         else {
             return 0;
@@ -58,9 +49,9 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ItemBengkelBinding binding;
+        ItemBookingBinding binding;
 
-        public ViewHolder(@NonNull ItemBengkelBinding binding) {
+        public ViewHolder(@NonNull ItemBookingBinding binding) {
             super(binding.getRoot());
             itemView.setOnClickListener(this);
             this.binding = binding;
@@ -68,7 +59,7 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
 
         @Override
         public void onClick(View v) {
-            int position = bengkel.get(getAdapterPosition()).getBengkel_id();
+            int position = bookings.get(getAdapterPosition()).getBooking_id();
             mOnClickListener.onListItemClick(position);
         }
     }

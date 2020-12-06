@@ -41,7 +41,12 @@ public class LoginInteractor implements LoginContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed("Wrong Email or Password");
+                        if(anError.getErrorCode() == 401)
+                            requestCallback.requestFailed("Wrong Email or Password");
+                        else if(anError.getErrorCode() == 500)
+                            requestCallback.requestFailed("Server Error. Please check your internet connection");
+                        else
+                            requestCallback.requestFailed(anError.getMessage());
                     }
                 });
     }

@@ -10,6 +10,8 @@ public interface EditProfileContract {
         void setProfile(Profile profile);
         void showError(String message);
         void editProfileSuccess(String message);
+        void startLoading();
+        void endLoading();
     }
 
     interface Presenter {
@@ -18,7 +20,7 @@ public interface EditProfileContract {
     }
 
     interface Interactor {
-        void requestProfile(RequestCallback<List<Profile>> requestCallback);
+        void requestProfile(RequestCallback<Profile> requestCallback);
         void editProfile(Profile profile, RequestCallback<String> requestCallback);
     }
 }

@@ -13,6 +13,8 @@ public interface DashboardContract {
         void setUsername(String username);
         void setBooking(BookingData booking);
         void showError(String message);
+        void startLoading();
+        void endLoading();
     }
 
     interface Presenter {
@@ -21,7 +23,7 @@ public interface DashboardContract {
     }
 
     interface Interactor {
-        void getUser(RequestCallback<List<Profile>> requestCallback);
+        void getUser(RequestCallback<Profile> requestCallback);
         void getLatestBooking(RequestCallback<BookingData> requestCallback);
     }
 }

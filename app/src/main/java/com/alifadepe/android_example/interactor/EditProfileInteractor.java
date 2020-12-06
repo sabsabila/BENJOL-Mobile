@@ -23,7 +23,7 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
     }
 
     @Override
-    public void requestProfile(final RequestCallback<List<Profile>> requestCallback) {
+    public void requestProfile(final RequestCallback<Profile> requestCallback) {
         AndroidNetworking.get(ApiConstant.BASE_URL + "/api/user")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
@@ -35,7 +35,7 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
                             Log.d("tag", "response null");
                         }
                         else {
-                            requestCallback.requestSuccess(response.users);
+                            requestCallback.requestSuccess(response.user);
                         }
                     }
 
