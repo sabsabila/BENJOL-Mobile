@@ -30,9 +30,6 @@ public class LoginInteractor implements LoginContract.Interactor {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                         }
-                        else if(response.token == null){
-                            requestCallback.requestFailed("Wrong Email or Password");
-                        }
                         else {
                             requestCallback.requestSuccess(response);
                             Log.d("tag", response.token);

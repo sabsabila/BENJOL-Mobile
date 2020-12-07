@@ -18,6 +18,7 @@ import com.alifadepe.android_example.util.UtilProvider;
 public class PaymentActivity extends AppCompatActivity implements PaymentContract.View, View.OnClickListener{
     private PaymentContract.presenter presenter;
     private ActivityPaymentDetailBinding binding;
+    private int bookingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,15 @@ public class PaymentActivity extends AppCompatActivity implements PaymentContrac
         binding = ActivityPaymentDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        bookingId = intent.getIntExtra("booking_id", 0);
+
         presenter = new PaymentPresenter(this, new PaymentInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
     private void initView(){
-        presenter.setPayment();
+        presenter.setPayment(bookingId);
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
         binding.navbar.profileButton.setOnClickListener(this);

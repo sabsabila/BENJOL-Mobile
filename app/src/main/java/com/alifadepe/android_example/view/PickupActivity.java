@@ -3,6 +3,7 @@ package com.alifadepe.android_example.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -62,10 +63,14 @@ public class PickupActivity extends AppCompatActivity implements PickupContract.
     }
 
     public void onButtonPickupClick(){
-        ArrayList<String> location = new ArrayList<String>();
-        location.add(binding.pickupLocation.getText().toString());
-        location.add(binding.deliveryLocation.getText().toString());
+        if(binding.pickupLocation.getText().toString().isEmpty() || binding.deliveryLocation.getText().toString().isEmpty())
+            Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
+        else{
+            ArrayList<String> location = new ArrayList<String>();
+            location.add(binding.pickupLocation.getText().toString());
+            location.add(binding.deliveryLocation.getText().toString());
 
-        presenter.inputLocation(location);
+            presenter.inputLocation(location);
+        }
     }
 }

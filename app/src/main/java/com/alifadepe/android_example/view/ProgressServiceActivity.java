@@ -131,6 +131,8 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
     @Override
     public void redirectToPayment() {
         finish();
-        startActivity(new Intent(this, PaymentActivity.class));
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra("booking_id", bookingId);
+        startActivity(intent);
     }
 }

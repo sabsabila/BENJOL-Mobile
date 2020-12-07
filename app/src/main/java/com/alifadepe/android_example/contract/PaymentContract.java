@@ -12,10 +12,10 @@ public interface PaymentContract {
     }
 
     interface presenter {
-        void setPayment();
+        void setPayment(int id);
     }
 
     interface Interactor {
-        void requestPayment(RequestCallback<Payment> requestCallback);
+        void requestPayment(int id, RequestCallback<Payment> requestCallback);
     }
 }

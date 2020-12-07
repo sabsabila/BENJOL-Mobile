@@ -18,9 +18,9 @@ public class PaymentPresenter implements PaymentContract.presenter {
     }
 
     @Override
-    public void setPayment() {
+    public void setPayment(int id) {
         view.startLoading();
-        interactor.requestPayment(new RequestCallback<Payment>() {
+        interactor.requestPayment(id, new RequestCallback<Payment>() {
             @Override
             public void requestSuccess(Payment response) {
                 view.setPayment(response);

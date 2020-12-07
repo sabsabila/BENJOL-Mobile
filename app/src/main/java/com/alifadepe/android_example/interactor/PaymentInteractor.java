@@ -24,8 +24,8 @@ public class PaymentInteractor implements PaymentContract.Interactor {
     }
 
     @Override
-    public void requestPayment(final RequestCallback<Payment> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/payment")
+    public void requestPayment(int id, final RequestCallback<Payment> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/payment/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(PaymentResponse.class, new ParsedRequestListener<PaymentResponse>() {
@@ -41,7 +41,7 @@ public class PaymentInteractor implements PaymentContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Failed to load data !");
                     }
                 });
     }
