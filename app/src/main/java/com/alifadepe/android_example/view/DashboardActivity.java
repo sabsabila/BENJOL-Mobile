@@ -56,7 +56,6 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         if(v.getId() == binding.navbar.profileButton.getId()){
             onProfileClick();
         }
-
     }
 
     public void onfindBengkelClick(){

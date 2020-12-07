@@ -40,7 +40,7 @@ public class DashboardInteractor implements DashboardContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Failed to load data !");
                     }
                 });
     }

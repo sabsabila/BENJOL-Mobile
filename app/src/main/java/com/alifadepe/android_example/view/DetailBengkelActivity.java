@@ -111,6 +111,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         binding.setBengkel(bengkel);
         binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
         if(bengkel.getProfile_picture() != null){
+            binding.bengkelImage.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
                     .into(binding.bengkelImage);

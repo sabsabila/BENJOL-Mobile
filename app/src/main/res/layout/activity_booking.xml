@@ -5,13 +5,27 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
-        <include
-            android:id="@+id/base_layout"
-            android:layout_width="fill_parent"
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            layout="@layout/base_layout" />
+            android:background="@drawable/back"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -28,138 +42,147 @@
             android:layout_height="match_parent"
             android:gravity="end"
             android:orientation="vertical"
-            android:padding="30dp">
+            android:padding="30dp"
+            android:background="@drawable/layout_drawable"
+            android:layout_marginTop="60dp">
 
-            <TextView
-                android:id="@+id/tv_booking_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/muli"
-                android:text="@string/when"
-                android:textColor="@color/colorTitle"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-
-            <EditText
-                android:id="@+id/et_booking_date"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:hint="@string/hint_booking_date"
-                android:background="@drawable/rounded_edit_text"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_problem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/muli"
-                android:text="@string/what_problem"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/select_service"
-                    android:layout_marginTop="5dp"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/dropdown"
-                    />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/et_problem"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/type_problem"
-                android:gravity="top"
-                android:hint="@string/et_problem_placeholder"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp" />
-
-            <TextView
-                android:id="@+id/tv_pickup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/muli"
-                android:text="@string/tv_is_pickup"
-                android:textSize="18sp"
-                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/yes_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/yes_btn"
-                    android:text="Yes"
-                    android:textColor="@color/colorPrimary" />
-
-                <Button
-                    android:id="@+id/no_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:background="@drawable/no_btn"
-                    android:text="No" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_select_motor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/muli"
-                android:text="@string/tv_select_motor"
-                android:textSize="18sp"
-                />
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_booking_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:fontFamily="@font/muli"
+                        android:text="@string/when"
+                        android:textColor="@color/colorTitle"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <DatePicker
+                        android:id="@+id/booking_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="150dp"
+                        android:layout_gravity="left"
+                        android:datePickerMode="spinner"
+                        android:background="?attr/colorSecondary"
+                        android:calendarViewShown="false"/>
 
-                <Spinner
-                    android:id="@+id/select_motor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/dropdown"
-                    />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_problem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/muli"
+                        android:text="@string/what_problem"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/book_button"
-                android:layout_width="140dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/book_btn"
-                android:text="Book Now"
-                android:textColor="@color/colorPrimary" />
-            
-            
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
+                        <Spinner
+                            android:id="@+id/select_service"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/dropdown"
+                            />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_problem"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/type_problem"
+                        android:gravity="top"
+                        android:hint="@string/et_problem_placeholder"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp" />
+
+                    <TextView
+                        android:id="@+id/tv_pickup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/muli"
+                        android:text="@string/tv_is_pickup"
+                        android:textSize="18sp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/yes_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/yes_btn"
+                            android:text="Yes"
+                            android:textColor="@color/colorPrimary" />
+
+                        <Button
+                            android:id="@+id/no_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/no_btn"
+                            android:text="No" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_select_motor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/muli"
+                        android:text="@string/tv_select_motor"
+                        android:textSize="18sp"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/select_motor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/dropdown"
+                            />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/book_button"
+                        android:layout_width="140dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/book_btn"
+                        android:text="Book Now"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
     </RelativeLayout>
 </layout>
