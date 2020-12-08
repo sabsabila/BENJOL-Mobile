@@ -46,6 +46,16 @@ public class EditMotorcycleActivity extends AppCompatActivity implements EditMot
     }
 
     @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId() == binding.baseLayout.backButton.getId()){
             onBackButtonClick();

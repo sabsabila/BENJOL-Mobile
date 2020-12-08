@@ -10,13 +10,15 @@ public interface ProgressPickupContract {
     interface View {
         void showError(String message);
         void setProgressPickup(Pickup pickup);
+        void startLoading();
+        void endLoading();
     }
 
     interface Presenter {
-        void setProgressService();
+        void setProgressService(int id);
     }
 
     interface Interactor {
-        void requestProgressPickup(final RequestCallback<Pickup> requestCallback);
+        void requestProgressPickup(int id, final RequestCallback<Pickup> requestCallback);
     }
 }

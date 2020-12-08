@@ -9,16 +9,18 @@ import java.util.List;
 public interface ProgressServiceContract {
     interface View {
         void showError(String message);
-        void setProgressService(List<String> progress) throws ParseException;
+        void setProgressService(List<String> progress);
         void redirectToPayment();
+        void startLoading();
+        void endLoading();
     }
 
     interface Presenter {
-        void setProgressService();
+        void setProgressService(int id);
         void payService();
     }
 
     interface Interactor {
-        void requestProgressService(final RequestCallback<List<String>> requestCallback);
+        void requestProgressService(int id, final RequestCallback<List<String>> requestCallback);
     }
 }

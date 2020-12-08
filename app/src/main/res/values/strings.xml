@@ -38,6 +38,9 @@
     <string name="profileLabel">Profile</string>
     <string name="editProfile">Edit Profile</string>
     <string name="save">Save</string>
+    <string name="passwordLab">Change Password</string>
+    <string name="oldPass">Old Password</string>
+    <string name="newPass">New Password</string>
 
     <!--Motorcycle-->
     <string name="motorcycleInfo">Motorcycle Info</string>

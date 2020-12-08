@@ -50,6 +50,16 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     }
 
     @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId() == binding.signOutButton.getId()){
             onButtonSignOutClick();

@@ -20,22 +20,19 @@ public class ProgressServicePresenter implements ProgressServiceContract.Present
     }
 
     @Override
-    public void setProgressService() {
-        interactor.requestProgressService(new RequestCallback<List<String>>() {
+    public void setProgressService(int id) {
+        view.startLoading();
+        interactor.requestProgressService(id, new RequestCallback<List<String>>() {
             @Override
             public void requestSuccess(List<String> progress) {
-                try {
-                    Log.d("tag", "ini masuk presenter");
-                    view.setProgressService(progress);
-                    Log.d("tag", "setelah panggil method view");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                view.setProgressService(progress);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

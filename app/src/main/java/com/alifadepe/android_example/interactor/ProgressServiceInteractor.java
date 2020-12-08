@@ -22,8 +22,8 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
     }
 
     @Override
-    public void requestProgressService(final RequestCallback<List<String>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/checkProgress")
+    public void requestProgressService(int id, final RequestCallback<List<String>> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/checkProgress/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ProgressServiceResponse.class, new ParsedRequestListener<ProgressServiceResponse>() {
@@ -35,15 +35,12 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                         }
                         else {
                             requestCallback.requestSuccess(response.progress);
-//                            Log.d("tag", response.progress.get(0));
-//                            Log.d("tag", response.progress.get(1));
-//                            Log.d("tag", response.progress.get(2));
                         }
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Failed to load data !");
                         Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });

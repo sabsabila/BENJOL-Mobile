@@ -48,6 +48,16 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
     }
 
     @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId() == binding.bookServiceButton.getId()){
             presenter.bookService();
@@ -101,6 +111,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
         binding.setBengkel(bengkel);
         binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
         if(bengkel.getProfile_picture() != null){
+            binding.bengkelImage.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
                     .into(binding.bengkelImage);

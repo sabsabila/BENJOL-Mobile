@@ -5,5 +5,5 @@ import com.alifadepe.android_example.model.Profile;
 import java.util.List;
 
 public class UserResponse {
-    public List<Profile> users;
+    public Profile user;
 }

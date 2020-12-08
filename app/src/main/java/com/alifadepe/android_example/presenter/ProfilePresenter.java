@@ -19,15 +19,18 @@ public class ProfilePresenter implements ProfileContract.presenter {
 
     @Override
     public void setProfile() {
-        interactor.requestProfile(new RequestCallback<List<Profile>>() {
+        view.startLoading();
+        interactor.requestProfile(new RequestCallback<Profile>() {
             @Override
-            public void requestSuccess(List<Profile> data) {
-                view.setProfile(data.get(0));
+            public void requestSuccess(Profile data) {
+                view.setProfile(data);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }
@@ -54,15 +57,18 @@ public class ProfilePresenter implements ProfileContract.presenter {
 
     @Override
     public void deleteMotor(int id) {
+        view.startLoading();
         interactor.deleteMotor(id, new RequestCallback<String>(){
             @Override
             public void requestSuccess(String data) {
                 view.deleteSuccess(data);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

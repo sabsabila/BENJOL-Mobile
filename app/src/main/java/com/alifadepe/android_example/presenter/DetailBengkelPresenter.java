@@ -19,15 +19,18 @@ public class DetailBengkelPresenter implements DetailBengkelContract.Presenter {
 
     @Override
     public void setBengkel() {
+        view.startLoading();
         interactor.requestBengkel(new RequestCallback<List<Bengkel>>() {
             @Override
             public void requestSuccess(List<Bengkel> bengkel) {
                 view.setBengkel(bengkel.get(0));
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

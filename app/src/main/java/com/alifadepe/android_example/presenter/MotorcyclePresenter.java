@@ -17,15 +17,18 @@ public class MotorcyclePresenter implements MotorcycleContract.presenter {
 
     @Override
     public void inputMotor(Motorcycle motorcycle) {
+        view.startLoading();
         interactor.addMotorRequest(motorcycle, new RequestCallback<String>() {
             @Override
             public void requestSuccess(String response) {
                 view.addMotorSuccess(response);
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

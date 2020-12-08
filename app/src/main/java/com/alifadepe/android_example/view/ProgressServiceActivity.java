@@ -28,6 +28,7 @@ import java.util.Locale;
 public class ProgressServiceActivity extends AppCompatActivity implements ProgressServiceContract.View, View.OnClickListener {
     private ProgressServiceContract.Presenter presenter;
     private ActivityCheckProgressBinding binding;
+    private int bookingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +36,31 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
         binding = DataBindingUtil.setContentView(this, R.layout.activity_check_progress);
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        bookingId = intent.getIntExtra("booking_id", 0);
+
         presenter = new ProgressServicePresenter(this, new ProgressServiceInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
     private void initView(){
-        presenter.setProgressService();
+        presenter.setProgressService(bookingId);
         binding.baseLayout.pageTitle.setText("Progress Service");
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
         binding.navbar.profileButton.setOnClickListener(this);
         binding.paymentDetailButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -77,7 +91,7 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
 
     private void onBackButtonClick() {
         finish();
-        startActivity(new Intent(this, DashboardActivity.class));
+        startActivity(new Intent(this, ListBookingActivity.class));
     }
 
     @Override
@@ -117,6 +131,8 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
     @Override
     public void redirectToPayment() {
         finish();
-        startActivity(new Intent(this, PaymentActivity.class));
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra("booking_id", bookingId);
+        startActivity(intent);
     }
 }
