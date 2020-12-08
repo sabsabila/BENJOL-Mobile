@@ -16,11 +16,11 @@ public interface EditProfileContract {
 
     interface Presenter {
         void setProfile();
-        void saveProfile(Profile profile);
+        void saveProfile(Profile profile, String[] password);
     }
 
     interface Interactor {
         void requestProfile(RequestCallback<Profile> requestCallback);
-        void editProfile(Profile profile, RequestCallback<String> requestCallback);
+        void editProfile(Profile profile, String[] password, RequestCallback<String> requestCallback);
     }
 }

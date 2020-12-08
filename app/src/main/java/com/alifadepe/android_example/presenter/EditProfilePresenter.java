@@ -37,9 +37,9 @@ public class EditProfilePresenter implements EditProfileContract.Presenter {
     }
 
     @Override
-    public void saveProfile(Profile profile) {
+    public void saveProfile(Profile profile, String[] password) {
         view.startLoading();
-        interactor.editProfile(profile, new RequestCallback<String>() {
+        interactor.editProfile(profile, password, new RequestCallback<String>() {
             @Override
             public void requestSuccess(String message) {
                 view.editProfileSuccess(message);

@@ -48,7 +48,7 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
     }
 
     @Override
-    public void editProfile(Profile profile, final RequestCallback<String> requestCallback) {
+    public void editProfile(Profile profile, String[] password, final RequestCallback<String> requestCallback) {
         AndroidNetworking.put(ApiConstant.BASE_URL + "/api/user")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("first_name", profile.getFirst_name())
@@ -58,13 +58,14 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
                 .addBodyParameter("username", profile.getUsername())
                 .addBodyParameter("email", profile.getEmail())
                 .addBodyParameter("phone_number", profile.getPhone_number())
+                .addBodyParameter("oldPassword", password[0])
+                .addBodyParameter("newPassword", password[1])
                 .build()
                 .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
                     @Override
                     public void onResponse(ResponseMessage response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.message);
@@ -73,8 +74,10 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed("Failed to save data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
+                        if(anError.getErrorCode() == 401)
+                            requestCallback.requestFailed("Old password doesnt match !");
+                        else
+                            requestCallback.requestFailed("Failed to save data !");
                     }
                 });
     }
