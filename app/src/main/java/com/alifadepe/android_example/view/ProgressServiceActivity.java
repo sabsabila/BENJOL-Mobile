@@ -28,6 +28,7 @@ import java.util.Locale;
 public class ProgressServiceActivity extends AppCompatActivity implements ProgressServiceContract.View, View.OnClickListener {
     private ProgressServiceContract.Presenter presenter;
     private ActivityCheckProgressBinding binding;
+    private int bookingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +36,31 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
         binding = DataBindingUtil.setContentView(this, R.layout.activity_check_progress);
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        bookingId = intent.getIntExtra("booking_id", 0);
+
         presenter = new ProgressServicePresenter(this, new ProgressServiceInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
     private void initView(){
-        presenter.setProgressService();
+        presenter.setProgressService(bookingId);
         binding.baseLayout.pageTitle.setText("Progress Service");
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
         binding.navbar.profileButton.setOnClickListener(this);
         binding.paymentDetailButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -77,7 +91,7 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
 
     private void onBackButtonClick() {
         finish();
-        startActivity(new Intent(this, DashboardActivity.class));
+        startActivity(new Intent(this, ListBookingActivity.class));
     }
 
     @Override
@@ -87,51 +101,38 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
 
     @Override
     public void setProgressService(List<String> progress) {
-        SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
-        SimpleDateFormat format2 = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
+        String estimatedTime;
 
-        if(progress.get(0) != null && progress.get(1) != null){
-            Date startTime = null;
-            Date endTime = null;
-            Date currentTime = null;
-            try {
-                startTime = format.parse(format2.parse(progress.get(0)).toString());
-                Log.d("tag", "formatted" + startTime);
-                //currentTime = format.parse(format2.parse(java.util.Calendar.getInstance().getTime().toString()).toString());
-                currentTime = format.parse(format2.parse("12:20:00").toString());
-                endTime = format.parse(format2.parse(progress.get(1)).toString());
-                Log.d("tag", "formatted" + endTime);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                Log.d("tag", e.getMessage());
+        if(progress != null){
+            if(progress.get(0) != null){
+                int percentage = Integer.parseInt(progress.get(2));
+                int hours = Integer.parseInt(progress.get(3));
+                int minutes = Integer.parseInt(progress.get(4));
+                if(percentage > 100){
+                    percentage = 100;
+                    hours = 0;
+                    minutes = 0;
+                }
+                binding.startTime.setText(progress.get(0));
+                binding.endTime.setText(progress.get(1));
+                binding.percentageProgress.setText(percentage + " %");
+                estimatedTime = hours +  " Hours " + minutes + " Minutes";
+                binding.estimatedProgress.setText(estimatedTime);
+            }else{
+                binding.percentageProgress.setText("0 %");
+                binding.estimatedProgress.setText("-");
             }
-
-            long percentage = (endTime.getTime() - currentTime.getTime()) / (endTime.getTime() - startTime.getTime()) * 100;
-            long estimated = endTime.getTime() - currentTime.getTime();
-
-            if(endTime.getTime() < currentTime.getTime()){
-                percentage = 100;
-                estimated = 0;
-            }
-
-            if(startTime.getTime() > currentTime.getTime()){
-                percentage = 0;
-                estimated = 0;
-            }
-            Log.d("tag", "ini masuk method");
-            binding.percentageProgress.setText(percentage + "%");
-            binding.estimatedProgress.setText("- " +estimated + " -");
+            binding.plateNumber.setText(progress.get(5));
         }else{
-            binding.percentageProgress.setText("0 %");
-            binding.estimatedProgress.setText("-");
+            binding.plateNumber.setText("No Bookings Made Yet");
         }
-
-        binding.plateNumber.setText(progress.get(2));
     }
 
     @Override
     public void redirectToPayment() {
         finish();
-        startActivity(new Intent(this, PaymentActivity.class));
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra("booking_id", bookingId);
+        startActivity(intent);
     }
 }

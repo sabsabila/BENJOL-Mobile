@@ -53,7 +53,7 @@ public class EditMotorcycleInteractor implements EditMotorcycleContract.Interact
                     }
                     @Override
                     public void onError(ANError error) {
-                        requestCallback.requestFailed(error.getMessage());
+                        requestCallback.requestFailed("Failed to save data !");
                     }
                 });
     }

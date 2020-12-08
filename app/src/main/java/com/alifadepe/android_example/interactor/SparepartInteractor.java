@@ -39,7 +39,7 @@ public class SparepartInteractor implements SparepartContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Failed to load data !");
                         Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });

@@ -16,6 +16,8 @@ import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.presenter.EditProfilePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
+import java.time.LocalDateTime;
+
 public class EditProfileActivity extends AppCompatActivity implements EditProfileContract.View, View.OnClickListener{
     private EditProfileContract.Presenter presenter;
     private ActivityEditProfileBinding binding;
@@ -41,6 +43,15 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         binding.radioOther.setOnClickListener(this);
     }
 
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
 
     @Override
     public void onClick(View v) {
@@ -55,7 +66,10 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     private void onSaveButtonClick() {
         int selectedId = binding.radioButton.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(selectedId);
-        gender = radioButton.getText().toString();
+        if(radioButton != null)
+            gender = radioButton.getText().toString();
+        else
+            gender = null;
         String birthdate = binding.birthDate.getYear() + "-" + (binding.birthDate.getMonth() + 1) + "-" + binding.birthDate.getDayOfMonth();
         Profile profile = new Profile(binding.editFirstName.getText().toString(),
                                         binding.editLastName.getText().toString(),
@@ -63,7 +77,15 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
                                         binding.editUsername.getText().toString(),
                                         binding.editEmail.getText().toString(),
                                         binding.editPhoneNumber.getText().toString());
-        presenter.saveProfile(profile);
+        String[] password = new String[2];
+        if(binding.editNewPassword.getText().toString().isEmpty()){
+            password[0] = null;
+            password[1] = null;
+        }else{
+            password[0] = binding.editOldPassword.getText().toString();
+            password[1] = binding.editNewPassword.getText().toString();
+        }
+        presenter.saveProfile(profile, password);
     }
 
     public void onBackButtonClick(){
@@ -86,6 +108,12 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     @Override
     public void setProfile(Profile user) {
         binding.setUser(user);
+        if(user.getGender().equalsIgnoreCase("male"))
+            binding.radioMale.setChecked(true);
+        else if(user.getGender().equalsIgnoreCase("female"))
+            binding.radioFemale.setChecked(true);
+        else if(user.getGender().equalsIgnoreCase("other"))
+            binding.radioOther.setChecked(true);
     }
 
 }

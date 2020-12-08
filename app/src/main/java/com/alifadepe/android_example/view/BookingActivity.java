@@ -30,8 +30,8 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     private String dropOffLocation;
     private String problem;
     private int bengkelId;
-    private int selectedMotor;
-    private int selectedService;
+    private Motorcycle selectedMotor;
+    private Service selectedService;
     private static final int PICKUP_ACTIVITY_REQUEST_CODE = 0;
 
     @Override
@@ -48,8 +48,8 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     }
 
     private void initView(){
-        binding.baseLayout.pageTitle.setText("Booking");
-        binding.baseLayout.backButton.setOnClickListener(this);
+        binding.pageTitle.setText("Booking");
+        binding.backButton.setOnClickListener(this);
         presenter.setMotor();
         presenter.setService();
         binding.yesButton.setOnClickListener(this);
@@ -82,7 +82,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == binding.baseLayout.backButton.getId()){
+        if(v.getId() == binding.backButton.getId()){
             onBackClick();
         }
         if(v.getId() == binding.yesButton.getId()){
@@ -117,23 +117,28 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     }
 
     public void onButtonBookClick(){
-        problem = binding.selectService.getSelectedItem().toString() + " - " +
-                  binding.etProblem.getText().toString();
-        selectedMotor = (int) binding.selectService.getSelectedItemPosition() + 1;
-        selectedService = (int) binding.selectMotor.getSelectedItemPosition() + 1;
+        String bookingDate = binding.bookingDate.getYear() + "-" + (binding.bookingDate.getMonth() + 1) + "-" + binding.bookingDate.getDayOfMonth();
+        if( binding.etProblem.getText().toString().isEmpty())
+            Toast.makeText(this, "Please fill in all fields correctly before proceeding.", Toast.LENGTH_SHORT).show();
+        else{
+            problem = binding.selectService.getSelectedItem().toString() + " - " +
+                    binding.etProblem.getText().toString();
+            selectedMotor = (Motorcycle) binding.selectMotor.getSelectedItem();
+            selectedService = (Service) binding.selectService.getSelectedItem();
 
-        Booking booking = new Booking(
-                bengkelId,
-                selectedMotor,
-                binding.etBookingDate.getText().toString(),
-                problem,
-                isPickUp,
-                pickUpLocation,
-                dropOffLocation,
-                selectedService
-        );
+            Booking booking = new Booking(
+                    bengkelId,
+                    selectedMotor.getMotorcycle_id(),
+                    bookingDate,
+                    problem,
+                    isPickUp,
+                    pickUpLocation,
+                    dropOffLocation,
+                    selectedService.getService_id()
+            );
 
-        presenter.book(booking);
+            presenter.book(booking);
+        }
     }
 
     @Override

@@ -74,16 +74,6 @@
                 android:textColor="@color/colorTextDark"
                 android:text="@string/login"/>
 
-            <TextView
-                android:id="@+id/forget_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/forgetPassword"
-                android:textSize="6pt"
-                android:textColor="@color/colorTextDark"
-                android:layout_gravity="start"
-                android:layout_marginTop="5dp"/>
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,18 +114,6 @@
                 android:background="@drawable/rounded_button"
                 android:textColor="?attr/colorTextDark"
                 android:text="@string/create"
-                />
-
-            <Button
-                android:id="@+id/google_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="?attr/colorPrimary"
-                android:textColor="@color/colorTextDark"
-                android:drawableLeft="@drawable/google"
-                android:text="@string/google"
                 />
 
         </LinearLayout>

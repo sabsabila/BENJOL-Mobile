@@ -23,8 +23,8 @@ public class ProgressPickupInteractor implements ProgressPickupContract.Interact
     }
 
     @Override
-    public void requestProgressPickup(final RequestCallback<Pickup> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/pickup")
+    public void requestProgressPickup(int id, final RequestCallback<Pickup> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/pickup/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(PickupResponse.class, new ParsedRequestListener<PickupResponse>() {
@@ -41,7 +41,7 @@ public class ProgressPickupInteractor implements ProgressPickupContract.Interact
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Failed to load data !");
                         Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });

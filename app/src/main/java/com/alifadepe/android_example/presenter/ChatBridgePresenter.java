@@ -18,15 +18,18 @@ public class ChatBridgePresenter implements ChatBridgeContract.presenter {
 
     @Override
     public void setBengkel() {
+        view.startLoading();
         interactor.requestBengkel(new RequestCallback<List<Bengkel>>() {
             @Override
             public void requestSuccess(List<Bengkel> data) {
                 view.setBengkel(data.get(0));
+                view.endLoading();
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showError(errorMessage);
+                view.endLoading();
             }
         });
     }

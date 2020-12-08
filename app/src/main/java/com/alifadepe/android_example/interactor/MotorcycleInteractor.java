@@ -34,7 +34,7 @@ public class MotorcycleInteractor implements MotorcycleContract.Interactor {
                     }
                     @Override
                     public void onError(ANError error) {
-                        requestCallback.requestFailed(error.getMessage());
+                        requestCallback.requestFailed("Failed to save data !");
                     }
                 });
     }

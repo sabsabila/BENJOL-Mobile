@@ -6,10 +6,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.databinding.ItemMotorcycleBinding;
 import com.alifadepe.android_example.databinding.ItemSparepartBinding;
 import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Sparepart;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,6 +34,12 @@ public class ListSparepartAdapter extends RecyclerView.Adapter<ListSparepartAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setSparepart(spareparts.get(position));
         holder.binding.tvPrice.setText("Rp. " + String.valueOf(spareparts.get(position).getPrice()));
+        if(spareparts.get(position).getPicture() != null){
+            holder.binding.imageView.setBackground(null);
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + spareparts.get(position).getPicture())
+                    .into(holder.binding.imageView);
+        }
     }
 
     @Override
