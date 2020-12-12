@@ -52,7 +52,7 @@ public class BookingInteractor implements BookingContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed("Failed to save booking !");
                         Log.d("tag", anError.getMessage() + anError.getErrorCode());
                     }
                 });

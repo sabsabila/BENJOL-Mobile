@@ -9,6 +9,8 @@ public interface DetailBengkelContract {
     interface View {
         void showError(String message);
         void setBengkel(Bengkel bengkel);
+        void startLoading();
+        void endLoading();
         void redirectToBooking();
         void redirectToListSparepart();
     }

@@ -9,6 +9,8 @@ public interface MotorcycleContract {
     interface View {
         void showError(String message);
         void addMotorSuccess(String message);
+        void startLoading();
+        void endLoading();
     }
 
     interface presenter {

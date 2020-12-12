@@ -35,6 +35,7 @@ public class ListSparepartAdapter extends RecyclerView.Adapter<ListSparepartAdap
         holder.binding.setSparepart(spareparts.get(position));
         holder.binding.tvPrice.setText("Rp. " + String.valueOf(spareparts.get(position).getPrice()));
         if(spareparts.get(position).getPicture() != null){
+            holder.binding.imageView.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + spareparts.get(position).getPicture())
                     .into(holder.binding.imageView);

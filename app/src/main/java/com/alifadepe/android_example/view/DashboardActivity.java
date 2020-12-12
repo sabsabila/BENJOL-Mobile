@@ -56,7 +56,6 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         if(v.getId() == binding.navbar.profileButton.getId()){
             onProfileClick();
         }
-
     }
 
     public void onfindBengkelClick(){
@@ -65,7 +64,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
     public void onTrackDeliveryClick(){
         finish();
-        startActivity(new Intent(this, ProgressPickupActivity.class));
+        startActivity(new Intent(this, ListPickupActivity.class));
     }
     public void onfindSparepartClick(){
         finish();
@@ -73,7 +72,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
     public void onCheckProgressClick(){
         finish();
-        startActivity(new Intent(this, ProgressServiceActivity.class));
+        startActivity(new Intent(this, ListBookingActivity.class));
     }
     public void onProfileClick(){
         finish();
@@ -83,6 +82,16 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     @Override
     public void showError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override

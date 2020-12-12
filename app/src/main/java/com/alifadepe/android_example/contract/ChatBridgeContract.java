@@ -9,6 +9,8 @@ public interface ChatBridgeContract {
     interface View {
         void showError(String message);
         void setBengkel(Bengkel bengkel);
+        void startLoading();
+        void endLoading();
     }
 
     interface presenter {

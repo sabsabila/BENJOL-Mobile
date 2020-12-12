@@ -10,15 +10,17 @@ public interface EditProfileContract {
         void setProfile(Profile profile);
         void showError(String message);
         void editProfileSuccess(String message);
+        void startLoading();
+        void endLoading();
     }
 
     interface Presenter {
         void setProfile();
-        void saveProfile(Profile profile);
+        void saveProfile(Profile profile, String[] password);
     }
 
     interface Interactor {
-        void requestProfile(RequestCallback<List<Profile>> requestCallback);
-        void editProfile(Profile profile, RequestCallback<String> requestCallback);
+        void requestProfile(RequestCallback<Profile> requestCallback);
+        void editProfile(Profile profile, String[] password, RequestCallback<String> requestCallback);
     }
 }
