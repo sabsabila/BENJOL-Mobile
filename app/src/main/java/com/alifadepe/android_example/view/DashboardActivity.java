@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.DashboardContract;
 import com.alifadepe.android_example.databinding.ActivityDashboardBinding;
 import com.alifadepe.android_example.interactor.DashboardInteractor;
 import com.alifadepe.android_example.model.BookingData;
+import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.model.Sparepart;
 import com.alifadepe.android_example.presenter.DashboardPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
+import com.squareup.picasso.Picasso;
 
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, View.OnClickListener {
     private DashboardContract.Presenter presenter;
@@ -95,8 +98,15 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     @Override
-    public void setUsername(String name){
-        binding.profileName.setText(name);
+    public void setUser(Profile user){
+        binding.profileName.setText(user.getUsername());
+        if(user.getProfile_picture() != null){
+            binding.profileImage.setBackground(null);
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + user.getProfile_picture())
+                    .fit()
+                    .into(binding.profileImage);
+        }
     }
 
     @Override

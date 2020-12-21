@@ -47,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         binding.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
         binding.profile.setOnClickListener(this);
+        binding.uploadProfileButton.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +77,14 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         if(v.getId() == binding.profile.getId()){
             onEditProfileClick();
         }
+        if(v.getId() == binding.uploadProfileButton.getId()){
+            onUploadProfileClick();
+        }
+    }
+
+    private void onUploadProfileClick() {
+        finish();
+        startActivity(new Intent(this, UploadProfileImageActivity.class));
     }
 
     private void onHomeButtonClick() {

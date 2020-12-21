@@ -53,7 +53,6 @@ public class BookingInteractor implements BookingContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to save booking !");
-                        Log.d("tag", anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
@@ -68,7 +67,6 @@ public class BookingInteractor implements BookingContract.Interactor {
                     public void onResponse(ListMotorResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.motorcycles);
@@ -78,7 +76,6 @@ public class BookingInteractor implements BookingContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
@@ -93,7 +90,6 @@ public class BookingInteractor implements BookingContract.Interactor {
                     public void onResponse(ServiceResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.services);
@@ -103,7 +99,6 @@ public class BookingInteractor implements BookingContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

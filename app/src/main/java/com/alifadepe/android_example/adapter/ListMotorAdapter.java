@@ -6,10 +6,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.alifadepe.android_example.databinding.ItemBookBinding;
 import com.alifadepe.android_example.databinding.ItemMotorcycleBinding;
-import com.alifadepe.android_example.model.Book;
 import com.alifadepe.android_example.model.Motorcycle;
 
 import java.util.List;

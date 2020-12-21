@@ -31,7 +31,6 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                     public void onResponse(ProgressServiceResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.progress);
@@ -41,7 +40,6 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

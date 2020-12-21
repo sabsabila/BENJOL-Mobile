@@ -30,7 +30,6 @@ public class SparepartInteractor implements SparepartContract.Interactor {
                     public void onResponse(SparepartResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.spareparts);
@@ -40,7 +39,6 @@ public class SparepartInteractor implements SparepartContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
@@ -55,7 +53,6 @@ public class SparepartInteractor implements SparepartContract.Interactor {
                     public void onResponse(SparepartResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.spareparts);
@@ -65,7 +62,6 @@ public class SparepartInteractor implements SparepartContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

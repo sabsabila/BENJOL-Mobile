@@ -3,9 +3,9 @@ package com.alifadepe.android_example.contract;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.model.Profile;
 
-import java.util.List;
+import java.io.File;
 
-public interface EditProfileContract {
+public interface UploadProfileImageContract {
     interface View {
         void setProfile(Profile profile);
         void showError(String message);
@@ -16,11 +16,11 @@ public interface EditProfileContract {
 
     interface Presenter {
         void setProfile();
-        void saveProfile(Profile profile);
+        void saveProfile(File file);
     }
 
     interface Interactor {
         void requestProfile(RequestCallback<Profile> requestCallback);
-        void editProfile(Profile profile, RequestCallback<String> requestCallback);
+        void uploadImage(File file, RequestCallback<String> requestCallback);
     }
 }
