@@ -11,6 +11,7 @@ public class Booking {
     private String pickupLocation;
     private String dropOffLocation;
     private int selectedService;
+    private String name;
 
     public Booking(int bengkelId, int motorcycleId, String repairmentDate, String repairmentNote, String isPickup, String pickupLocation, String dropOffLocation, int selectedService) {
         this.bengkelId = bengkelId;

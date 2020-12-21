@@ -34,7 +34,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     public void onResponse(UserResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.user);
@@ -44,7 +43,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
@@ -59,7 +57,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     public void onResponse(ListMotorResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.motorcycles);
@@ -69,7 +66,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
@@ -84,7 +80,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     public void onResponse(ResponseMessage response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.message);
@@ -94,7 +89,6 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

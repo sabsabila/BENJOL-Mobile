@@ -25,9 +25,9 @@ import java.util.List;
 public class BookingActivity extends AppCompatActivity implements BookingContract.View, View.OnClickListener {
     private BookingContract.Presenter presenter;
     private ActivityBookingBinding binding;
-    private String isPickUp;
-    private String pickUpLocation;
-    private String dropOffLocation;
+    private String isPickUp = "No";
+    private String pickUpLocation = "-";
+    private String dropOffLocation = "-";
     private String problem;
     private int bengkelId;
     private Motorcycle selectedMotor;
@@ -54,7 +54,6 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
         presenter.setService();
         binding.yesButton.setOnClickListener(this);
         binding.yesButton.setOnClickListener(this);
-        binding.noButton.setOnClickListener(this);
         binding.bookButton.setOnClickListener(this);
     }
 
@@ -88,9 +87,6 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
         if(v.getId() == binding.yesButton.getId()){
             onButtonYesClick();
         }
-        if(v.getId() == binding.noButton.getId()){
-            onButtonNoClick();
-        }
         if(v.getId() == binding.bookButton.getId()){
             onButtonBookClick();
         }
@@ -104,16 +100,8 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     }
 
     public void onButtonYesClick(){
-        isPickUp = "Yes";
         Intent intent = new Intent(this, PickupActivity.class);
         startActivityForResult(intent, PICKUP_ACTIVITY_REQUEST_CODE);
-    }
-
-    public void onButtonNoClick(){
-        isPickUp = "No";
-        pickUpLocation = "-";
-        dropOffLocation = "-";
-        Toast.makeText(this, "No Selected", Toast.LENGTH_SHORT).show();
     }
 
     public void onButtonBookClick(){
@@ -147,6 +135,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
 
         if (requestCode == PICKUP_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
+                isPickUp = "Yes";
                 pickUpLocation = data.getStringArrayListExtra("location").get(0);
                 dropOffLocation = data.getStringArrayListExtra("location").get(1);
             }

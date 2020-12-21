@@ -114,6 +114,7 @@ public class DetailBengkelActivity extends AppCompatActivity implements DetailBe
             binding.bengkelImage.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
+                    .fit()
                     .into(binding.bengkelImage);
         }
     }

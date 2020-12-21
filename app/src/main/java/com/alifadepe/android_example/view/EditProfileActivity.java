@@ -38,6 +38,7 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         presenter.setProfile();
         binding.backButton.setOnClickListener(this);
         binding.saveButton.setOnClickListener(this);
+        binding.changePwdButton.setOnClickListener(this);
         binding.radioFemale.setOnClickListener(this);
         binding.radioMale.setOnClickListener(this);
         binding.radioOther.setOnClickListener(this);
@@ -61,6 +62,14 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         if(v.getId() == binding.saveButton.getId()){
             onSaveButtonClick();
         }
+        if(v.getId() == binding.changePwdButton.getId()){
+            onChangePasswordButtonClick();
+        }
+    }
+
+    private void onChangePasswordButtonClick() {
+        finish();
+        startActivity(new Intent(this, ChangePasswordActivity.class));
     }
 
     private void onSaveButtonClick() {
@@ -72,20 +81,12 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
             gender = null;
         String birthdate = binding.birthDate.getYear() + "-" + (binding.birthDate.getMonth() + 1) + "-" + binding.birthDate.getDayOfMonth();
         Profile profile = new Profile(binding.editFirstName.getText().toString(),
-                                        binding.editLastName.getText().toString(),
-                                        gender, birthdate,
-                                        binding.editUsername.getText().toString(),
-                                        binding.editEmail.getText().toString(),
-                                        binding.editPhoneNumber.getText().toString());
-        String[] password = new String[2];
-        if(binding.editNewPassword.getText().toString().isEmpty()){
-            password[0] = null;
-            password[1] = null;
-        }else{
-            password[0] = binding.editOldPassword.getText().toString();
-            password[1] = binding.editNewPassword.getText().toString();
-        }
-        presenter.saveProfile(profile, password);
+                binding.editLastName.getText().toString(),
+                gender, birthdate,
+                binding.editUsername.getText().toString(),
+                binding.editEmail.getText().toString(),
+                binding.editPhoneNumber.getText().toString());
+        presenter.saveProfile(profile);
     }
 
     public void onBackButtonClick(){

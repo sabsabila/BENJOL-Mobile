@@ -29,7 +29,6 @@ public class MotorcycleInteractor implements MotorcycleContract.Interactor {
                 .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
                     @Override
                     public void onResponse(ResponseMessage response) {
-                        Log.d("tag", response.message);
                         requestCallback.requestSuccess(response.message);
                     }
                     @Override

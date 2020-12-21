@@ -21,7 +21,8 @@
     <string name="serviceSedang">Service Sedang</string>
     <string name="serviceBerat">Service Berat</string>
     <string name="et_problem_placeholder">Type your problem here...</string>
-    <string name="tv_is_pickup">You want us to pick up your vehicle?</string>
+    <string name="tv_is_pickup">Need pickup service ? (Optional)</string>
+    <string name="pickup_button">Input Location</string>
     <string name="what_problem">What kind of service do you need ?</string>
     <string name="when">When ?</string>
     <string name="tv_select_motor">Select Motorcycle</string>
@@ -38,9 +39,12 @@
     <string name="profileLabel">Profile</string>
     <string name="editProfile">Edit Profile</string>
     <string name="save">Save</string>
-    <string name="passwordLab">Change Password</string>
+    <string name="changePassword">Change Password</string>
     <string name="oldPass">Old Password</string>
     <string name="newPass">New Password</string>
+    <string name="upload">Click below to select image</string>
+    <string name="signOut">Sign Out</string>
+    <string name="profpic">Set Profile Image</string>
 
     <!--Motorcycle-->
     <string name="motorcycleInfo">Motorcycle Info</string>
@@ -50,7 +54,7 @@
     <string name="inputMotorLabel">Input Motor</string>
 
     <!--Dashboard-->
-    <string name="welcomeTitle">Hai, </string>
+    <string name="welcomeTitle">Hi, </string>
     <string name="profilName">XXXXX</string>
     <string name="welcomeDesc">Welcome to your trusted bengkel app</string>
     <string name="findBengkel">Search Bengkel</string>

@@ -1,19 +1,16 @@
 package com.alifadepe.android_example.presenter;
-
 import com.alifadepe.android_example.callback.RequestCallback;
-import com.alifadepe.android_example.contract.EditProfileContract;
-import com.alifadepe.android_example.contract.ProfileContract;
-import com.alifadepe.android_example.interactor.EditProfileInteractor;
-import com.alifadepe.android_example.interactor.ProfileInteractor;
+import com.alifadepe.android_example.contract.UploadProfileImageContract;
+import com.alifadepe.android_example.interactor.UploadProfileImageInteractor;
 import com.alifadepe.android_example.model.Profile;
 
-import java.util.List;
+import java.io.File;
 
-public class EditProfilePresenter implements EditProfileContract.Presenter {
-    private EditProfileContract.View view;
-    private EditProfileInteractor interactor;
+public class UploadProfileImagePresenter implements UploadProfileImageContract.Presenter {
+    private UploadProfileImageContract.View view;
+    private UploadProfileImageInteractor interactor;
 
-    public EditProfilePresenter(EditProfileContract.View view, EditProfileInteractor interactor) {
+    public UploadProfileImagePresenter(UploadProfileImageContract.View view, UploadProfileImageInteractor interactor) {
         this.view = view;
         this.interactor = interactor;
     }
@@ -37,9 +34,9 @@ public class EditProfilePresenter implements EditProfileContract.Presenter {
     }
 
     @Override
-    public void saveProfile(Profile profile) {
+    public void saveProfile(File file) {
         view.startLoading();
-        interactor.editProfile(profile, new RequestCallback<String>() {
+        interactor.uploadImage(file, new RequestCallback<String>() {
             @Override
             public void requestSuccess(String message) {
                 view.editProfileSuccess(message);

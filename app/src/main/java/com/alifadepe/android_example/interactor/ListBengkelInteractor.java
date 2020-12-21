@@ -31,7 +31,6 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     public void onResponse(ListBengkelResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.bengkel);
@@ -41,7 +40,6 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
@@ -56,7 +54,6 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     public void onResponse(ListBengkelResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.bengkel);
@@ -66,7 +63,6 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

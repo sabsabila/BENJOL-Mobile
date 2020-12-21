@@ -24,7 +24,7 @@ public class DashboardPresenter implements DashboardContract.Presenter {
 
             @Override
             public void requestSuccess(Profile response) {
-                view.setUsername(response.getUsername());
+                view.setUser(response);
                 view.endLoading();
             }
 

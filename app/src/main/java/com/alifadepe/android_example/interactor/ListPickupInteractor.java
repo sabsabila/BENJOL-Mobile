@@ -34,7 +34,6 @@ public class ListPickupInteractor implements ListPickupContract.Interactor {
                     public void onResponse(ListPickupResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.pickups);
@@ -44,7 +43,6 @@ public class ListPickupInteractor implements ListPickupContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

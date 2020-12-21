@@ -38,6 +38,7 @@ public class ListSparepartAdapter extends RecyclerView.Adapter<ListSparepartAdap
             holder.binding.imageView.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + spareparts.get(position).getPicture())
+                    .fit()
                     .into(holder.binding.imageView);
         }
     }
