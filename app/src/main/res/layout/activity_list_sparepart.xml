@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
-
-    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -61,8 +58,7 @@
                 android:id="@+id/list_sparepart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="50px"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:scrollbars="vertical"/>
 
         </LinearLayout>

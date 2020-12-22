@@ -25,6 +25,7 @@
         <activity android:name=".view.DashboardActivity" />
         <activity android:name=".view.ProfileActivity" />
         <activity android:name=".view.UploadProfileImageActivity"/>
+        <activity android:name=".view.UploadReceiptActivity"/>
         <activity android:name=".view.EditProfileActivity" />
         <activity android:name=".view.ChangePasswordActivity"/>
         <activity android:name=".view.PickupActivity" />

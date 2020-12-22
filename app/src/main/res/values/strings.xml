@@ -45,6 +45,7 @@
     <string name="upload">Click below to select image</string>
     <string name="signOut">Sign Out</string>
     <string name="profpic">Set Profile Image</string>
+    <string name="label">Click to edit profile.</string>
 
     <!--Motorcycle-->
     <string name="motorcycleInfo">Motorcycle Info</string>
@@ -101,10 +102,6 @@
     <string name="start">Start Time</string>
     <string name="end">End Time</string>
 
-    <!--Chat-->
-
-    <!--Booking-->
-
     <!--Payment-->
     <string name="paymentDetail">Payment Detail</string>
     <string name="bengkelLabel">Bengkel</string>
@@ -121,7 +118,8 @@
     <string name="cost">Rp. </string>
     <string name="note">Lorem ipsum dolor sit amet</string>
     <string name="status">Unpaid</string>
-    <string name="transfer">Transfer</string>
+    <string name="transfer">If you want to pay via bank transfer.</string>
+    <string name="receipt">Upload Receipt</string>
 
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>

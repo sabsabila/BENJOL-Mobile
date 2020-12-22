@@ -39,6 +39,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentContrac
         binding.navbar.homeButton.setOnClickListener(this);
         binding.navbar.profileButton.setOnClickListener(this);
         binding.baseLayout.pageTitle.setText("Payment Detail");
+        binding.transferButton.setOnClickListener(this);
     }
 
     @Override
@@ -62,6 +63,16 @@ public class PaymentActivity extends AppCompatActivity implements PaymentContrac
         if(v.getId() == binding.navbar.profileButton.getId()){
             onProfileClick();
         }
+        if(v.getId() == binding.transferButton.getId()){
+            onTransferClick();
+        }
+    }
+
+    private void onTransferClick() {
+        Intent intent = new Intent(this, UploadReceiptActivity.class);
+        intent.putExtra("booking_id", bookingId);
+        finish();
+        startActivity(intent);
     }
 
     private void onHomeButtonClick() {
@@ -75,8 +86,10 @@ public class PaymentActivity extends AppCompatActivity implements PaymentContrac
     }
 
     public void onBackButtonClick(){
+        Intent intent = new Intent(this, ProgressServiceActivity.class);
+        intent.putExtra("booking_id", bookingId);
         finish();
-        startActivity(new Intent(this, ProgressServiceActivity.class));
+        startActivity(intent);
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alifadepe.android_example.R;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.DashboardContract;
 import com.alifadepe.android_example.databinding.ActivityDashboardBinding;
@@ -35,6 +36,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     private void initView(){
         presenter.getUsername();
         presenter.getBookingData();
+        binding.navbar.homeButton.setBackgroundResource(R.drawable.home_icon_filled);
         binding.findBengkel.setOnClickListener(this);
         binding.findSparepart.setOnClickListener(this);
         binding.trackDelivery.setOnClickListener(this);
