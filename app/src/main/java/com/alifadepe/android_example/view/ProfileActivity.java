@@ -40,8 +40,9 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     private void initView(){
         presenter.setProfile();
-        binding.listMotorcycle.setLayoutManager(new LinearLayoutManager(this));
         presenter.setMotor();
+        binding.navbar.profileButton.setBackgroundResource(R.drawable.profile_icon_filled);
+        binding.listMotorcycle.setLayoutManager(new LinearLayoutManager(this));
         binding.signOutButton.setOnClickListener(this);
         binding.inputMotorButton.setOnClickListener(this);
         binding.backButton.setOnClickListener(this);
