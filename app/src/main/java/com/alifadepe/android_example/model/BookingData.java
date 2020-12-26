@@ -4,13 +4,23 @@ public class BookingData {
     private int booking_id;
     private String repairment_date;
     private String repairment_note;
+    private String status;
     private String name;
 
-    public BookingData(int booking_id, String repairment_date, String repairment_note, String name) {
+    public BookingData(int booking_id, String repairment_date, String repairment_note, String status, String name) {
         this.booking_id = booking_id;
         this.repairment_date = repairment_date;
         this.repairment_note = repairment_note;
+        this.status = status;
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getBooking_id() {

@@ -26,7 +26,7 @@ public class ListBookingInteractor implements ListBookingContract.Interactor {
 
     @Override
     public void requestBookings(final RequestCallback<List<BookingData>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/allBooking")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/booking/all")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListBookingResponse.class, new ParsedRequestListener<ListBookingResponse>() {

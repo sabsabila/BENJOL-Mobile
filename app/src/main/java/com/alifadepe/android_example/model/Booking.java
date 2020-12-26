@@ -1,7 +1,6 @@
 package com.alifadepe.android_example.model;
 
 public class Booking {
-    private int bookingId;
     private int bengkelId;
     private int userId;
     private int motorcycleId;
@@ -11,7 +10,6 @@ public class Booking {
     private String pickupLocation;
     private String dropOffLocation;
     private int selectedService;
-    private String name;
 
     public Booking(int bengkelId, int motorcycleId, String repairmentDate, String repairmentNote, String isPickup, String pickupLocation, String dropOffLocation, int selectedService) {
         this.bengkelId = bengkelId;
@@ -22,14 +20,6 @@ public class Booking {
         this.pickupLocation = pickupLocation;
         this.dropOffLocation = dropOffLocation;
         this.selectedService = selectedService;
-    }
-
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
     }
 
     public int getBengkelId() {

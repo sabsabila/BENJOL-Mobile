@@ -324,6 +324,15 @@
                                     android:textSize="8pt"
                                     android:text="@{booking.repairment_note}"/>
 
+                                <TextView
+                                    android:id="@+id/status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/repairment_note"
+                                    android:textSize="8pt"
+                                    android:textStyle="bold"
+                                    android:text="-"/>
+
                             </RelativeLayout>
 
                         </androidx.cardview.widget.CardView>

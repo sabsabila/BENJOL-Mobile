@@ -49,11 +49,9 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
     public void editProfile(Profile profile, final RequestCallback<String> requestCallback) {
         AndroidNetworking.put(ApiConstant.BASE_URL + "/api/user")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
-                .addBodyParameter("first_name", profile.getFirst_name())
-                .addBodyParameter("last_name", profile.getLast_name())
+                .addBodyParameter("full_name", profile.getFull_name())
                 .addBodyParameter("gender", profile.getGender())
                 .addBodyParameter("birth_date", profile.getBirth_date())
-                .addBodyParameter("username", profile.getUsername())
                 .addBodyParameter("email", profile.getEmail())
                 .addBodyParameter("phone_number", profile.getPhone_number())
                 .build()

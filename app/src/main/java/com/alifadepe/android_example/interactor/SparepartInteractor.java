@@ -45,7 +45,7 @@ public class SparepartInteractor implements SparepartContract.Interactor {
 
     @Override
     public void searchSparepart(String keyword, final RequestCallback<List<Sparepart>> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/searchSparepart")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/sparepart/search")
                 .addBodyParameter("name", keyword)
                 .build()
                 .getAsObject(SparepartResponse.class, new ParsedRequestListener<SparepartResponse>() {

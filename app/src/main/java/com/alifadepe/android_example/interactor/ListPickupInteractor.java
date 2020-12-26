@@ -26,7 +26,7 @@ public class ListPickupInteractor implements ListPickupContract.Interactor {
 
     @Override
     public void requestPickups(final RequestCallback<List<PickupData>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/allPickup")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/pickup")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListPickupResponse.class, new ParsedRequestListener<ListPickupResponse>() {

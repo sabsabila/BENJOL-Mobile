@@ -17,10 +17,9 @@ public class RegisterInteractor implements RegisterContract.Interactor {
 
     @Override
     public void requestRegister(User newUser, final RequestCallback<RegisterResponse> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/registerUser")
-                .addBodyParameter("firstName", newUser.getFirst_name())
-                .addBodyParameter("lastName", newUser.getLast_name())
-                .addBodyParameter("username", newUser.getUsername())
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/user/register")
+                .addBodyParameter("full_name", newUser.getFullName())
+                .addBodyParameter("phone_number", newUser.getPhoneNumber())
                 .addBodyParameter("email", newUser.getEmail())
                 .addBodyParameter("password", newUser.getPassword())
                 .build()

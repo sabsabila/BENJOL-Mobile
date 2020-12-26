@@ -14,7 +14,7 @@ public interface DashboardContract {
     }
 
     interface Presenter {
-        void getUsername();
+        void getFullname();
         void getBookingData();
     }
 

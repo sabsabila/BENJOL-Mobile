@@ -80,10 +80,8 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         else
             gender = null;
         String birthdate = binding.birthDate.getYear() + "-" + (binding.birthDate.getMonth() + 1) + "-" + binding.birthDate.getDayOfMonth();
-        Profile profile = new Profile(binding.editFirstName.getText().toString(),
-                binding.editLastName.getText().toString(),
+        Profile profile = new Profile(binding.editFullName.getText().toString(),
                 gender, birthdate,
-                binding.editUsername.getText().toString(),
                 binding.editEmail.getText().toString(),
                 binding.editPhoneNumber.getText().toString());
         presenter.saveProfile(profile);

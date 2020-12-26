@@ -24,7 +24,7 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
 
     @Override
     public void requestBengkel(final RequestCallback<List<Bengkel>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/bengkelList")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/bengkel/all")
                 .build()
                 .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
                     @Override
@@ -46,7 +46,7 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
 
     @Override
     public void searchBengkel(String keyword, final RequestCallback<List<Bengkel>> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/searchBengkel")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/bengkel/search")
                 .addBodyParameter("name", keyword)
                 .build()
                 .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {

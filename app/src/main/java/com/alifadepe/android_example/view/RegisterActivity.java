@@ -69,15 +69,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     public void onButtonRegisterClick(){
-        if(binding.registerFirstName.getText().toString().isEmpty() || binding.registerLastName.getText().toString().isEmpty() || binding.registerUsername.getText().toString().isEmpty()
+        if(binding.registerFullName.getText().toString().isEmpty()  || binding.registerNumber.getText().toString().isEmpty()
                 || binding.registerEmail.getText().toString().isEmpty() || binding.registerPassword.getText().toString().isEmpty()){
             Toast.makeText(this, "All fields must not be empty.", Toast.LENGTH_SHORT).show();
         }else{
-            User user = new User(binding.registerFirstName.getText().toString(),
-                    binding.registerLastName.getText().toString(),
-                    binding.registerUsername.getText().toString(),
+            User user = new User(binding.registerFullName.getText().toString(),
                     binding.registerEmail.getText().toString(),
-                    binding.registerPassword.getText().toString());
+                    binding.registerPassword.getText().toString(),
+                    binding.registerNumber.getText().toString());
             presenter.register(user);
         }
     }

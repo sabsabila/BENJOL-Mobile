@@ -46,6 +46,8 @@ public class UploadProfileImageActivity extends AppCompatActivity implements Upl
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.imageHolder.setOnClickListener(this);
         binding.confirmUpload.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +71,22 @@ public class UploadProfileImageActivity extends AppCompatActivity implements Upl
         if(v.getId() == binding.confirmUpload.getId()){
             onSaveButtonClick();
         }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     private void onLoadButtonClick() {

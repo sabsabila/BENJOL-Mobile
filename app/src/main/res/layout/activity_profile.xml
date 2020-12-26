@@ -91,27 +91,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:drawableRight="@drawable/name_icon"
-                                android:text="@string/profilName"
+                                android:text="@{user.full_name}"
                                 android:textColor="@color/colorTextDark"
                                 android:textSize="12pt"
                                 android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/username_title"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:text="@string/username"
-                                android:textSize="5pt"
-                                android:textColor="@color/colorTextDark" />
-
-                            <TextView
-                                android:id="@+id/username"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@{user.username}"
-                                android:textSize="8pt"
-                                android:textColor="@color/colorTextDark" />
 
                             <TextView
                                 android:id="@+id/phone_number_title"
