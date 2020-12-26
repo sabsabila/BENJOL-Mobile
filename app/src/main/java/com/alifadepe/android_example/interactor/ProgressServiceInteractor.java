@@ -1,12 +1,9 @@
 package com.alifadepe.android_example.interactor;
 
-import android.util.Log;
-
 import com.alifadepe.android_example.api_response.ProgressServiceResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.ProgressServiceContract;
-import com.alifadepe.android_example.model.ProgressService;
 import com.alifadepe.android_example.util.SharedPreferencesUtil;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -23,7 +20,7 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
 
     @Override
     public void requestProgressService(int id, final RequestCallback<List<String>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/checkProgress/" + id)
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/progress/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ProgressServiceResponse.class, new ParsedRequestListener<ProgressServiceResponse>() {

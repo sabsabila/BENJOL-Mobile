@@ -1,13 +1,9 @@
 package com.alifadepe.android_example.presenter;
 
-import android.util.Log;
-
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.ProgressServiceContract;
 import com.alifadepe.android_example.interactor.ProgressServiceInteractor;
-import com.alifadepe.android_example.model.ProgressService;
 
-import java.text.ParseException;
 import java.util.List;
 
 public class ProgressServicePresenter implements ProgressServiceContract.Presenter {

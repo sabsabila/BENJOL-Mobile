@@ -45,7 +45,7 @@ public class UploadReceiptInteractor implements UploadReceiptContract.Interactor
 
     @Override
     public void uploadImage(int id, File file, final  RequestCallback<String> requestCallback) {
-        AndroidNetworking.upload(ApiConstant.BASE_URL + "/api/uploadReceipt/" + id)
+        AndroidNetworking.upload(ApiConstant.BASE_URL + "/api/upload/receipt/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addMultipartFile("receipt", file)
                 .build()
