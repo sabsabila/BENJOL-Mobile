@@ -110,9 +110,13 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
                 binding.percentageProgress.setText(percentage + " %");
                 estimatedTime = hours +  " Hours " + minutes + " Minutes";
                 binding.estimatedProgress.setText(estimatedTime);
-            }else if(progress.get(6).equalsIgnoreCase("upcoming")){
+            }else if(progress.get(6).equalsIgnoreCase("upcoming") || progress.get(6).equalsIgnoreCase("canceled")){
                 binding.percentageProgress.setText("0 %");
                 binding.estimatedProgress.setText("-");
+                binding.paymentDetailButton.setVisibility(View.GONE);
+                if(progress.get(6).equalsIgnoreCase("canceled")){
+                    binding.estimatedProgress.setText("Canceled");
+                }
             }
             else {
                 binding.percentageProgress.setText("100 %");
@@ -121,6 +125,7 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
             binding.plateNumber.setText(progress.get(5));
         }else{
             binding.plateNumber.setText("No Bookings Made Yet");
+            binding.paymentDetailButton.setVisibility(View.GONE);
         }
     }
 
