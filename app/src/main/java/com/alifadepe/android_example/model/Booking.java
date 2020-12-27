@@ -1,7 +1,6 @@
 package com.alifadepe.android_example.model;
 
 public class Booking {
-    private int bookingId;
     private int bengkelId;
     private int userId;
     private int motorcycleId;
@@ -21,14 +20,6 @@ public class Booking {
         this.pickupLocation = pickupLocation;
         this.dropOffLocation = dropOffLocation;
         this.selectedService = selectedService;
-    }
-
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
     }
 
     public int getBengkelId() {

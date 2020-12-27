@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="@string/repairmentNoteLabel"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorTextDark"
                 android:textSize="8pt"/>
@@ -179,16 +179,22 @@
                 android:layout_marginTop="10dp"
                 android:textColor="?attr/colorTextDark"
                 android:textSize="8pt"/>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@string/transfer"
+                android:layout_marginTop="20dp"
+                android:textColor="?attr/colorTextDark"
+                android:textSize="6pt"/>
             <Button
                 android:id="@+id/transfer_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/rounded_button"
                 android:textColor="?attr/colorTextDark"
-                android:text="@string/transfer"
-                android:visibility="gone"/>
+                android:text="@string/receipt"/>
         </LinearLayout>
 
         <include

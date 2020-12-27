@@ -13,8 +13,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 
-import java.util.List;
-
 public class EditProfileInteractor implements EditProfileContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;
 
@@ -48,18 +46,14 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
     }
 
     @Override
-    public void editProfile(Profile profile, String[] password, final RequestCallback<String> requestCallback) {
+    public void editProfile(Profile profile, final RequestCallback<String> requestCallback) {
         AndroidNetworking.put(ApiConstant.BASE_URL + "/api/user")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
-                .addBodyParameter("first_name", profile.getFirst_name())
-                .addBodyParameter("last_name", profile.getLast_name())
+                .addBodyParameter("full_name", profile.getFull_name())
                 .addBodyParameter("gender", profile.getGender())
                 .addBodyParameter("birth_date", profile.getBirth_date())
-                .addBodyParameter("username", profile.getUsername())
                 .addBodyParameter("email", profile.getEmail())
                 .addBodyParameter("phone_number", profile.getPhone_number())
-                .addBodyParameter("oldPassword", password[0])
-                .addBodyParameter("newPassword", password[1])
                 .build()
                 .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
                     @Override
@@ -75,13 +69,10 @@ public class EditProfileInteractor implements EditProfileContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         if(anError.getErrorCode() == 401)
-                            requestCallback.requestFailed("Old password doesnt match !");
+                            requestCallback.requestFailed("Unauthorized !");
                         else
                             requestCallback.requestFailed("Failed to save data !");
                     }
                 });
     }
-
-
 }
-

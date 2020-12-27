@@ -24,7 +24,7 @@ public class SparepartBengkelInteractor implements SparepartBengkelContract.Inte
 
     @Override
     public void requestSparepartBengkel(final int id, final RequestCallback<List<Sparepart>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/sparepartBengkel/" + id)
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/sparepart/bengkel/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(SparepartResponse.class, new ParsedRequestListener<SparepartResponse>() {
@@ -32,7 +32,6 @@ public class SparepartBengkelInteractor implements SparepartBengkelContract.Inte
                     public void onResponse(SparepartResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.spareparts);
@@ -42,14 +41,13 @@ public class SparepartBengkelInteractor implements SparepartBengkelContract.Inte
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
 
     @Override
     public void searchSparepartBengkel(int id, String keyword, final RequestCallback<List<Sparepart>> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/searchSparepartBengkel/" + id)
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/sparepart/bengkel/search/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("name", keyword)
                 .build()
@@ -58,7 +56,6 @@ public class SparepartBengkelInteractor implements SparepartBengkelContract.Inte
                     public void onResponse(SparepartResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.spareparts);
@@ -68,7 +65,6 @@ public class SparepartBengkelInteractor implements SparepartBengkelContract.Inte
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

@@ -2,7 +2,6 @@ package com.alifadepe.android_example.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,17 +12,10 @@ import com.alifadepe.android_example.R;
 import com.alifadepe.android_example.contract.ProgressServiceContract;
 import com.alifadepe.android_example.databinding.ActivityCheckProgressBinding;
 import com.alifadepe.android_example.interactor.ProgressServiceInteractor;
-import com.alifadepe.android_example.model.ProgressService;
 import com.alifadepe.android_example.presenter.ProgressServicePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class ProgressServiceActivity extends AppCompatActivity implements ProgressServiceContract.View, View.OnClickListener {
     private ProgressServiceContract.Presenter presenter;
@@ -104,7 +96,7 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
         String estimatedTime;
 
         if(progress != null){
-            if(progress.get(0) != null){
+            if(progress.get(6).equalsIgnoreCase("ongoing")){
                 int percentage = Integer.parseInt(progress.get(2));
                 int hours = Integer.parseInt(progress.get(3));
                 int minutes = Integer.parseInt(progress.get(4));
@@ -118,9 +110,13 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
                 binding.percentageProgress.setText(percentage + " %");
                 estimatedTime = hours +  " Hours " + minutes + " Minutes";
                 binding.estimatedProgress.setText(estimatedTime);
-            }else{
+            }else if(progress.get(6).equalsIgnoreCase("upcoming")){
                 binding.percentageProgress.setText("0 %");
                 binding.estimatedProgress.setText("-");
+            }
+            else {
+                binding.percentageProgress.setText("100 %");
+                binding.estimatedProgress.setText("Service Finished");
             }
             binding.plateNumber.setText(progress.get(5));
         }else{

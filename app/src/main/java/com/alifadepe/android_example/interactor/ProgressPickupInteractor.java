@@ -33,7 +33,6 @@ public class ProgressPickupInteractor implements ProgressPickupContract.Interact
                     public void onResponse(PickupResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.pickup);
@@ -43,7 +42,6 @@ public class ProgressPickupInteractor implements ProgressPickupContract.Interact
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

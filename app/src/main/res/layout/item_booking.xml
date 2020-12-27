@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="20dp"
+        android:elevation="10dp"
+        card_view:cardUseCompatPadding="true"
         android:layout_marginBottom="10dp">
 
         <RelativeLayout
@@ -27,6 +29,16 @@
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_marginStart="10dp"
+                tools:text="Title Placeholder"/>
+
+            <TextView
+                android:id="@+id/list_booking_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="end"
                 tools:text="Title Placeholder"/>
 
             <TextView
@@ -47,8 +59,7 @@
                 android:layout_marginStart="10dp"
                 android:text="@{booking.repairment_note}"
                 android:textColor="?attr/colorTextDark"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>

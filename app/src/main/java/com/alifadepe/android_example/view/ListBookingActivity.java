@@ -8,18 +8,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.alifadepe.android_example.adapter.ListBengkelAdapter;
 import com.alifadepe.android_example.adapter.ListBookingAdapter;
-import com.alifadepe.android_example.contract.ListBengkelContract;
 import com.alifadepe.android_example.contract.ListBookingContract;
-import com.alifadepe.android_example.databinding.ActivityCariBengkelBinding;
 import com.alifadepe.android_example.databinding.ActivityListBookingBinding;
-import com.alifadepe.android_example.interactor.ListBengkelInteractor;
 import com.alifadepe.android_example.interactor.ListBookingInteractor;
-import com.alifadepe.android_example.model.Bengkel;
 import com.alifadepe.android_example.model.BookingData;
-import com.alifadepe.android_example.model.ProgressService;
-import com.alifadepe.android_example.presenter.ListBengkelPresenter;
 import com.alifadepe.android_example.presenter.ListBookingPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
@@ -76,9 +69,9 @@ public class ListBookingActivity extends AppCompatActivity implements ListBookin
     @Override
     public void setBooking(List<BookingData> booking) {
         if(booking.size()>0)
-            binding.listBooking.setAdapter(new ListBookingAdapter(booking, getLayoutInflater(), this));
+            binding.listBooking.setAdapter(new ListBookingAdapter(booking, getLayoutInflater(), this, this));
         else
-            Toast.makeText(this, "No On Going Bookings", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Bookings Made Yet", Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -121,31 +121,15 @@
                         android:text="@string/tv_is_pickup"
                         android:textSize="18sp"
                         />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
+                    <Button
+                        android:id="@+id/yes_button"
+                        android:layout_width="140dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/book_btn"
                         android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/yes_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="20dp"
-                            android:background="@drawable/yes_btn"
-                            android:text="Yes"
-                            android:textColor="@color/colorPrimary" />
-
-                        <Button
-                            android:id="@+id/no_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:background="@drawable/no_btn"
-                            android:text="No" />
-
-                    </LinearLayout>
+                        android:text="@string/pickup_button"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <TextView
                         android:id="@+id/tv_select_motor"
@@ -157,7 +141,6 @@
                         android:text="@string/tv_select_motor"
                         android:textSize="18sp"
                         />
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -180,7 +163,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/book_btn"
                         android:text="Book Now"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimaryDark" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

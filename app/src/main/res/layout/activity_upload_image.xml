@@ -29,33 +29,48 @@
             android:gravity="end"
             android:orientation="vertical"
             android:padding="32dp">
-
             <TextView
                 android:id="@+id/txt_upload"
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:linksClickable="true"
-                android:text="@string/your_payment_is_being_confirmed"
+                android:layout_marginTop="50dp"
+                android:layout_below="@+id/camera"
+                android:text="@string/upload"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
-                android:textSize="15pt" />
+                android:textSize="8pt" />
 
-            <ImageView
-                android:id="@+id/imageView2"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                app:srcCompat="@drawable/checkmark"
-                android:contentDescription="TODO" />
+                android:layout_gravity="center">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imageHolder"
+                    app:riv_corner_radius="50dp"
+                    android:layout_width="300dp"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/rounded_square"/>
+
+                <ImageView
+                    android:id="@+id/camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    app:srcCompat="@drawable/camera" />
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/confirm_upload"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_button"
                 android:text="confirm"
                 android:textColor="?attr/colorTextDark" />

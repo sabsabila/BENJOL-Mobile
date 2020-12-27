@@ -1,6 +1,8 @@
 package com.alifadepe.android_example.interactor;
 
 
+import android.util.Log;
+
 import com.alifadepe.android_example.api_response.BookingResponse;
 import com.alifadepe.android_example.api_response.UserResponse;
 import com.alifadepe.android_example.callback.RequestCallback;

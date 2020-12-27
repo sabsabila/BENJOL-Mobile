@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alifadepe.android_example.R;
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.DashboardContract;
 import com.alifadepe.android_example.databinding.ActivityDashboardBinding;
 import com.alifadepe.android_example.interactor.DashboardInteractor;
 import com.alifadepe.android_example.model.BookingData;
-import com.alifadepe.android_example.model.Sparepart;
+import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.presenter.DashboardPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
+import com.squareup.picasso.Picasso;
 
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, View.OnClickListener {
     private DashboardContract.Presenter presenter;
@@ -30,8 +33,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     private void initView(){
-        presenter.getUsername();
+        presenter.getFullname();
         presenter.getBookingData();
+        binding.navbar.homeButton.setBackgroundResource(R.drawable.home_icon_filled);
         binding.findBengkel.setOnClickListener(this);
         binding.findSparepart.setOnClickListener(this);
         binding.trackDelivery.setOnClickListener(this);
@@ -95,15 +99,39 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     }
 
     @Override
-    public void setUsername(String name){
-        binding.profileName.setText(name);
+    public void setUser(Profile user){
+        binding.profileName.setText(user.getFull_name());
+        if(user.getProfile_picture() != null){
+            binding.profileImage.setBackground(null);
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + user.getProfile_picture())
+                    .fit()
+                    .into(binding.profileImage);
+        }
     }
 
     @Override
     public void setBooking(BookingData booking) {
-        if(booking != null)
+        if(booking != null) {
             binding.setBooking(booking);
-        else
+            setStatus(booking);
+        }else
             binding.bengkelName.setText("No Bookings Made");
+    }
+
+    private void setStatus(BookingData booking) {
+        if (booking.getStatus().equalsIgnoreCase("upcoming")) {
+            binding.status.setText("Upcoming");
+            binding.status.setTextColor(getResources().getColor(R.color.colorSecondary));
+        } else if (booking.getStatus().equalsIgnoreCase("ongoing")) {
+            binding.status.setText("On Going");
+            binding.status.setTextColor(getResources().getColor(R.color.ongoing));
+        } else if (booking.getStatus().equalsIgnoreCase("finished")) {
+            binding.status.setText("Finished");
+            binding.status.setTextColor(getResources().getColor(R.color.finish));
+        } else if (booking.getStatus().equalsIgnoreCase("canceled")) {
+            binding.status.setText("Canceled");
+            binding.status.setTextColor(getResources().getColor(R.color.cancel));
+        }
     }
 }
