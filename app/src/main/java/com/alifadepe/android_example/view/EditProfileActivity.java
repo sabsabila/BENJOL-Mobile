@@ -107,12 +107,14 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     @Override
     public void setProfile(Profile user) {
         binding.setUser(user);
-        if(user.getGender().equalsIgnoreCase("male"))
-            binding.radioMale.setChecked(true);
-        else if(user.getGender().equalsIgnoreCase("female"))
-            binding.radioFemale.setChecked(true);
-        else if(user.getGender().equalsIgnoreCase("other"))
-            binding.radioOther.setChecked(true);
+        if(user.getGender() != null){
+            if(user.getGender().equalsIgnoreCase("male"))
+                binding.radioMale.setChecked(true);
+            else if(user.getGender().equalsIgnoreCase("female"))
+                binding.radioFemale.setChecked(true);
+            else if(user.getGender().equalsIgnoreCase("other"))
+                binding.radioOther.setChecked(true);
+        }
     }
 
 }
