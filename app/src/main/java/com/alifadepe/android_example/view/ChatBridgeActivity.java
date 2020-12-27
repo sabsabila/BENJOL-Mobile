@@ -13,12 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.ChatBridgeContract;
 import com.alifadepe.android_example.databinding.ActivityChatBridgeBinding;
 import com.alifadepe.android_example.interactor.ChatBridgeInteractor;
 import com.alifadepe.android_example.model.Bengkel;
 import com.alifadepe.android_example.presenter.ChatBridgePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -164,6 +166,13 @@ public class ChatBridgeActivity extends AppCompatActivity implements ChatBridgeC
         binding.setBengkel(bengkel);
         phoneNumber = bengkel.getPhone_number();
         bengkelName = bengkel.getName();
+        if(bengkel.getProfile_picture() != null){
+            binding.chatBengkelImage.setBackground(null);
+            Picasso.get()
+                    .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
+                    .fit()
+                    .into(binding.chatBengkelImage);
+        }
     }
 
 }
