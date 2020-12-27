@@ -43,6 +43,7 @@ public class ListBengkelAdapter extends RecyclerView.Adapter<ListBengkelAdapter.
             holder.binding.bengkelPlaceholder.setBackground(null);
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + bengkel.get(position).getProfile_picture())
+                    .fit()
                     .into(holder.binding.bengkelPlaceholder);
         }
     }

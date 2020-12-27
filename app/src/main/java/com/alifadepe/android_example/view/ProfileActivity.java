@@ -40,13 +40,15 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     private void initView(){
         presenter.setProfile();
-        binding.listMotorcycle.setLayoutManager(new LinearLayoutManager(this));
         presenter.setMotor();
+        binding.navbar.profileButton.setBackgroundResource(R.drawable.profile_icon_filled);
+        binding.listMotorcycle.setLayoutManager(new LinearLayoutManager(this));
         binding.signOutButton.setOnClickListener(this);
         binding.inputMotorButton.setOnClickListener(this);
         binding.backButton.setOnClickListener(this);
         binding.navbar.homeButton.setOnClickListener(this);
         binding.profile.setOnClickListener(this);
+        binding.uploadProfileButton.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +78,14 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         if(v.getId() == binding.profile.getId()){
             onEditProfileClick();
         }
+        if(v.getId() == binding.uploadProfileButton.getId()){
+            onUploadProfileClick();
+        }
+    }
+
+    private void onUploadProfileClick() {
+        finish();
+        startActivity(new Intent(this, UploadProfileImageActivity.class));
     }
 
     private void onHomeButtonClick() {
@@ -109,8 +119,8 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void setProfile(Profile user) {
-        if(user.getFirst_name() != null && user.getLast_name() != null)
-            binding.profileName.setText(user.getFirst_name() + " " + user.getLast_name());
+        if(user.getFull_name() != null)
+            binding.profileName.setText(user.getFull_name());
         binding.setUser(user);
     }
 

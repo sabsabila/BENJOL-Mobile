@@ -29,14 +29,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="80dp">
+            android:paddingHorizontal="50dp">
 
-            <ImageView
+            <com.makeramen.roundedimageview.RoundedImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:riv_corner_radius="50dp"
                 android:id="@+id/chat_bengkel_image"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
                 android:layout_marginTop="100dp"
-                android:background="@drawable/rounded_image_drawable" />
+                android:layout_gravity="center"
+                android:background="@drawable/noimage" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -46,6 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginStart="25dp"
                     android:text="@{bengkel.name}"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
@@ -55,6 +59,7 @@
                     android:id="@+id/chat_alamat_bengkel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
                     android:layout_marginTop="5dp"
                     android:text="@{bengkel.address}"
                     android:layout_below="@+id/chat_nama_bengkel"
@@ -66,6 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/chat_alamat_bengkel"
                     android:layout_marginTop="50dp"
+                    android:layout_marginStart="25dp"
                     android:background="@drawable/call"/>
 
                 <ImageButton
@@ -75,12 +81,14 @@
                     android:layout_alignParentEnd="true"
                     android:layout_below="@+id/chat_alamat_bengkel"
                     android:layout_marginTop="50dp"
+                    android:layout_marginEnd="25dp"
                     android:background="@drawable/wa"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
                     android:text="@string/callNumber"
                     android:textColor="?attr/colorSecondary"
                     android:layout_below="@+id/call_button"
@@ -90,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_marginEnd="35dp"
                     android:text="@string/wa"
                     android:textColor="?attr/colorSecondary"
                     android:layout_below="@+id/call_button"

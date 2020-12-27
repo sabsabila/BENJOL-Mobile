@@ -77,7 +77,7 @@ public class ListPickupActivity extends AppCompatActivity implements ListPickupC
         if(pickup.size()>0)
             binding.listPickup.setAdapter(new ListPickupAdapter(pickup, getLayoutInflater(), this));
         else
-            Toast.makeText(this, "No On Going Pickups", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Pickups Made Yet", Toast.LENGTH_SHORT).show();
     }
 
     @Override

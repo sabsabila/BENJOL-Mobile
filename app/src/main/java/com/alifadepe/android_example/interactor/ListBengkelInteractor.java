@@ -24,14 +24,13 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
 
     @Override
     public void requestBengkel(final RequestCallback<List<Bengkel>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/bengkelList")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/bengkel/all")
                 .build()
                 .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
                     @Override
                     public void onResponse(ListBengkelResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.bengkel);
@@ -41,14 +40,13 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }
 
     @Override
     public void searchBengkel(String keyword, final RequestCallback<List<Bengkel>> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/searchBengkel")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/api/bengkel/search")
                 .addBodyParameter("name", keyword)
                 .build()
                 .getAsObject(ListBengkelResponse.class, new ParsedRequestListener<ListBengkelResponse>() {
@@ -56,7 +54,6 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     public void onResponse(ListBengkelResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.bengkel);
@@ -66,7 +63,6 @@ public class ListBengkelInteractor implements ListBengkelContract.Interactor {
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getMessage());
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

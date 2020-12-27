@@ -60,34 +60,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="@string/firstName"
+                        android:text="@string/fullName"
                         android:textSize="5pt"
                         android:textColor="@color/colorTextDark" />
 
                     <EditText
-                        android:id="@+id/edit_first_name"
+                        android:id="@+id/edit_full_name"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
-                        android:hint="@string/firstName"
-                        android:text="@{user.first_name}"
-                        android:background="@drawable/rounded_edit_text"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/lastname"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
-
-                    <EditText
-                        android:id="@+id/edit_last_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:hint="@string/lastname"
-                        android:text="@{user.last_name}"
+                        android:hint="@string/fullName"
+                        android:text="@{user.full_name}"
                         android:background="@drawable/rounded_edit_text"/>
 
                     <TextView
@@ -105,23 +88,6 @@
                         android:layout_marginTop="5dp"
                         android:hint="@string/email"
                         android:text="@{user.email}"
-                        android:background="@drawable/rounded_edit_text"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/username"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
-
-                    <EditText
-                        android:id="@+id/edit_username"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:hint="@string/username"
-                        android:text="@{user.username}"
                         android:background="@drawable/rounded_edit_text"/>
 
                     <TextView
@@ -199,45 +165,14 @@
                         android:background="?attr/colorSecondary"
                         android:calendarViewShown="false"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/passwordLab"
-                        android:textSize="8pt"
-                        android:textColor="@color/colorTextDark" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/oldPass"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
-
-                    <EditText
-                        android:id="@+id/edit_old_password"
+                    <Button
+                        android:id="@+id/change_pwd_button"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:hint="@string/oldPass"
-                        android:inputType="textPassword"
-                        android:background="@drawable/rounded_edit_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/newPass"
-                        android:textSize="5pt"
-                        android:textColor="@color/colorTextDark" />
-
-                    <EditText
-                        android:id="@+id/edit_new_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:hint="@string/newPass"
-                        android:inputType="textPassword"
-                        android:background="@drawable/rounded_edit_text"/>
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/rounded_button"
+                        android:textColor="@color/colorTextDark"
+                        android:text="@string/changePassword"/>
 
                     <Button
                         android:id="@+id/save_button"

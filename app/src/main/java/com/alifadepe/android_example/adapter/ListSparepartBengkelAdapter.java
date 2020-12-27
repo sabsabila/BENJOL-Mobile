@@ -37,6 +37,7 @@ public class ListSparepartBengkelAdapter extends RecyclerView.Adapter<ListSparep
         if(spareparts.get(position).getPicture() != null){
             Picasso.get()
                     .load(ApiConstant.BASE_URL + "/" + spareparts.get(position).getPicture())
+                    .fit()
                     .into(holder.binding.imageView);
         }
     }

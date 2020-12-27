@@ -28,7 +28,6 @@ public class EditMotorcycleInteractor implements EditMotorcycleContract.Interact
                 .getAsObject(MotorResponse.class, new ParsedRequestListener<MotorResponse>() {
                     @Override
                     public void onResponse(MotorResponse response) {
-                        Log.d("tag", "sukses");
                         requestCallback.requestSuccess(response.motorcycles);
                     }
                     @Override
@@ -48,7 +47,6 @@ public class EditMotorcycleInteractor implements EditMotorcycleContract.Interact
                 .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
                     @Override
                     public void onResponse(ResponseMessage response) {
-                        Log.d("motorcycle", String.valueOf(id));
                         requestCallback.requestSuccess(response.message);
                     }
                     @Override

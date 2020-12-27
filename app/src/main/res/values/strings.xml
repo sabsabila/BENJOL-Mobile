@@ -4,7 +4,6 @@
 
     <!--Login & Register-->
     <string name="email">E-mail</string>
-    <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="forgetPassword">Forgot your password ?</string>
     <string name="login">Sign In</string>
@@ -12,8 +11,7 @@
     <string name="registerText">Enter Your Account Details</string>
     <string name="logout">Sign Out</string>
     <string name="register">Register</string>
-    <string name="firstName">First Name</string>
-    <string name="lastname">Last Name</string>
+    <string name="fullName">Full Name</string>
     <string name="create">Create an Account</string>
     <string name="google">Sign In With Google</string>
     <string name="hint_booking_date">Input date here ...*2020-11-30</string>
@@ -21,7 +19,8 @@
     <string name="serviceSedang">Service Sedang</string>
     <string name="serviceBerat">Service Berat</string>
     <string name="et_problem_placeholder">Type your problem here...</string>
-    <string name="tv_is_pickup">You want us to pick up your vehicle?</string>
+    <string name="tv_is_pickup">Need pickup service ? (Optional)</string>
+    <string name="pickup_button">Input Location</string>
     <string name="what_problem">What kind of service do you need ?</string>
     <string name="when">When ?</string>
     <string name="tv_select_motor">Select Motorcycle</string>
@@ -38,9 +37,13 @@
     <string name="profileLabel">Profile</string>
     <string name="editProfile">Edit Profile</string>
     <string name="save">Save</string>
-    <string name="passwordLab">Change Password</string>
+    <string name="changePassword">Change Password</string>
     <string name="oldPass">Old Password</string>
     <string name="newPass">New Password</string>
+    <string name="upload">Click below to select image</string>
+    <string name="signOut">Sign Out</string>
+    <string name="profpic">Set Profile Image</string>
+    <string name="label">Click to edit profile.</string>
 
     <!--Motorcycle-->
     <string name="motorcycleInfo">Motorcycle Info</string>
@@ -50,7 +53,7 @@
     <string name="inputMotorLabel">Input Motor</string>
 
     <!--Dashboard-->
-    <string name="welcomeTitle">Hai, </string>
+    <string name="welcomeTitle">Hi, </string>
     <string name="profilName">XXXXX</string>
     <string name="welcomeDesc">Welcome to your trusted bengkel app</string>
     <string name="findBengkel">Search Bengkel</string>
@@ -97,10 +100,6 @@
     <string name="start">Start Time</string>
     <string name="end">End Time</string>
 
-    <!--Chat-->
-
-    <!--Booking-->
-
     <!--Payment-->
     <string name="paymentDetail">Payment Detail</string>
     <string name="bengkelLabel">Bengkel</string>
@@ -117,7 +116,8 @@
     <string name="cost">Rp. </string>
     <string name="note">Lorem ipsum dolor sit amet</string>
     <string name="status">Unpaid</string>
-    <string name="transfer">Transfer</string>
+    <string name="transfer">If you want to pay via bank transfer.</string>
+    <string name="receipt">Upload Receipt</string>
 
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>

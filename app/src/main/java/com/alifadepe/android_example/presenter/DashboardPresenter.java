@@ -18,13 +18,13 @@ public class DashboardPresenter implements DashboardContract.Presenter {
     }
 
     @Override
-    public void getUsername() {
+    public void getFullname() {
         view.startLoading();
         interactor.getUser(new RequestCallback<Profile>() {
 
             @Override
             public void requestSuccess(Profile response) {
-                view.setUsername(response.getUsername());
+                view.setUser(response);
                 view.endLoading();
             }
 

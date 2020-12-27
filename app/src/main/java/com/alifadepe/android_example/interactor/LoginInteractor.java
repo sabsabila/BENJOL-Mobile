@@ -32,7 +32,6 @@ public class LoginInteractor implements LoginContract.Interactor {
                         }
                         else {
                             requestCallback.requestSuccess(response);
-                            Log.d("tag", response.token);
                         }
                     }
 

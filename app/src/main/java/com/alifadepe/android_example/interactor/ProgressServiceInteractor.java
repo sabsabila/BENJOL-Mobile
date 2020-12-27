@@ -1,12 +1,9 @@
 package com.alifadepe.android_example.interactor;
 
-import android.util.Log;
-
 import com.alifadepe.android_example.api_response.ProgressServiceResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.ProgressServiceContract;
-import com.alifadepe.android_example.model.ProgressService;
 import com.alifadepe.android_example.util.SharedPreferencesUtil;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -23,7 +20,7 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
 
     @Override
     public void requestProgressService(int id, final RequestCallback<List<String>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/checkProgress/" + id)
+        AndroidNetworking.get(ApiConstant.BASE_URL + "/api/progress/" + id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ProgressServiceResponse.class, new ParsedRequestListener<ProgressServiceResponse>() {
@@ -31,7 +28,6 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                     public void onResponse(ProgressServiceResponse response) {
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
-                            Log.d("tag", "response null");
                         }
                         else {
                             requestCallback.requestSuccess(response.progress);
@@ -41,7 +37,6 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
-                        Log.d("tag", "error gan" + anError.getMessage() + anError.getErrorCode());
                     }
                 });
     }

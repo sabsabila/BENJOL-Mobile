@@ -2,43 +2,32 @@ package com.alifadepe.android_example.model;
 
 public class User {
 
-    private String first_name;
-    private String last_name;
-    private String username;
+    private String fullName;
     private String email;
     private String password;
+    private String phoneNumber;
 
-    public User(String first_name, String last_name, String username, String email, String password) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.username = username;
+    public User(String fullName, String email, String password, String phoneNumber) {
+        this.fullName = fullName;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
-
-    public String getFirst_name() {
-        return first_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
