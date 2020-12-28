@@ -34,6 +34,8 @@ public class MotorcycleActivity extends AppCompatActivity implements MotorcycleC
         binding.baseLayout.pageTitle.setText("Motorcycle");
         binding.baseLayout.backButton.setOnClickListener(this);
         binding.addMotorButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +56,22 @@ public class MotorcycleActivity extends AppCompatActivity implements MotorcycleC
         if(v.getId() == binding.addMotorButton.getId()){
             onAddButtonClick();
         }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     private void onAddButtonClick() {

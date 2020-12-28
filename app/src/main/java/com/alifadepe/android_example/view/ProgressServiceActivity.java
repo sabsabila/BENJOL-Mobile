@@ -1,10 +1,13 @@
 package com.alifadepe.android_example.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -43,6 +46,7 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
         binding.navbar.profileButton.setOnClickListener(this);
         binding.paymentDetailButton.setOnClickListener(this);
         binding.baseLayout.backButton.setOnClickListener(this);
+        binding.cancel.setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +73,13 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
         if(v.getId() == binding.navbar.profileButton.getId()){
             onProfileClick();
         }
+        if(v.getId() == binding.cancel.getId()){
+            onCancelClick();
+        }
+    }
+
+    private void onCancelClick() {
+        showCancelAlert(bookingId);
     }
 
     private void onHomeButtonClick() {
@@ -92,6 +103,22 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
     }
 
     @Override
+    public void showCancelAlert(final int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(android.R.drawable.ic_delete);
+        builder.setTitle("Cancel Booking");
+        builder.setMessage("Are you sure you want to cancel this booking ?");
+        builder.setPositiveButton(Html.fromHtml("<font color='#FBB308'>Yes</font>"), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int arg1) {
+                presenter.cancelBooking(id);
+            }
+        });
+        builder.setNegativeButton(Html.fromHtml("<font color='#eb5334'>No</font>"), null);
+        builder.create();
+        builder.show();
+    }
+
+    @Override
     public void setProgressService(List<String> progress) {
         String estimatedTime;
 
@@ -110,23 +137,50 @@ public class ProgressServiceActivity extends AppCompatActivity implements Progre
                 binding.percentageProgress.setText(percentage + " %");
                 estimatedTime = hours +  " Hours " + minutes + " Minutes";
                 binding.estimatedProgress.setText(estimatedTime);
+
+                disableCancel();
             }else if(progress.get(6).equalsIgnoreCase("upcoming") || progress.get(6).equalsIgnoreCase("canceled")){
                 binding.percentageProgress.setText("0 %");
                 binding.estimatedProgress.setText("-");
-                binding.paymentDetailButton.setVisibility(View.GONE);
+                disableButton();
                 if(progress.get(6).equalsIgnoreCase("canceled")){
                     binding.estimatedProgress.setText("Canceled");
+                    binding.estimatedProgress.setTextColor(getResources().getColor(R.color.cancel));
+                    disableCancel();
                 }
             }
             else {
                 binding.percentageProgress.setText("100 %");
                 binding.estimatedProgress.setText("Service Finished");
+                binding.estimatedProgress.setTextColor(getResources().getColor(R.color.finish));
+                disableCancel();
             }
             binding.plateNumber.setText(progress.get(5));
         }else{
             binding.plateNumber.setText("No Bookings Made Yet");
-            binding.paymentDetailButton.setVisibility(View.GONE);
+            disableButton();
+            disableCancel();
         }
+    }
+
+    private void disableButton(){
+        binding.paymentDetailButton.setBackgroundResource(R.drawable.button_disabled);
+        binding.paymentDetailButton.setTextColor(getResources().getColor(R.color.colorPrimary));
+        binding.paymentDetailButton.setEnabled(false);
+    }
+
+    private void disableCancel(){
+        binding.cancel.setTextColor(getResources().getColor(R.color.colorTextDark));
+        binding.cancel.setEnabled(false);
+    }
+
+    @Override
+    public void cancelSuccess(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        disableCancel();
+        disableButton();
+        finish();
+        startActivity(getIntent());
     }
 
     @Override

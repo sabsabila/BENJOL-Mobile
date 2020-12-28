@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.presenter.ProfilePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity implements ProfileContract.View, View.OnClickListener, ListMotorAdapter.ListItemClickListener, ListMotorAdapter.ListItemLongClickListener {
@@ -119,9 +121,19 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void setProfile(Profile user) {
-        if(user.getFull_name() != null)
-            binding.profileName.setText(user.getFull_name());
+        binding.profileName.setText(user.getFull_name());
         binding.setUser(user);
+        if(user.getGender() != null)
+            binding.gender.setText(user.getGender());
+        if(user.getBirth_date()!=null){
+            String[] date = user.getBirth_date().split("-");
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.YEAR, Integer.parseInt(date[0]));
+            calendar.set(Calendar.MONTH, Integer.parseInt(date[1])-1);
+            calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date[2]));
+            CharSequence dateFormatted = DateFormat.format("EEE, d MMM yyyy", calendar);
+            binding.birthDate.setText(dateFormatted);
+        }
     }
 
     @Override

@@ -37,4 +37,22 @@ public class ProgressServicePresenter implements ProgressServiceContract.Present
     public void payService() {
         view.redirectToPayment();
     }
+
+    @Override
+    public void cancelBooking(int id) {
+        view.startLoading();
+        interactor.requestCancelBooking(id, new RequestCallback<String>() {
+            @Override
+            public void requestSuccess(String message) {
+                view.cancelSuccess(message);
+                view.endLoading();
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.showError(errorMessage);
+                view.endLoading();
+            }
+        });
+    }
 }

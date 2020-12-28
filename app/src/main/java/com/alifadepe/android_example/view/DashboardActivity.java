@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,6 +18,8 @@ import com.alifadepe.android_example.model.Profile;
 import com.alifadepe.android_example.presenter.DashboardPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 import com.squareup.picasso.Picasso;
+
+import java.util.Calendar;
 
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, View.OnClickListener {
     private DashboardContract.Presenter presenter;
@@ -115,6 +118,13 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         if(booking != null) {
             binding.setBooking(booking);
             setStatus(booking);
+            String[] date = booking.getRepairment_date().split("-");
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.YEAR, Integer.parseInt(date[0]));
+            calendar.set(Calendar.MONTH, Integer.parseInt(date[1])-1);
+            calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date[2]));
+            CharSequence dateFormatted = DateFormat.format("EEE, d MMM yyyy", calendar);
+            binding.dayDate.setText(dateFormatted);
         }else
             binding.bengkelName.setText("No Bookings Made");
     }

@@ -1,6 +1,7 @@
 package com.alifadepe.android_example.interactor;
 
 import com.alifadepe.android_example.api_response.ProgressServiceResponse;
+import com.alifadepe.android_example.api_response.ResponseMessage;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.constant.ApiConstant;
 import com.alifadepe.android_example.contract.ProgressServiceContract;
@@ -37,6 +38,30 @@ public class ProgressServiceInteractor implements ProgressServiceContract.Intera
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed("Failed to load data !");
+                    }
+                });
+    }
+
+    @Override
+    public void requestCancelBooking(int id, final RequestCallback<String> requestCallback) {
+        AndroidNetworking.put(ApiConstant.BASE_URL + "/api/bookingStatus/" + id)
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
+                .addBodyParameter("status", "canceled")
+                .build()
+                .getAsObject(ResponseMessage.class, new ParsedRequestListener<ResponseMessage>() {
+                    @Override
+                    public void onResponse(ResponseMessage response) {
+                        if(response == null){
+                            requestCallback.requestFailed("Null Response");
+                        }
+                        else {
+                            requestCallback.requestSuccess("Booking canceled successfully");
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        requestCallback.requestFailed("Failed to proceed !");
                     }
                 });
     }
