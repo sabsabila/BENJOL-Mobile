@@ -38,7 +38,8 @@
         <activity android:name=".view.DetailBengkelActivity" />
         <activity android:name=".view.BookingActivity" />
         <activity android:name=".view.LoginActivity"/>
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.MainActivity"/>
+        <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

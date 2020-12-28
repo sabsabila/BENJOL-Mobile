@@ -1,6 +1,7 @@
 package com.alifadepe.android_example.adapter;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.alifadepe.android_example.model.Bengkel;
 import com.alifadepe.android_example.model.BookingData;
 import com.squareup.picasso.Picasso;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.ViewHolder> {
@@ -40,6 +42,13 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setBooking(bookings.get(position));
+        String[] date = bookings.get(position).getRepairment_date().split("-");
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, Integer.parseInt(date[0]));
+        calendar.set(Calendar.MONTH, Integer.parseInt(date[1])-1);
+        calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date[2]));
+        CharSequence dateFormatted = DateFormat.format("EEE, d MMM yyyy", calendar);
+        holder.binding.listBookingDate.setText(dateFormatted);
         setStatus(holder, position);
     }
 

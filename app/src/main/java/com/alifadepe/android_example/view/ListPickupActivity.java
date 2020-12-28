@@ -43,6 +43,8 @@ public class ListPickupActivity extends AppCompatActivity implements ListPickupC
         binding.listPickup.setLayoutManager(new LinearLayoutManager(this));
         binding.baseLayout.pageTitle.setText("Your Pickups");
         binding.baseLayout.backButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +52,22 @@ public class ListPickupActivity extends AppCompatActivity implements ListPickupC
         if(v.getId() == binding.baseLayout.backButton.getId()){
             onBackButtonClick();
         }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     @Override

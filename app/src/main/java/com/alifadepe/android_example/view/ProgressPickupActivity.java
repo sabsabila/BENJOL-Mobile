@@ -95,11 +95,13 @@ public class ProgressPickupActivity extends AppCompatActivity implements Progres
                 binding.pickupStatusDelivering.setBackgroundResource(R.drawable.rounded_square_active);
             else if(pickup.getStatus().equalsIgnoreCase("processing"))
                 binding.pickupStatusProcessing.setBackgroundResource(R.drawable.rounded_square_active);
-        }
-        else{
+        }else{
             binding.progressPickupLocation.setText("-");
             binding.progressDeliveryLocation.setText("-");
         }
+
+        if(pickup.getStatus().equalsIgnoreCase("canceled"))
+            binding.canceled.setVisibility(View.VISIBLE);
     }
 
 }
