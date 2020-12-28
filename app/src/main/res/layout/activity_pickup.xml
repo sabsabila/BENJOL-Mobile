@@ -71,7 +71,7 @@
                 android:layout_marginTop="32dp"
                 android:background="@drawable/rounded_button"
                 android:textColor="?attr/colorTextDark"
-                android:text="@string/confirmLocation"/>
+                android:text="@string/confirm"/>
 
         </LinearLayout>
     </RelativeLayout>
