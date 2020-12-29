@@ -13,7 +13,9 @@ import com.alifadepe.android_example.model.Motorcycle;
 import com.alifadepe.android_example.model.Sparepart;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ListSparepartAdapter extends RecyclerView.Adapter<ListSparepartAdapter.ViewHolder> {
     private List<Sparepart> spareparts;
@@ -33,7 +35,9 @@ public class ListSparepartAdapter extends RecyclerView.Adapter<ListSparepartAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setSparepart(spareparts.get(position));
-        holder.binding.tvPrice.setText("Rp. " + String.valueOf(spareparts.get(position).getPrice()));
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        holder.binding.tvPrice.setText("Rp. " + formatRupiah.format(spareparts.get(position).getPrice()).substring(2));
         if(spareparts.get(position).getPicture() != null){
             holder.binding.imageView.setBackground(null);
             Picasso.get()

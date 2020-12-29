@@ -12,7 +12,9 @@ import com.alifadepe.android_example.databinding.ItemSparepartBinding;
 import com.alifadepe.android_example.model.Sparepart;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ListSparepartBengkelAdapter extends RecyclerView.Adapter<ListSparepartBengkelAdapter.ViewHolder> {
     private List<Sparepart> spareparts;
@@ -32,7 +34,9 @@ public class ListSparepartBengkelAdapter extends RecyclerView.Adapter<ListSparep
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setSparepart(spareparts.get(position));
-        holder.binding.tvPrice.setText("Rp. " + String.valueOf(spareparts.get(position).getPrice()));
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        holder.binding.tvPrice.setText("Rp. " + formatRupiah.format(spareparts.get(position).getPrice()).substring(2));
         holder.binding.tvStock.setText("Stock : " + String.valueOf(spareparts.get(position).getStock()));
         if(spareparts.get(position).getPicture() != null){
             Picasso.get()

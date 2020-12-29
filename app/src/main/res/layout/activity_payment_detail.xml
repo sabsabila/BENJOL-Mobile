@@ -40,10 +40,11 @@
                 android:textStyle="bold"
                 android:textColor="?attr/colorTextDark"
                 android:textSize="12pt"/>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="0dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -184,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="@string/transfer"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:textColor="?attr/colorTextDark"
                 android:textSize="6pt"/>
             <Button

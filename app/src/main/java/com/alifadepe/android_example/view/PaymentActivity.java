@@ -15,6 +15,9 @@ import com.alifadepe.android_example.model.Payment;
 import com.alifadepe.android_example.presenter.PaymentPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class PaymentActivity extends AppCompatActivity implements PaymentContract.View, View.OnClickListener{
     private PaymentContract.presenter presenter;
     private ActivityPaymentDetailBinding binding;
@@ -101,10 +104,13 @@ public class PaymentActivity extends AppCompatActivity implements PaymentContrac
     public void setPayment(Payment payment) {
         binding.setPayment(payment);
         binding.paymentId.setText(Integer.toString(payment.getPayment_id()));
-        binding.paymentCost.setText("Rp. " + payment.getService_cost());
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        binding.paymentCost.setText("Rp. " + formatRupiah.format(payment.getService_cost()).substring(2));
         if(payment.getStatus().equalsIgnoreCase("paid")){
             binding.transferButton.setBackgroundResource(R.drawable.button_disabled);
             binding.transferButton.setTextColor(getResources().getColor(R.color.colorPrimary));
+            binding.transferButton.setEnabled(false);
         }
     }
 }
