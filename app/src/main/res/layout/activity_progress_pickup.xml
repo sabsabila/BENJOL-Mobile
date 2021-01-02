@@ -169,6 +169,17 @@
                     android:textColor="@color/colorTextDark"
                     android:background="@drawable/rounded_square" />
             </LinearLayout>
+            <TextView
+                android:id="@+id/canceled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/canceled"
+                android:textAlignment="center"
+                android:textSize="15pt"
+                android:textStyle="bold"
+                android:textColor="@color/cancel"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"/>
         </LinearLayout>
         <include
             android:id="@+id/navbar"

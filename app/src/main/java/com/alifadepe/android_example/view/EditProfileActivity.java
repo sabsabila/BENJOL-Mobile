@@ -1,8 +1,14 @@
 package com.alifadepe.android_example.view;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.format.DateFormat;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -17,11 +23,13 @@ import com.alifadepe.android_example.presenter.EditProfilePresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
-public class EditProfileActivity extends AppCompatActivity implements EditProfileContract.View, View.OnClickListener{
+public class EditProfileActivity extends AppCompatActivity implements EditProfileContract.View, View.OnClickListener, View.OnTouchListener{
     private EditProfileContract.Presenter presenter;
     private ActivityEditProfileBinding binding;
     private String gender = "-";
+    private String birthDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +46,11 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         presenter.setProfile();
         binding.backButton.setOnClickListener(this);
         binding.saveButton.setOnClickListener(this);
-        binding.changePwdButton.setOnClickListener(this);
+        binding.changePwd.setOnClickListener(this);
         binding.radioFemale.setOnClickListener(this);
         binding.radioMale.setOnClickListener(this);
         binding.radioOther.setOnClickListener(this);
+        binding.birthDate.setOnTouchListener(this);
     }
 
     @Override
@@ -62,9 +71,34 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         if(v.getId() == binding.saveButton.getId()){
             onSaveButtonClick();
         }
-        if(v.getId() == binding.changePwdButton.getId()){
+        if(v.getId() == binding.changePwd.getId()){
             onChangePasswordButtonClick();
         }
+    }
+
+    private void onBirthDateClick() {
+        final Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.MyDatePickerSpinnerTheme, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month+1;
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month-1);
+                calendar.set(Calendar.DAY_OF_MONTH, day);
+                birthDate = year+"-"+month+"-"+day;
+                CharSequence date = DateFormat.format("EEE, d MMM yyyy", calendar);
+                binding.birthDate.setText(date);
+            }
+        }, year, month, day);
+        datePickerDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        final long today = System.currentTimeMillis() - 1000;
+        datePickerDialog.getDatePicker().setMaxDate(today);
+        datePickerDialog.show();
     }
 
     private void onChangePasswordButtonClick() {
@@ -79,9 +113,8 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
             gender = radioButton.getText().toString();
         else
             gender = null;
-        String birthdate = binding.birthDate.getYear() + "-" + (binding.birthDate.getMonth() + 1) + "-" + binding.birthDate.getDayOfMonth();
         Profile profile = new Profile(binding.editFullName.getText().toString(),
-                gender, birthdate,
+                gender, birthDate,
                 binding.editEmail.getText().toString(),
                 binding.editPhoneNumber.getText().toString());
         presenter.saveProfile(profile);
@@ -115,6 +148,27 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
             else if(user.getGender().equalsIgnoreCase("other"))
                 binding.radioOther.setChecked(true);
         }
+        if(user.getBirth_date() != null){
+            String[] date = user.getBirth_date().split("-");
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.YEAR, Integer.parseInt(date[0]));
+            calendar.set(Calendar.MONTH, Integer.parseInt(date[1])-1);
+            calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date[2]));
+            CharSequence dateFormatted = DateFormat.format("EEE, d MMM yyyy", calendar);
+            binding.birthDate.setText(dateFormatted);
+            binding.birthDate.setInputType(InputType.TYPE_NULL);
+        }
     }
 
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (v.getId() == binding.birthDate.getId()) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    onBirthDateClick();
+                    break;
+            }
+        }
+        return false;
+    }
 }

@@ -102,5 +102,9 @@ public class PaymentActivity extends AppCompatActivity implements PaymentContrac
         binding.setPayment(payment);
         binding.paymentId.setText(Integer.toString(payment.getPayment_id()));
         binding.paymentCost.setText("Rp. " + payment.getService_cost());
+        if(payment.getStatus().equalsIgnoreCase("paid")){
+            binding.transferButton.setBackgroundResource(R.drawable.button_disabled);
+            binding.transferButton.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 }

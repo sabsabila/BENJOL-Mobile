@@ -1,10 +1,13 @@
 package com.alifadepe.android_example.view;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ import com.alifadepe.android_example.presenter.BookingPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class BookingActivity extends AppCompatActivity implements BookingContract.View, View.OnClickListener {
@@ -28,6 +32,7 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     private String isPickUp = "No";
     private String pickUpLocation = "-";
     private String dropOffLocation = "-";
+    private String bookingDate;
     private String problem;
     private int bengkelId;
     private Motorcycle selectedMotor;
@@ -55,6 +60,9 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
         binding.yesButton.setOnClickListener(this);
         binding.yesButton.setOnClickListener(this);
         binding.bookButton.setOnClickListener(this);
+        binding.bookingDate.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +98,49 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
         if(v.getId() == binding.bookButton.getId()){
             onButtonBookClick();
         }
+        if(v.getId() == binding.bookingDate.getId()){
+            onBookingDateClick();
+        }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
+
+    private void onBookingDateClick() {
+        final Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.MyDatePickerDialogTheme, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month+1;
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month-1);
+                calendar.set(Calendar.DAY_OF_MONTH, day);
+                bookingDate = year+"-"+month+"-"+day;
+                CharSequence date = DateFormat.format("EEE, d MMM yyyy", calendar);
+                binding.bookingDate.setText(date);
+            }
+        }, year, month, day);
+        final long today = System.currentTimeMillis() - 1000;
+        datePickerDialog.getDatePicker().setMinDate(today);
+        datePickerDialog.show();
     }
 
     private void onBackClick() {
@@ -105,7 +156,6 @@ public class BookingActivity extends AppCompatActivity implements BookingContrac
     }
 
     public void onButtonBookClick(){
-        String bookingDate = binding.bookingDate.getYear() + "-" + (binding.bookingDate.getMonth() + 1) + "-" + binding.bookingDate.getDayOfMonth();
         if( binding.etProblem.getText().toString().isEmpty())
             Toast.makeText(this, "Please fill in all fields correctly before proceeding.", Toast.LENGTH_SHORT).show();
         else{

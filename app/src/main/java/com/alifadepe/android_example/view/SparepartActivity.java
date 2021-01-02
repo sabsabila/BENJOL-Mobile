@@ -38,6 +38,8 @@ public class SparepartActivity extends AppCompatActivity implements SparepartCon
         binding.searchSparepartButton.setOnClickListener(this);
         binding.baseLayout.pageTitle.setText("Search Sparepart");
         binding.baseLayout.backButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +50,22 @@ public class SparepartActivity extends AppCompatActivity implements SparepartCon
         if(v.getId() == binding.searchSparepartButton.getId()){
             onSearchButtonClick();
         }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     @Override

@@ -20,7 +20,7 @@
     <string name="serviceBerat">Service Berat</string>
     <string name="et_problem_placeholder">Type your problem here...</string>
     <string name="tv_is_pickup">Need pickup service ? (Optional)</string>
-    <string name="pickup_button">Input Location</string>
+    <string name="pickup_button">Input Pickup Informations</string>
     <string name="what_problem">What kind of service do you need ?</string>
     <string name="when">When ?</string>
     <string name="tv_select_motor">Select Motorcycle</string>
@@ -42,7 +42,7 @@
     <string name="newPass">New Password</string>
     <string name="upload">Click below to select image</string>
     <string name="signOut">Sign Out</string>
-    <string name="profpic">Set Profile Image</string>
+    <string name="profpic">Edit Profile Picture</string>
     <string name="label">Click to edit profile.</string>
 
     <!--Motorcycle-->
@@ -75,7 +75,7 @@
     <string name="nomorBengkelLabel">Phone Number : </string>
     <string name="nomorBengkel">08xx xxxx xxxx </string>
     <string name="bookService">Book Service</string>
-    <string name="cariSparepart">Cari Sparepart</string>
+    <string name="cariSparepart">Search Sparepart</string>
     <string name="callNumber">Call Number</string>
     <string name="wa">Whatsapp</string>
 
@@ -83,7 +83,7 @@
     <string name="pickupLocation">Pick Up Location</string>
     <string name="deliveryLocation">Drop Off Location</string>
     <string name="inputLocation">Type your location here</string>
-    <string name="confirmLocation">Confirm</string>
+    <string name="confirm">Confirm</string>
 
     <!--Pick Up Progress-->
     <string name="deliveryLabel">Pickup Status</string>
@@ -99,6 +99,9 @@
     <string name="paymentDetailProgress">Payment Detail</string>
     <string name="start">Start Time</string>
     <string name="end">End Time</string>
+    <string name="cancel">Cancel Booking</string>
+    <string name="canceled">Canceled</string>
+    <string name="bDate">Booking Date</string>
 
     <!--Payment-->
     <string name="paymentDetail">Payment Detail</string>
@@ -114,12 +117,8 @@
     <string name="date">yyyy-mm-dd</string>
     <string name="plateNumber">L xxxx Y</string>
     <string name="cost">Rp. </string>
-    <string name="note">Lorem ipsum dolor sit amet</string>
     <string name="status">Unpaid</string>
     <string name="transfer">If you want to pay via bank transfer.</string>
     <string name="receipt">Upload Receipt</string>
 
-    <string name="book_title">Book title</string>
-    <string name="book_description">Book description</string>
-    <string name="your_payment_is_being_confirmed">Your payment is being confirmed</string>
 </resources>

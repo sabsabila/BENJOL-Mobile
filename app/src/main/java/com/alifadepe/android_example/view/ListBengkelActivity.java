@@ -38,6 +38,8 @@ public class ListBengkelActivity extends AppCompatActivity implements ListBengke
         binding.searchBengkelButton.setOnClickListener(this);
         binding.baseLayout.pageTitle.setText("Search Bengkel");
         binding.baseLayout.backButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +50,22 @@ public class ListBengkelActivity extends AppCompatActivity implements ListBengke
         if(v.getId() == binding.searchBengkelButton.getId()){
             onSearchButtonClick();
         }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     @Override
