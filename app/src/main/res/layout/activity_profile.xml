@@ -4,7 +4,7 @@
     <data>
         <variable
             name="user"
-            type="com.alifadepe.android_example.model.Profile" />
+            type="com.benjolteam.benjol.model.Profile" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"

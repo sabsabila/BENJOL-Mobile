@@ -4,7 +4,7 @@
     <data>
         <variable
             name="pickup"
-            type="com.alifadepe.android_example.model.PickupData" />
+            type="com.benjolteam.benjol.model.PickupData" />
     </data>
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"

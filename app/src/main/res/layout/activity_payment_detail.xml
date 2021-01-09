@@ -3,17 +3,31 @@
     <data>
         <variable
             name="payment"
-            type="com.alifadepe.android_example.model.Payment" />
+            type="com.benjolteam.benjol.model.Payment" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorSecondary">
 
-        <include
-            android:id="@+id/base_layout"
-            android:layout_width="fill_parent"
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            layout="@layout/base_layout" />
+            android:background="@drawable/back"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -29,175 +43,188 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="40dp">
+            android:background="@drawable/layout_drawable"
+            android:layout_marginTop="60dp"
+            android:padding="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/paymentDetail"
-                android:layout_marginTop="60dp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorTextDark"
-                android:textSize="12pt"/>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/transactionIdLabel"
-                    android:layout_marginTop="50dp"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-                <TextView
-                    android:id="@+id/payment_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/transactionId"
-                    android:layout_marginTop="50dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/dateLabel"
-                    android:layout_below="@+id/payment_id"
-                    android:layout_marginTop="10dp"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:id="@+id/payment_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@{payment.repairment_date}"
-                    android:layout_below="@+id/payment_id"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/statusLabel"
-                    android:layout_below="@+id/payment_date"
-                    android:layout_marginTop="10dp"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:id="@+id/payment_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@{payment.status}"
-                    android:layout_below="@+id/payment_date"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <View
-                    android:id="@+id/payment_line_break"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_below="@+id/payment_status"
-                    android:layout_centerVertical="true"
-                    android:background="@color/colorTextDark" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/costLabel"
-                    android:layout_below="@+id/payment_line_break"
-                    android:layout_marginTop="20dp"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-
-                <TextView
-                    android:id="@+id/payment_cost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/cost"
-                    android:layout_below="@+id/payment_line_break"
-                    android:layout_marginTop="20dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="?attr/colorTextDark"
-                    android:textSize="8pt"/>
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/repairmentNoteLabel"
-                android:layout_marginTop="30dp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorTextDark"
-                android:textSize="8pt"/>
-
-            <TextView
-                android:id="@+id/payment_repairment_note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@{payment.repairment_note}"
-                android:layout_marginTop="10dp"
-                android:textColor="?attr/colorTextDark"
-                android:textSize="8pt"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/noteLabel"
-                android:layout_marginTop="20dp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorTextDark"
-                android:textSize="8pt"/>
-
-            <TextView
-                android:id="@+id/payment_bengkel_note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@{payment.bengkel_note}"
-                android:layout_marginTop="10dp"
-                android:textColor="?attr/colorTextDark"
-                android:textSize="8pt"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/transfer"
-                android:layout_marginTop="30dp"
-                android:textColor="?attr/colorTextDark"
-                android:textSize="6pt"/>
-            <Button
-                android:id="@+id/transfer_button"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/rounded_button"
-                android:textColor="?attr/colorTextDark"
-                android:text="@string/receipt"/>
-        </LinearLayout>
+                android:layout_height="wrap_content">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/paymentDetail"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorTextDark"
+                        android:textSize="12pt"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/transactionIdLabel"
+                            android:layout_marginTop="50dp"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+                        <TextView
+                            android:id="@+id/payment_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/transactionId"
+                            android:layout_marginTop="50dp"
+                            android:layout_alignParentRight="true"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/dateLabel"
+                            android:layout_below="@+id/payment_id"
+                            android:layout_marginTop="10dp"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+
+                        <TextView
+                            android:id="@+id/payment_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@{payment.repairment_date}"
+                            android:layout_below="@+id/payment_id"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentRight="true"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/statusLabel"
+                            android:layout_below="@+id/payment_date"
+                            android:layout_marginTop="10dp"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+
+                        <TextView
+                            android:id="@+id/payment_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@{payment.status}"
+                            android:layout_below="@+id/payment_date"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentRight="true"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+
+                        <View
+                            android:id="@+id/payment_line_break"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_below="@+id/payment_status"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorTextDark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/costLabel"
+                            android:layout_below="@+id/payment_line_break"
+                            android:layout_marginTop="20dp"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+
+                        <TextView
+                            android:id="@+id/payment_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/cost"
+                            android:layout_below="@+id/payment_line_break"
+                            android:layout_marginTop="20dp"
+                            android:layout_alignParentRight="true"
+                            android:textColor="?attr/colorTextDark"
+                            android:textSize="8pt"/>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@string/repairmentNoteLabel"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorTextDark"
+                        android:textSize="8pt"/>
+
+                    <TextView
+                        android:id="@+id/payment_repairment_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@{payment.repairment_note}"
+                        android:layout_marginTop="10dp"
+                        android:textColor="?attr/colorTextDark"
+                        android:textSize="8pt"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@string/noteLabel"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorTextDark"
+                        android:textSize="8pt"/>
+
+                    <TextView
+                        android:id="@+id/payment_bengkel_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@{payment.bengkel_note}"
+                        android:layout_marginTop="10dp"
+                        android:textColor="?attr/colorTextDark"
+                        android:textSize="8pt"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@string/transfer"
+                        android:layout_marginTop="50dp"
+                        android:textColor="?attr/colorTextDark"
+                        android:textSize="6pt"/>
+                    <Button
+                        android:id="@+id/transfer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/rounded_button"
+                        android:textColor="?attr/colorTextDark"
+                        android:text="@string/receipt"/>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
         <include
             android:id="@+id/navbar"
             android:layout_width="match_parent"
