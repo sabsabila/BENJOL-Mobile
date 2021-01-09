@@ -3,7 +3,7 @@
     <data>
         <variable
             name="bengkel"
-            type="com.alifadepe.android_example.model.Bengkel" />
+            type="com.benjolteam.benjol.model.Bengkel" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"

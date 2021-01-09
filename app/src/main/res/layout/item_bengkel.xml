@@ -4,7 +4,7 @@
     <data>
         <variable
             name="bengkel"
-            type="com.alifadepe.android_example.model.Bengkel" />
+            type="com.benjolteam.benjol.model.Bengkel" />
     </data>
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"

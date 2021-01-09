@@ -120,5 +120,6 @@
     <string name="status">Unpaid</string>
     <string name="transfer">If you want to pay via bank transfer.</string>
     <string name="receipt">Upload Receipt</string>
+    <string name="supervisor">Supervisors &amp; Mentors</string>
 
 </resources>

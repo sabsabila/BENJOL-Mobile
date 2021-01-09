@@ -1,0 +1,139 @@
+package com.benjolteam.benjol.view;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import com.benjolteam.android_example.R;
+import com.benjolteam.benjol.constant.ApiConstant;
+import com.benjolteam.benjol.contract.DetailBengkelContract;
+import com.benjolteam.android_example.databinding.ActivityDetailBengkelBinding;
+import com.benjolteam.benjol.interactor.DetailBengkelInteractor;
+import com.benjolteam.benjol.model.Bengkel;
+import com.benjolteam.benjol.presenter.DetailBengkelPresenter;
+import com.benjolteam.benjol.util.UtilProvider;
+import com.squareup.picasso.Picasso;
+
+public class DetailBengkelActivity extends AppCompatActivity implements DetailBengkelContract.View, View.OnClickListener {
+    private DetailBengkelContract.Presenter presenter;
+    private ActivityDetailBengkelBinding binding;
+    private int bengkel_id;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_bengkel);
+        setContentView(binding.getRoot());
+
+        Intent intent = getIntent();
+        bengkel_id = intent.getIntExtra("bengkel_id", 0);
+
+        presenter = new DetailBengkelPresenter(this, new DetailBengkelInteractor(UtilProvider.getSharedPreferencesUtil(), bengkel_id));
+        initView();
+    }
+
+    private void initView(){
+        presenter.setBengkel();
+        binding.baseLayout.pageTitle.setText("Bengkel Info");
+        binding.bookServiceButton.setOnClickListener(this);
+        binding.navbar.homeButton.setOnClickListener(this);
+        binding.navbar.profileButton.setOnClickListener(this);
+        binding.listSparepartButton.setOnClickListener(this);
+        binding.chatBridgeButton.setOnClickListener(this);
+        binding.baseLayout.backButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == binding.bookServiceButton.getId()){
+            presenter.bookService();
+        }
+        if(v.getId() == binding.listSparepartButton.getId()){
+            presenter.searchSparepart();
+        }
+        if(v.getId() == binding.baseLayout.backButton.getId()){
+            onBackButtonClick();
+        }
+        if(v.getId() == binding.chatBridgeButton.getId()){
+            onchatButtonClick();
+        }
+        if(v.getId() == binding.navbar.homeButton.getId()){
+            onHomeButtonClick();
+        }
+        if(v.getId() == binding.navbar.profileButton.getId()){
+            onProfileClick();
+        }
+    }
+
+    private void onHomeButtonClick() {
+        finish();
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    private void onProfileClick() {
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
+
+    private void onchatButtonClick() {
+        Intent intent = new Intent(this, ChatBridgeActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
+    }
+
+    private void onBackButtonClick() {
+        finish();
+        startActivity(new Intent(this, ListBengkelActivity.class));
+    }
+
+    @Override
+    public void showError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setBengkel(Bengkel bengkel) {
+       if(bengkel != null){
+           binding.setBengkel(bengkel);
+           binding.nomorBengkel.setText("+" + bengkel.getPhone_number());
+           if(bengkel.getProfile_picture() != null){
+               binding.bengkelImage.setBackground(null);
+               Picasso.get()
+                       .load(ApiConstant.BASE_URL + "/" + bengkel.getProfile_picture())
+                       .fit()
+                       .into(binding.bengkelImage);
+           }
+       }
+    }
+
+    @Override
+    public void redirectToBooking() {
+        Intent intent = new Intent(this, BookingActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
+    }
+
+    @Override
+    public void redirectToListSparepart() {
+        Intent intent = new Intent(this, SparepartBengkelActivity.class);
+        intent.putExtra("bengkel_id", bengkel_id);
+        finish();
+        startActivity(intent);
+    }
+}
