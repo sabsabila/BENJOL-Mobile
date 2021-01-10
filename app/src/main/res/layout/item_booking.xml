@@ -4,7 +4,7 @@
     <data>
         <variable
             name="booking"
-            type="com.alifadepe.android_example.model.BookingData" />
+            type="com.benjolteam.benjol.model.BookingData" />
     </data>
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -45,7 +45,7 @@
                 android:id="@+id/list_booking_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{booking.repairment_date}"
+                android:text="-"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"
                 android:layout_below="@+id/list_booking_bengkel"

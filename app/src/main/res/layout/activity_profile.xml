@@ -4,7 +4,7 @@
     <data>
         <variable
             name="user"
-            type="com.alifadepe.android_example.model.Profile" />
+            type="com.benjolteam.benjol.model.Profile" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                         android:layout_margin="12dp"
                         android:layout_gravity="center_horizontal"
                         app:cardCornerRadius="25dp"
-                        app:cardElevation="20dp"
+                        app:cardElevation="5dp"
                         android:id="@+id/profile">
 
                         <LinearLayout
@@ -143,7 +143,7 @@
                                 android:id="@+id/gender"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@{user.gender}"
+                                android:text="-"
                                 android:textSize="8pt"
                                 android:textColor="@color/colorTextDark" />
 
@@ -160,7 +160,7 @@
                                 android:id="@+id/birth_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@{user.birth_date}"
+                                android:text="-"
                                 android:textSize="8pt"
                                 android:textColor="@color/colorTextDark" />
 
@@ -187,7 +187,7 @@
                         android:layout_margin="12dp"
                         android:layout_gravity="center_horizontal"
                         app:cardCornerRadius="25dp"
-                        app:cardElevation="20dp" >
+                        app:cardElevation="5dp" >
 
                         <LinearLayout
                             android:id="@+id/motorcycle_layout"

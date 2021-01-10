@@ -10,11 +10,16 @@
         <item name="colorButton">@color/colorButton</item>
         <item name="colorText">@color/colorText</item>
         <item name="colorTextDark">@color/colorTextDark</item>
-<!--        <item name="android:windowAnimationStyle">@null</item>-->
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/muli</item>
     </style>
 
-    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
-        <item name="android:fontFamily">@font/muli</item>
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/colorSecondary</item>
+    </style>
+
+    <style name="MyDatePickerSpinnerTheme" parent="android:Theme.Holo.Light.Dialog.NoActionBar.MinWidth">
+        <item name="android:divider">@color/colorSecondary</item>
     </style>
 
 </resources>

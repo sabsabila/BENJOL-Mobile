@@ -4,7 +4,7 @@
     <data>
         <variable
             name="sparepart"
-            type="com.alifadepe.android_example.model.Sparepart" />
+            type="com.benjolteam.benjol.model.Sparepart" />
     </data>
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"

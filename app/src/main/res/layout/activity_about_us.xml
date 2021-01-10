@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profileLabel"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_drawable"
+            android:padding="10dp"
+            android:layout_marginTop="50dp">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/devTeam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Developer Team"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="8pt"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/kiya"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:riv_corner_radius="40dp"
+                        android:layout_below="@id/devTeam"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/akira"/>
+
+                    <TextView
+                        android:id="@+id/kiyaTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/kiya"
+                        android:text="I Made Akira"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/salam"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:riv_corner_radius="50dp"
+                        android:layout_below="@id/devTeam"
+                        android:layout_toEndOf="@+id/kiya"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/salam"/>
+
+                    <TextView
+                        android:id="@+id/salamTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/salam"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toEndOf="@id/kiyaTxt"
+                        android:text="Andi Abdul Salam"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/sabila"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:riv_corner_radius="40dp"
+                        android:layout_below="@id/devTeam"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/foto_sabila"/>
+
+                    <TextView
+                        android:id="@+id/sabilaTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/salam"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:text="Sabila Jamal"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/tiwi"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:riv_corner_radius="40dp"
+                        android:layout_below="@id/kiyaTxt"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/tiwi"/>
+
+                    <TextView
+                        android:id="@+id/tiwiTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tiwi"
+                        android:layout_marginStart="40dp"
+                        android:text="Lina Dwi Pratiwi"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/sylvi"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:riv_corner_radius="40dp"
+                        android:layout_below="@id/kiyaTxt"
+                        android:layout_toEndOf="@+id/tiwi"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/foto_sylvi"/>
+
+                    <TextView
+                        android:id="@+id/sylviTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sylvi"
+                        android:layout_marginStart="25dp"
+                        android:layout_toEndOf="@id/tiwiTxt"
+                        android:text="Sylvi Indryana Safira"/>
+
+                    <TextView
+                        android:id="@+id/sponsorBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sponsored By :"
+                        android:layout_below="@+id/tiwiTxt"
+                        android:layout_marginTop="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="8pt"/>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/virtuahive"
+                        android:layout_below="@+id/sponsorBy"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/virtuahive_small"/>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/rasyid_tech"
+                        android:layout_below="@+id/sponsorBy"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_toEndOf="@+id/virtuahive"
+                        android:background="@drawable/rasyid_tech_small"/>
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/mg"
+                        android:layout_below="@+id/virtuahive"
+                        android:layout_marginStart="50dp"
+                        android:layout_toEndOf="@+id/pti"
+                        android:layout_marginTop="35dp"
+                        android:background="@drawable/maulidan_games_small"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/pti"
+                        android:layout_below="@+id/virtuahive"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="50dp"
+                        android:background="@drawable/pti_small"/>
+
+                    <TextView
+                        android:id="@+id/supportBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supported By :"
+                        android:layout_below="@+id/mg"
+                        android:layout_marginTop="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="8pt"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/sindika"
+                        android:layout_below="@+id/supportBy"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="50dp"
+                        android:background="@drawable/sindika_small"/>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/rasyid_institute"
+                        android:layout_below="@+id/supportBy"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_toEndOf="@+id/sindika"
+                        android:background="@drawable/rasyid_institute_small"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/trustmedis"
+                        android:layout_below="@+id/sindika"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/trustmedis_small"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/profilku"
+                        android:layout_below="@+id/sindika"
+                        android:layout_marginTop="20dp"
+                        android:layout_toEndOf="@+id/trustmedis"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/profilku_small"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/alterra"
+                        android:layout_below="@+id/sindika"
+                        android:layout_toEndOf="@+id/profilku"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/alterra_small"/>
+
+                    <TextView
+                        android:id="@+id/mentor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/supervisor"
+                        android:layout_below="@+id/alterra"
+                        android:layout_marginTop="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="8pt"/>
+
+                    <LinearLayout
+                        android:id="@+id/mentors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/mentor"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Umi Sa'adah"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desy Intan Permatasari"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Andhik Ampuh Yunanto"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maulidan Bagus Afridian Rasyid"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Willy Achmat Fauzi"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Verent Flourencia Irene"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mayshella Ainun Wakhidah"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Andika Ahmad Ramadhan"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fandi Ahmad"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ardian Kristya Pratama"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Angga Pradipta Kurnia Putra"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Muhammad Alif Pradipta ADP"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rafly Arief Kanza"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ahmad Jarir At Thobari"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ajie Dibyo Respati"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Achmad Zulkarnain"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Arie Affianto"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="6pt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tegar Imansyah"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:textSize="6pt"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

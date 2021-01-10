@@ -66,13 +66,15 @@
                         android:textStyle="bold" />
 
 
-                    <DatePicker
+                    <EditText
                         android:id="@+id/booking_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:hint="@string/bDate"
+                        android:layout_height="50dp"
                         android:layout_gravity="left"
-                        android:datePickerMode="spinner"
-                        android:background="?attr/colorSecondary"
+                        android:focusable="false"
+                        android:drawableStart="@drawable/calendar_icon"
+                        android:background="@drawable/rounded_edit_text"
                         android:calendarViewShown="false"/>
 
                     <TextView
@@ -123,10 +125,10 @@
                         />
                     <Button
                         android:id="@+id/yes_button"
-                        android:layout_width="140dp"
-                        android:layout_height="40dp"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/book_btn"
+                        android:background="@drawable/rounded_button"
                         android:layout_marginTop="10dp"
                         android:text="@string/pickup_button"
                         android:textColor="@color/colorPrimaryDark" />
@@ -157,15 +159,22 @@
 
                     <Button
                         android:id="@+id/book_button"
-                        android:layout_width="140dp"
-                        android:layout_height="40dp"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/book_btn"
+                        android:background="@drawable/rounded_button"
                         android:text="Book Now"
                         android:textColor="@color/colorPrimaryDark" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
+        <include
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/navbar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"/>
     </RelativeLayout>
 </layout>

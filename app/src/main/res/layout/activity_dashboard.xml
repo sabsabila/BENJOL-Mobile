@@ -4,7 +4,7 @@
     <data>
         <variable
             name="booking"
-            type="com.alifadepe.android_example.model.BookingData" />
+            type="com.benjolteam.benjol.model.BookingData" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -314,7 +314,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/bengkel_name"
                                     android:textSize="8pt"
-                                    android:text="@{booking.repairment_date}"/>
+                                    android:text=""/>
 
                                 <TextView
                                     android:id="@+id/repairment_note"
@@ -331,7 +331,7 @@
                                     android:layout_below="@+id/repairment_note"
                                     android:textSize="8pt"
                                     android:textStyle="bold"
-                                    android:text="-"/>
+                                    android:text=""/>
 
                             </RelativeLayout>
 

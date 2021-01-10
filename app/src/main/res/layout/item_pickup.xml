@@ -4,7 +4,7 @@
     <data>
         <variable
             name="pickup"
-            type="com.alifadepe.android_example.model.PickupData" />
+            type="com.benjolteam.benjol.model.PickupData" />
     </data>
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -35,7 +35,7 @@
                 android:id="@+id/list_pickup_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{pickup.repairment_date}"
+                android:text="-"
                 android:layout_marginStart="10dp"
                 android:textSize="14sp"
                 android:layout_below="@+id/list_pickup_bengkel"

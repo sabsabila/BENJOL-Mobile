@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alifadepe.android_example">
+    package="com.benjolteam.android_example">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:requestLegacyExternalStorage="true"
-        android:name=".Starter"
+        android:name="com.benjolteam.benjol.Starter"
         android:screenOrientation="portrait"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_orange"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_orange"
         android:supportsRtl="true"
         android:theme="@style/BenjolTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.PaymentActivity" />
-        <activity android:name=".view.ChatBridgeActivity" />
-        <activity android:name=".view.ListBookingActivity" />
-        <activity android:name=".view.ListBengkelActivity" />
-        <activity android:name=".view.ListPickupActivity"/>
-        <activity android:name=".view.RegisterActivity" />
-        <activity android:name=".view.DashboardActivity" />
-        <activity android:name=".view.ProfileActivity" />
-        <activity android:name=".view.UploadProfileImageActivity"/>
-        <activity android:name=".view.UploadReceiptActivity"/>
-        <activity android:name=".view.EditProfileActivity" />
-        <activity android:name=".view.ChangePasswordActivity"/>
-        <activity android:name=".view.PickupActivity" />
-        <activity android:name=".view.SparepartActivity" />
-        <activity android:name=".view.SparepartBengkelActivity"/>
-        <activity android:name=".view.MotorcycleActivity" />
-        <activity android:name=".view.EditMotorcycleActivity" />
-        <activity android:name=".view.ProgressServiceActivity" />
-        <activity android:name=".view.ProgressPickupActivity" />
-        <activity android:name=".view.DetailBengkelActivity" />
-        <activity android:name=".view.BookingActivity" />
-        <activity android:name=".view.LoginActivity"/>
-        <activity android:name=".view.MainActivity">
+        <activity android:name="com.benjolteam.benjol.view.PaymentActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ChatBridgeActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ListBookingActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ListBengkelActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ListPickupActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.RegisterActivity" />
+        <activity android:name="com.benjolteam.benjol.view.DashboardActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ProfileActivity" />
+        <activity android:name="com.benjolteam.benjol.view.UploadProfileImageActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.UploadReceiptActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.EditProfileActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ChangePasswordActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.PickupActivity" />
+        <activity android:name="com.benjolteam.benjol.view.SparepartActivity" />
+        <activity android:name="com.benjolteam.benjol.view.SparepartBengkelActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.MotorcycleActivity" />
+        <activity android:name="com.benjolteam.benjol.view.EditMotorcycleActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ProgressServiceActivity" />
+        <activity android:name="com.benjolteam.benjol.view.ProgressPickupActivity" />
+        <activity android:name="com.benjolteam.benjol.view.DetailBengkelActivity" />
+        <activity android:name="com.benjolteam.benjol.view.BookingActivity" />
+        <activity android:name="com.benjolteam.benjol.view.LoginActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.MainActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.AboutUsActivity"/>
+        <activity android:name="com.benjolteam.benjol.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
