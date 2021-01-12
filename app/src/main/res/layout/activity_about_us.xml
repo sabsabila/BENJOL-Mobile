@@ -56,7 +56,7 @@
                         app:riv_corner_radius="40dp"
                         android:layout_below="@id/devTeam"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/akira"/>
+                        android:src="@drawable/akira_compressed"/>
 
                     <TextView
                         android:id="@+id/kiyaTxt"
