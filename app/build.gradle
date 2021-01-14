@@ -7,7 +7,7 @@ android {
         enabled = true
     }
     defaultConfig {
-        applicationId "com.alifadepe.android_example"
+        applicationId "com.benjolteam.benjol"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
